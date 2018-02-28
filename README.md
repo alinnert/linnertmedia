@@ -3,7 +3,7 @@
 Linnert Media ist ein Blog zum Thema Web-Entwicklung, primär JavaScript.
 
 - URL (aktuell noch alte Version auf CMS-Basis): <https://linnertmedia.de>
-- URL (diese statische Version, temporär): <https://static.linnertmedia.de>
+- URL (diese statische Version, temporär): <http://static.linnertmedia.de>
 
 ## Idee für einen Beitrag?
 

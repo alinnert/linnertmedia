@@ -9,6 +9,7 @@ function getBlogURLs () {
         html: item.fileContentHtml
       }
     }))
+  console.log(routeObject)
   return routeObject
 }
 

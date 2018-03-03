@@ -7,7 +7,7 @@ const renderMarkdown = require('./renderMarkdown')
  * Render all markdown files within a folder
  * @param {String} folderName Name of the folder its content markdown files should be rendered.
  */
-function renderFolderContents (folderName) {
+function renderFolderContents(folderName) {
   const blogFolderPath = path.resolve(__dirname, `../content/${folderName}`)
   const files = fs.readdirSync(blogFolderPath, { encoding: 'utf8' })
 

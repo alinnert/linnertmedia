@@ -1,0 +1,13 @@
+.page-logo {
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+
+  &__first {
+    color: $color-brand;
+  }
+
+  &__last {
+    color: $color-accent;
+  }
+}

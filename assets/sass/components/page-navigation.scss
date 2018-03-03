@@ -1,0 +1,12 @@
+.page-navigation {
+  text-align: center;
+  display: flex;
+
+  &__logo {
+    flex: 0 0 auto;
+  }
+
+  &__menu {
+    flex: 0 0 auto;
+  }
+}

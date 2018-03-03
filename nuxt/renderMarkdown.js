@@ -15,6 +15,11 @@ const md = markdownIt({
   }
 })
 
+/**
+ * Renders Markdown text to HTML.
+ * @param {String} str Raw Markdown content
+ * @returns {String}
+ */
 function renderMarkdown (str) {
   return md.render(str)
 }

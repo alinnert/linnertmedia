@@ -3,9 +3,9 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-const _06af3e6c = () => import('..\\pages\\Autor\\index.vue' /* webpackChunkName: "pages_Autor_index" */).then(m => m.default || m)
-const _7c20b903 = () => import('..\\pages\\Kategorien\\_category.vue' /* webpackChunkName: "pages_Kategorien__category" */).then(m => m.default || m)
-const _7b448406 = () => import('..\\pages\\Blog\\_slug.vue' /* webpackChunkName: "pages_Blog__slug" */).then(m => m.default || m)
+const _2ee41caa = () => import('..\\pages\\autor\\index.vue' /* webpackChunkName: "pages_autor_index" */).then(m => m.default || m)
+const _022a5923 = () => import('..\\pages\\kategorien\\_category.vue' /* webpackChunkName: "pages_kategorien__category" */).then(m => m.default || m)
+const _0469f3c6 = () => import('..\\pages\\blog\\_slug.vue' /* webpackChunkName: "pages_blog__slug" */).then(m => m.default || m)
 const _34993587 = () => import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */).then(m => m.default || m)
 
 
@@ -56,19 +56,19 @@ export function createRouter () {
     scrollBehavior,
     routes: [
 		{
-			path: "/Autor",
-			component: _06af3e6c,
-			name: "Autor"
+			path: "/autor",
+			component: _2ee41caa,
+			name: "autor"
 		},
 		{
-			path: "/Kategorien/:category?",
-			component: _7c20b903,
-			name: "Kategorien-category"
+			path: "/kategorien/:category?",
+			component: _022a5923,
+			name: "kategorien-category"
 		},
 		{
-			path: "/Blog/:slug?",
-			component: _7b448406,
-			name: "Blog-slug"
+			path: "/blog/:slug?",
+			component: _0469f3c6,
+			name: "blog-slug"
 		},
 		{
 			path: "/",

@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const matter = require('gray-matter')
-const renderMarkdown = require('./renderMarkdown')
+const { renderMarkdown } = require('./renderMarkdown')
 
 /**
  * Render all markdown files within a folder
@@ -21,4 +21,4 @@ function renderFolderContents(folderName) {
   })
 }
 
-module.exports = renderFolderContents
+module.exports = { renderFolderContents }

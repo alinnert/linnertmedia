@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const matter = require('gray-matter')
-const renderMarkdown = require('./renderMarkdown')
+const { renderMarkdown } = require('./renderMarkdown')
 
 /**
  * Render one markdown file
@@ -16,4 +16,4 @@ function renderFile(fileName) {
   return { fileName, filePath, fileContentData, fileContentHtml }
 }
 
-module.exports = renderFile
+module.exports = { renderFile }

@@ -1,16 +1,13 @@
-const renderFolderContents = require('./renderFolderContents')
+const { renderFolderContents } = require('./renderFolderContents')
 
-function getBlogURLs () {
-  const routeObject = renderFolderContents('blog')
-    .map(item => ({
-      route: `blog/${item.fileName.replace(/\.md$/, '')}`,
-      payload: {
-        data: item.fileContentData,
-        html: item.fileContentHtml
-      }
-    }))
-  console.log(routeObject)
-  return routeObject
+function getBlogURLs() {
+  return renderFolderContents('blog').map(item => ({
+    route: `blog/${item.fileName.replace(/\.md$/, '')}`,
+    payload: {
+      data: item.fileContentData,
+      html: item.fileContentHtml
+    }
+  }))
 }
 
-module.exports = getBlogURLs
+module.exports = { getBlogURLs }

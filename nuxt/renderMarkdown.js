@@ -8,7 +8,7 @@ const md = markdownIt({
     if (lang && highlight.getLanguage(lang)) {
       try {
         return highlight.highlight(lang, str).value
-      } catch (_) { }
+      } catch (_) {}
     }
 
     return ''
@@ -20,8 +20,8 @@ const md = markdownIt({
  * @param {String} str Raw Markdown content
  * @returns {String}
  */
-function renderMarkdown (str) {
+function renderMarkdown(str) {
   return md.render(str)
 }
 
-module.exports = renderMarkdown
+module.exports = { renderMarkdown }

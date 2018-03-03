@@ -5,14 +5,11 @@
 </template>
 
 <script>
-import renderFile from '~/nuxt/renderFile'
-
 export default {
   async asyncData({ params, error }) {
     return {
-      article: renderFile(`blog/${params.slug}.md`)
+      article: require('~/nuxt/renderFile').renderFile(`blog/${params.slug}.md`)
     }
   }
 }
 </script>
-

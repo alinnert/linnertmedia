@@ -1,3 +1,6 @@
 node_modules
 .nuxt
+dist
+docs
+*.log
 *.code-workspace

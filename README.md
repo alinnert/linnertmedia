@@ -11,4 +11,6 @@ Sollte Nachfrage für einen Beitrag zu einem bestimmten Thema bestehen, bitte ge
 
 ## Technische Umsetzung
 
-Dies ist eine statische Seite, die mit [Nuxt](https://nuxtjs.org/) generiert wird.
+Dies ist eine statische Seite, die mithilfe des Static Generators _Flamel_ erstellt wird.
+
+_Flamel_ ist eine Eigenentwicklung und derzeit **noch nicht** öffentlich verfügbar.

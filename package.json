@@ -12,17 +12,26 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "nuxt",
-    "build": "nuxt generate"
+    "build": "npm run build:html && npm run build:css",
+    "watch": "concurrently --names \"CSS,HTML,SERVE\" --prefix-colors \"black.bgMagenta,black.bgCyan,black.bgWhite\" \"npm run watch:css\" \"npm run watch:html\" \"npm run serve\"",
+    "serve": "serve docs || mkdir docs && serve docs",
+    "build:css": "node-sass assets/sass/index.scss static/index.css",
+    "watch:css": "npm run build:css && npm run build:css -- -w",
+    "build:html": "ts-node src/index.ts",
+    "watch:html": "nodemon --exec npm run build:html"
   },
   "dependencies": {
+    "@types/node": "^9.4.6",
+    "@types/nunjucks": "^3.0.0",
+    "concurrently": "^3.5.1",
     "gray-matter": "^3.1.1",
     "highlight.js": "^9.12.0",
     "markdown-it": "^8.4.1",
     "node-sass": "^4.7.2",
-    "nuxt": "^1.3.0",
-    "raw-loader": "^0.5.1",
-    "sass-loader": "^6.0.6",
-    "standard": "^11.0.0"
+    "nodemon": "^1.17.1",
+    "nunjucks": "^3.1.2",
+    "serve": "^6.5.3",
+    "ts-node": "^5.0.1",
+    "typescript": "^2.7.2"
   }
 }

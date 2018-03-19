@@ -1,0 +1,12 @@
+{% extends "layout/default.njk" %}
+{% from "components/article-teaser.njk" import articleTeaser %}
+
+{% block content %}
+  <h1>Linnert Media</h1>
+  {% for category in categories %}
+    <h2>{{ category }}</h2>
+    {% for article in entries[category] %}
+      {{ articleTeaser(title = article.data.title) }}
+    {% endfor %}
+  {% endfor %}
+{% endblock %}

@@ -7,19 +7,19 @@
 
 <script>
 import axios from 'axios'
+const config = {
+  baseURL: 'http://localhost:3000'
+}
 export default {
   async asyncData({ params, error, payload }) {
     if (payload) {
       return payload
     }
-    const { data: html } = await axios(`/_posts/${params.slug}.html`, {
-      baseURL: 'http://localhost:3000'
-    })
-    const { data } = await axios(`/_posts/${params.slug}.json`, {
-      baseURL: 'http://localhost:3000'
-    })
+    const html = axios(`/_posts/${params.slug}.html`, config)
+    const json = axios(`/_posts/${params.slug}.json`, config)
+    const [{ data: article }, { data }] = await Promise.all([html, json])
     return {
-      article: html,
+      article,
       data
     }
   }

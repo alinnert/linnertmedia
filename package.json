@@ -14,8 +14,8 @@
   "scripts": {
     "start": "nuxt",
     "build": "run-s build:markdown build:generate",
-    "build:markdown":"node ./writePosts.js",
-    "build:generate":"nuxt generate"
+    "build:markdown": "node ./writePosts.js",
+    "build:generate": "nuxt generate"
   },
   "dependencies": {
     "axios": "^0.18.0",

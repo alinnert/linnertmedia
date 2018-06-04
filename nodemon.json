@@ -1,4 +1,0 @@
-{
-  "watch": ["content", "views", "static", "src"],
-  "ext": "*"
-}

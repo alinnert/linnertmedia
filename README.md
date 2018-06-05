@@ -9,6 +9,6 @@ Linnert Media ist ein Blog zum Thema Web-Entwicklung, primär JavaScript.
 
 Sollte Nachfrage für einen Beitrag zu einem bestimmten Thema bestehen, bitte gerne ein [Issue eröffnen](https://github.com/alinnert/linnertmedia/issues) oder vorhandene Issues bei Interesse mit Daumen nach oben bewerten.
 
-## Technische Umsetzung
+## Status
 
-Dies ist eine statische Seite, die mit [Nuxt](https://nuxtjs.org/) generiert wird.
+Aktuell aktiver Dev-Branch ist [pure](https://github.com/alinnert/linnertmedia/tree/pure). Dieser basiert auf einem eigenen RxJS-gestützten Build-Prozess, da ich mit keinem Site Generator bisher zufrieden war ‒ besonders was die Erzeugung von dynamischen Seiten angeht (z. B. Tag-Übersichtsseiten).

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Linnert Media</title>
+  <link href="https://linnertmedia.de"/>
+  <link type="application/atom+xml" rel="self" href="https://linnertmedia.de/feed.xml"/>
+  <updated>2018-06-05T16:41:23+00:00</updated>
+  <id>https://linnertmedia.de/feed.xml</id>
+  <author>
+    <name>Andreas Linnert</name>
+    <email>andreas@linnertmedia.de</email>
+  </author>
+  {% for entry in entries limit:10 %}
+    {% assign entryUrl = 'https://linnertmedia.de/blog/' + entry.filename %}
+    <entry>
+      <id>{{ entryUrl }}</id>
+      <link type="text/html" rel="alternate" href="{{ entryUrl }}" />
+      <title>{{ entry.matter.data.title }}</title>
+      <published>{{ entry.matter.data.date }}T00:00:00+00:00</published>
+      <author>
+        <name>Andreas Linnert</name>
+        <uri>https://linnertmedia.de</uri>
+      </author>
+      <content type="html"><![CDATA[{{ entry.contentHtml }}]]></content>
+    </entry>
+  {% endfor %}
+</feed>

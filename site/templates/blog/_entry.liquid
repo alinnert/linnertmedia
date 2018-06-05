@@ -1,2 +1,8 @@
-Ich bin ein Blog-Eintrag...
-Daten folgen...
+{% layout '_layouts/default' %}
+
+{% block content %}
+  <article>
+    <h1>{{ matter.data.title }}</h1>
+    <div class="article-content">{{ contentHtml }}</div>
+  </article>
+{% endblock %}

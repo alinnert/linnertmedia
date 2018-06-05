@@ -1,0 +1,13 @@
+{% layout '_layouts/default' %}
+
+{% block content %}
+  <h1>Ich bin eine Tag-Seite :D</h1>
+
+  <h2>Tag: {{ matterValue }}</h2>
+
+  <ul>
+    {% for entry in entries %}
+      <li>{{ entry.matter.data.title }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

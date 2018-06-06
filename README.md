@@ -2,15 +2,12 @@
 
 Linnert Media ist ein Blog zum Thema Web-Entwicklung, primär JavaScript.
 
-- URL (aktuell noch alte Version auf CMS-Basis): <https://linnertmedia.de>
-- URL (diese statische Version, temporäre URL): <http://static.linnertmedia.de>
+URL: <https://linnertmedia.de> (aktuell noch auf *Craft CMS*-Basis)
 
 ## Idee für einen Beitrag?
 
-Sollte Nachfrage für einen Beitrag zu einem bestimmten Thema bestehen, bitte gerne ein [Issue eröffnen](https://github.com/alinnert/linnertmedia/issues) oder vorhandene Issues bei Interesse mit Daumen nach oben bewerten.
+Sollte Interesse für einen Beitrag zu einem bestimmten Thema bestehen, bitte gerne ein [GitHub-Issue öffnen](https://github.com/alinnert/linnertmedia/issues) oder vorhandene Issues mit Daumen nach oben bewerten.
 
-## Technische Umsetzung
+## Technische Daten
 
-Dies ist eine statische Seite, die mithilfe des Static Generators _Flamel_ erstellt wird.
-
-_Flamel_ ist eine Eigenentwicklung und derzeit **noch nicht** öffentlich verfügbar.
+Dies ist eine automatisiert generierte, statische Website. Primär wird [RxJS](https://github.com/ReactiveX/rxjs) verwendet, um die ganzen asynchronen APIs in den Griff zu kriegen. Das Build-Skript ist eigener Quellcode und es wird kein *Static Site Generator* verwendet.

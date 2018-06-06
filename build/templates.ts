@@ -1,6 +1,6 @@
 import Liquid from 'liquidjs'
 import { resolve } from 'path'
-import { from } from 'rxjs'
+import { from, zip } from 'rxjs'
 import { flatMap, map, reduce } from 'rxjs/operators'
 import { writeFile, readdir, readFile, ensureFile } from 'fs-extra'
 import grayMatter from 'gray-matter'
@@ -20,6 +20,25 @@ const engine = Liquid({
 
 const md = new MarkdownIt()
 
+function getGlobalsData() {
+  const globalsDirectory = resolve(process.cwd(), 'site/globals')
+
+  return from(readdir(globalsDirectory)).pipe(
+    flatMap(filenames => filenames),
+    flatMap(filename =>
+      from(readFile(resolve(globalsDirectory, filename), 'utf8')).pipe(
+        map(fileContent => JSON.parse(fileContent)),
+        map(fileContent => ({ filename, fileContent }))
+      )
+    ),
+    reduce((globals: { [key: string]: any }, { filename, fileContent }) => {
+      const key = filename.replace(/\.json$/, '')
+      globals[key] = fileContent
+      return globals
+    }, {})
+  )
+}
+
 export function renderTemplate({
   templateName,
   outputFilename,
@@ -29,12 +48,12 @@ export function renderTemplate({
     `» Render template "${templateName}" into file "${outputFilename}"`
   )
 
-  from(engine.renderFile(templateName, data))
+  getGlobalsData()
     .pipe(
+      map(globalsData => Object.assign({}, data, { globals: globalsData })),
+      flatMap(data => from(engine.renderFile(templateName, data))),
       map(renderedTemplate =>
-        minify(renderedTemplate, {
-          collapseWhitespace: true
-        })
+        minify(renderedTemplate, { collapseWhitespace: true })
       ),
       map(renderedTemplate => {
         const filename = resolve(process.cwd(), 'docs', outputFilename)

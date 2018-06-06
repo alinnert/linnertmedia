@@ -4,7 +4,7 @@
   "description": "Linnert Media Static Web Site",
   "scripts": {
     "dev": "concurrently --name \" SRV , BLD \" --prefix-colors \"black.bgRed,black.bgBlue\" \"npm run serve\" \"npm run build\"",
-    "serve": "serve ./dist",
+    "serve": "serve ./docs",
     "build": "ts-node ./build/index.ts"
   },
   "repository": {

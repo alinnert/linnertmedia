@@ -45,7 +45,7 @@ export function renderTemplate({
   data = {}
 }: IRenderTemplateOptions) {
   console.log(
-    `» Render template "${templateName}" into file "${outputFilename}"`
+    `» Render template "${templateName}" → writing file "${outputFilename}"`
   )
 
   getGlobalsData()

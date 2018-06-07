@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "Linnert Media Static Web Site",
   "scripts": {
-    "dev": "concurrently --name \" SRV , BLD \" --prefix-colors \"black.bgRed,black.bgBlue\" \"npm run serve\" \"npm run build\"",
-    "serve": "serve ./docs",
-    "build": "ts-node ./build/index.ts"
+    "dev": "concurrently --names \" SRV , BLD \" --prefix-colors \"black.bgRed,black.bgBlue\" \"npm run serve\" \"npm run watch\"",
+    "serve": "serve docs",
+    "build": "ts-node build/index.ts build",
+    "watch": "ts-node build/index.ts dev"
   },
   "repository": {
     "type": "git",
@@ -28,10 +29,12 @@
   },
   "homepage": "https://github.com/alinnert/linnertmedia#readme",
   "dependencies": {
+    "@types/chokidar": "^1.7.5",
     "@types/fs-extra": "^5.0.2",
     "@types/html-minifier": "^3.5.2",
     "@types/markdown-it": "0.0.4",
     "@types/node": "^10.3.0",
+    "chokidar": "^2.0.3",
     "concurrently": "^3.5.1",
     "fs-extra": "^6.0.1",
     "gray-matter": "^4.0.1",
@@ -39,6 +42,7 @@
     "liquidjs": "^4.0.0",
     "markdown-it": "^8.4.1",
     "rxjs": "^6.2.0",
+    "serve": "^8.1.1",
     "ts-node": "^6.1.0",
     "typescript": "^2.9.1"
   }

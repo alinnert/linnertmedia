@@ -1,0 +1,11 @@
+{% from '_components/mainNavigation.njk' import mainNavigation %}
+
+{% macro defaultPageHeader() %}
+<div class="default-page-header">
+  <div class="default-page-header__top-bar">
+    {{ mainNavigation() }}
+  </div>
+  
+  <div class="default-page-header__logo">Linnert Media</div>
+</div>
+{% endmacro %}

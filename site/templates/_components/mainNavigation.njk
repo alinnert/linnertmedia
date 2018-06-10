@@ -1,0 +1,20 @@
+{% macro mainNavigation(type = 'light') %}
+  {% if type === 'light' %}
+    {% set typeClass = 'main-navigation main-navigation--type-light' %}
+  {% elif type === 'dark' %}
+    {% set typeClass = 'main-navigation main-navigation--type-dark' %}
+  {% else %}
+    {% set typeClass = 'main-navigation' %}
+  {% endif %}
+
+  <div class="{{ typeClass }}">
+    <ul class="main-navigation__items">
+      <li class="main-navigation__item">
+        <a href="/">Beiträge</a>
+      </li>
+      <li class="main-navigation__item">
+        <a href="/autor">Autor</a>
+      </li>
+    </ul>
+  </div>
+{% endmacro %}

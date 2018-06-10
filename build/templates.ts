@@ -1,7 +1,7 @@
-import Liquid from 'liquidjs'
+import nunjucks from 'nunjucks'
 import { resolve } from 'path'
-import { from, zip } from 'rxjs'
-import { flatMap, map, reduce } from 'rxjs/operators'
+import { from, Observable, Observer } from 'rxjs'
+import { flatMap, map, reduce, filter } from 'rxjs/operators'
 import { writeFile, readdir, readFile, ensureFile } from 'fs-extra'
 import grayMatter from 'gray-matter'
 import { minify } from 'html-minifier'
@@ -13,10 +13,12 @@ import {
   IRenderNewsFeedOptions
 } from 'templates'
 
-const engine = Liquid({
-  root: resolve(process.cwd(), 'site/templates'),
-  extname: '.liquid'
-})
+const nunjucksOptions: nunjucks.ConfigureOptions = {
+  throwOnUndefined: true,
+  noCache: true
+}
+
+nunjucks.configure(resolve(process.cwd(), 'site/templates'), nunjucksOptions)
 
 const md = new MarkdownIt()
 
@@ -39,6 +41,29 @@ function getGlobalsData() {
   )
 }
 
+function renderNunjucksTemplate(
+  templateName: string,
+  data: any
+): Observable<string> {
+  return Observable.create((observer: Observer<string>) => {
+    let canceled = false
+
+    nunjucks.render(templateName, data, (error, result) => {
+      if (!canceled) {
+        if (error) {
+          observer.error(error)
+        } else {
+          observer.next(result)
+        }
+      }
+    })
+
+    return () => {
+      canceled = true
+    }
+  })
+}
+
 export function renderTemplate({
   templateName,
   outputFilename,
@@ -51,7 +76,7 @@ export function renderTemplate({
   getGlobalsData()
     .pipe(
       map(globalsData => Object.assign({}, data, { globals: globalsData })),
-      flatMap(data => from(engine.renderFile(templateName, data))),
+      flatMap(data => renderNunjucksTemplate(templateName, data)),
       map(renderedTemplate =>
         minify(renderedTemplate, { collapseWhitespace: true })
       ),
@@ -88,7 +113,8 @@ export function renderTemplateWithCollection({
         const matter = grayMatter(fileContent)
         const contentHtml = md.render(matter.content)
         return { filename, matter, contentHtml }
-      })
+      }),
+      filter(({ matter }) => (matter.data as any).date)
     )
     .subscribe(({ filename, matter, contentHtml }) => {
       renderTemplate({
@@ -196,7 +222,8 @@ export function renderNewsFeed({
       )
     )
     .subscribe(data => {
-      renderTemplate({ templateName, outputFilename, data: { entries: data } })
+      const entries = data.filter(entry => entry.matter.data.date).slice(0, 10)
+      renderTemplate({ templateName, outputFilename, data: { entries } })
     })
 }
 

@@ -1,0 +1,10 @@
+// LORA
+@include registerFont('Lora', 'Lora-Regular');
+@include registerFont('Lora', 'Lora-Italic', $style: 'italic');
+@include registerFont('Lora', 'Lora-Bold', $weight: 700);
+// ROBOTO
+@include registerFont('Roboto', 'Roboto-Regular');
+@include registerFont('Roboto', 'Roboto-Medium', $weight: 600);
+@include registerFont('Roboto', 'Roboto-Bold', $weight: 700);
+// ROBOTO MONO
+@include registerFont('Roboto Mono', 'RobotoMono-Regular');

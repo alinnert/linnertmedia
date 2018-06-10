@@ -1,0 +1,8 @@
+@mixin registerFont($name, $file, $weight: 400, $style: 'normal') {
+  @font-face {
+    font-family: $name;
+    font-weight: $weight;
+    font-style: $style;
+    src: url('/assets/fonts/' + $file + '.ttf') type('truetype');
+  }
+}

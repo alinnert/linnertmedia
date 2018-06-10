@@ -1,6 +1,7 @@
 ---
 title: Was ist eigentlich Node.js?
 tags: JavaScript
+date: 2018-06-10
 ---
 
 Node.js ist eine Plattform zum Ausführen von JavaScript auf dem Rechner. Es wird oft als JavaScript-Server oder Plattform zum serverseitigem Ausführen von JavaScript bezeichnet. Das ist allerdings nur ein Teilbereich dessen, wofür man Node.js einsetzen kann.

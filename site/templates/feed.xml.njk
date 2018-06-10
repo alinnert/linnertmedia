@@ -9,8 +9,8 @@
     <name>Andreas Linnert</name>
     <email>andreas@linnertmedia.de</email>
   </author>
-  {% for entry in entries limit:10 %}
-    {% assign entryUrl = 'https://linnertmedia.de/blog/' + entry.filename %}
+  {% for entry in entries %}
+    {% set entryUrl = 'https://linnertmedia.de/blog/' + entry.filename %}
     <entry>
       <id>{{ entryUrl }}</id>
       <link type="text/html" rel="alternate" href="{{ entryUrl }}" />

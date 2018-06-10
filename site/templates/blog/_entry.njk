@@ -1,0 +1,17 @@
+{% extends '_layouts/default.njk' %}
+
+{% from "_components/articlePageHeader.njk" import articlePageHeader %}
+
+{% block content %}
+  {{
+    articlePageHeader(
+      topline = matter.data.tags,
+      headline = matter.data.title,
+      metadata = matter.data.date
+    )
+  }}
+  <article>
+    <h1>{{ matter.data.title }}</h1>
+    <div class="article-content">{{ contentHtml | safe }}</div>
+  </article>
+{% endblock %}

@@ -1,0 +1,11 @@
+.light-logo {
+  @include baseLogo();
+
+  &__part-a {
+    color: $color-primary-text-on-light;
+  }
+
+  &__part-b {
+    color: $color-secondary-text-on-light;
+  }
+}

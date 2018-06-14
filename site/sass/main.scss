@@ -1,7 +1,14 @@
 // CONFIG
-@import 'config/color';
 @import 'config/mixins';
 @import 'config/fonts';
+@import 'config/settings';
+@import 'config/color';
+// MIXINS
+@import 'mixins/basePageHeader';
+@import 'mixins/baseLogo';
+@import 'mixins/baseContent';
+// EXTERNALS
+@import 'externals/highlightjs.scss';
 // BASE
 @import 'base/document';
 @import 'base/block';
@@ -9,3 +16,11 @@
 // COMPONENTS
 @import 'components/defaultPageHeader';
 @import 'components/articlePageHeader';
+@import 'components/mainNavigation';
+@import 'components/pageContent';
+@import 'components/articleContent';
+@import 'components/darkLogo';
+@import 'components/lightLogo';
+@import 'components/articleTeaser';
+@import 'components/pageLink';
+@import 'components/filename';

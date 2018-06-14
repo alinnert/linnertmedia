@@ -1,0 +1,7 @@
+@mixin baseLogo() {
+  display: flex;
+  font-family: Lora, serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+}

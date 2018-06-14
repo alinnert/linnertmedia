@@ -1,7 +1,7 @@
 import nunjucks from 'nunjucks'
 import { resolve } from 'path'
 import { from, Observable, Observer } from 'rxjs'
-import { flatMap, map, reduce, filter } from 'rxjs/operators'
+import { flatMap, map, reduce, filter, tap } from 'rxjs/operators'
 import { writeFile, readdir, readFile, ensureFile } from 'fs-extra'
 import grayMatter from 'gray-matter'
 import { minify } from 'html-minifier'
@@ -18,9 +18,48 @@ const nunjucksOptions: nunjucks.ConfigureOptions = {
   noCache: true
 }
 
-nunjucks.configure(resolve(process.cwd(), 'site/templates'), nunjucksOptions)
+const nunjucksEnv = nunjucks.configure(
+  resolve(process.cwd(), 'site/templates'),
+  nunjucksOptions
+)
+
+nunjucksEnv.addFilter('date', date => {
+  const day = date
+    .getDate()
+    .toString()
+    .padStart(2, '0')
+  const month = (date.getMonth() + 1).toString().padStart(2, '0')
+  const year = (date.getYear() + 1900).toString()
+
+  return `${day}.${month}.${year}`
+})
+
+nunjucksEnv.addFilter('tagLinks', (tagsString: string) => {
+  return tagsString
+    .split(',')
+    .map(it => it.trim())
+    .map(it => `<a href="/blog/tag/${it.toLowerCase()}">${it}</a>`)
+    .join(' • ')
+})
 
 const md = new MarkdownIt()
+
+md.use(require('markdown-it-container'), 'info')
+
+md.use(require('markdown-it-container'), 'file', {
+  render(tokens: any, index: any) {
+    const matches = tokens[index].info.trim().match(/^file\s+(.*)$/)
+
+    if (tokens[index].nesting === 1) {
+      const filename = matches[1]
+      return `<div class="filename">Datei: ${filename}</div>`
+    }
+
+    return ''
+  }
+})
+
+md.use(require('markdown-it-prism'))
 
 function getGlobalsData() {
   const globalsDirectory = resolve(process.cwd(), 'site/globals')
@@ -41,6 +80,82 @@ function getGlobalsData() {
   )
 }
 
+function getCollectionsData() {
+  const collectionsDirectory = resolve(process.cwd(), 'site/collections')
+
+  return from(readdir(collectionsDirectory)).pipe(
+    flatMap(foldernames => foldernames),
+    flatMap(foldername => {
+      return from(
+        readdir(resolve(process.cwd(), 'site/collections', foldername))
+      ).pipe(
+        flatMap(filenames => filenames),
+        flatMap(filename =>
+          from(
+            readFile(
+              resolve(process.cwd(), 'site/collections', foldername, filename),
+              'utf8'
+            )
+          ).pipe(
+            map(fileContent => ({ filename, fileContent })),
+            map(({ filename, fileContent }) => ({
+              filename: filename.replace(/\.md$/, ''),
+              fileContent
+            }))
+          )
+        ),
+        map(({ filename, fileContent }) => {
+          const matter = grayMatter(fileContent)
+          const contentHtml = md.render(matter.content)
+          return { foldername, filename, matter, contentHtml }
+        }),
+        reduce(
+          (
+            files: Array<{
+              foldername: string
+              filename: string
+              matter: any
+              contentHtml: string
+            }>,
+            item: {
+              foldername: string
+              filename: string
+              matter: any
+              contentHtml: string
+            }
+          ) => {
+            files.push(item)
+            return files
+          },
+          []
+        ),
+        map(files =>
+          files.sort((a, b) => {
+            if (a.matter.data.date > b.matter.data.date) return -1
+            if (a.matter.data.date < b.matter.data.date) return 1
+            return 0
+          })
+        )
+      )
+    }),
+    reduce(
+      (
+        collectionsData: any,
+        collection: Array<{
+          foldername: string
+          filename: string
+          matter: any
+          contentHtml: string
+        }>
+      ) => {
+        collectionsData[collection[0].foldername] = collection
+        return collectionsData
+      },
+      {}
+    )
+  )
+}
+
 function renderNunjucksTemplate(
   templateName: string,
   data: any
@@ -48,7 +163,7 @@ function renderNunjucksTemplate(
   return Observable.create((observer: Observer<string>) => {
     let canceled = false
 
-    nunjucks.render(templateName, data, (error, result) => {
+    nunjucksEnv.render(templateName, data, (error, result) => {
       if (!canceled) {
         if (error) {
           observer.error(error)
@@ -76,6 +191,14 @@ export function renderTemplate({
   getGlobalsData()
     .pipe(
       map(globalsData => Object.assign({}, data, { globals: globalsData })),
+      flatMap(data =>
+        getCollectionsData().pipe(
+          map(collections => {
+            data.collections = collections
+            return data
+          })
+        )
+      ),
       flatMap(data => renderNunjucksTemplate(templateName, data)),
       map(renderedTemplate =>
         minify(renderedTemplate, { collapseWhitespace: true })
@@ -144,6 +267,7 @@ export function renderTemplateWithCollectionMatterKey({
       map(({ filename, fileContent }) => {
         const matter = grayMatter(fileContent)
         const contentHtml = md.render(matter.content)
+        filename = filename.replace(/\.md$/, '')
         return { filename, matter, contentHtml }
       }),
       reduce(
@@ -178,7 +302,15 @@ export function renderTemplateWithCollectionMatterKey({
         },
         {}
       ),
-      flatMap(matterIndex => Object.entries(matterIndex))
+      flatMap(matterIndex => Object.entries(matterIndex)),
+      map(([key, items]) => [
+        key,
+        items.sort((a: any, b: any) => {
+          if (a.matter.data.date > b.matter.data.date) return -1
+          if (a.matter.data.date < b.matter.data.date) return 1
+          return 0
+        })
+      ])
     )
     .subscribe(([matterValue, entries]) => {
       renderTemplate({

@@ -1,5 +1,8 @@
 {% extends '_layouts/default.njk' %}
 
+{% set themeColor = '#2c3f52' %}
+{% set pageTitle = matter.data.title %}
+
 {% from "_components/articlePageHeader.njk" import articlePageHeader %}
 
 {% block content %}
@@ -10,8 +13,5 @@
       metadata = matter.data.date
     )
   }}
-  <article>
-    <h1>{{ matter.data.title }}</h1>
-    <div class="article-content">{{ contentHtml | safe }}</div>
-  </article>
+  <article class="article-content">{{ contentHtml | safe }}</article>
 {% endblock %}

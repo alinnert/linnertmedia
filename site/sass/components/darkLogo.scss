@@ -1,0 +1,11 @@
+.dark-logo {
+  @include baseLogo();
+
+  &__part-a {
+    color: $color-primary-text-on-dark;
+  }
+
+  &__part-b {
+    color: $color-secondary-text-on-dark;
+  }
+}

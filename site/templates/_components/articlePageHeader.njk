@@ -1,13 +1,14 @@
 {% from '_components/mainNavigation.njk' import mainNavigation %}
+{% from '_components/logo.njk' import logo %}
 
 {% macro articlePageHeader(topline, headline, metadata) %}
 <div class="article-page-header">
   <div class="article-page-header__top-bar">
-    <div class="article-page-header__logo">Linnert Media</div>
-    {{ mainNavigation() }}
+    <div class="article-page-header__logo">{{ logo(type='dark') }}</div>
+    {{ mainNavigation(type = 'dark') }}
   </div>
-  <div class="article-page-header__topline">{{ topline }}</div>
-  <div class="article-page-header__title">{{ headline }}</div>
-  <div class="article-page-header__metadata">{{ metadata }}</div>
+  <div class="article-page-header__topline">{{ topline | tagLinks | safe }}</div>
+  <h1 class="article-page-header__title">{{ headline }}</h1>
+  <div class="article-page-header__metadata">{{ metadata | date }}</div>
 </div>
 {% endmacro %}

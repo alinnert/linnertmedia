@@ -1,0 +1,10 @@
+.page-link {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-subtle-text;
+
+  &:hover {
+    color: $color-primary-text-on-light;
+  }
+}

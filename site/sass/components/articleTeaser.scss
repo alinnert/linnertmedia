@@ -1,0 +1,37 @@
+.article-teaser {
+  h1 + &,
+  .page-link + & {
+    margin-top: 40px;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 40px;
+  }
+
+  &__topline {
+    color: $color-subtle-text;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  &__topline a {
+    &:hover {
+      color: $color-primary-text-on-light;
+    }
+  }
+
+  &__title {
+    color: $color-weak-text;
+    font-family: Lora, serif;
+    font-size: 21px;
+    letter-spacing: 1px;
+    margin-top: 5px;
+  }
+
+  &__title a {
+    &:hover {
+      color: $color-primary-text-on-light;
+    }
+  }
+}

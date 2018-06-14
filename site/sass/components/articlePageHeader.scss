@@ -1,4 +1,26 @@
 .article-page-header {
+  @include basePageHeader();
   background-color: $color-secondary-background;
   color: white;
+
+  &__topline {
+    color: $color-primary-text-on-dark;
+  }
+
+  &__topline a {
+    &:hover {
+      color: lighten($color-primary-text-on-dark, 30%);
+    }
+  }
+
+  &__title {
+    text-transform: none;
+    font-weight: normal;
+    color: white;
+    margin-top: 0;
+  }
+
+  &__metadata {
+    color: $color-secondary-text-on-dark;
+  }
 }

@@ -1,3 +1,9 @@
 .default-page-header {
+  @include basePageHeader();
   background-color: $color-secondary-background-light;
+  padding-bottom: 0;
+
+  &__top-bar {
+    margin-bottom: 0;
+  }
 }

@@ -1,0 +1,28 @@
+.article-content {
+  @include baseContent();
+  font-family: Lora, serif;
+  font-size: 21px;
+  line-height: 1.7;
+
+  a {
+    color: $color-primary-text-on-light;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .info {
+    color: $color-secondary-text-on-light;
+    background-color: $color-secondary-background-light;
+    padding: 1px 20px;
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+
+  > p > img {
+    margin-left: -20px;
+    margin-right: -20px;
+    max-width: calc(100% + 40px);
+  }
+}

@@ -22,7 +22,31 @@ Auch lässt sich so jede beliebige Datenstruktur darstellen, z. B. eine tabellen
 
 Plugins gibt es für Craft übrigens auch. Mit diesen kann man beispielsweise Widgets für das Backend erstellen. Man verwendet sie aber auch, um beliebig Daten außerhalb des Backends zu manipulieren. Die Erstellung eines Kommentarsystems oder eines Gästebuches erfordert auch die Entwicklung eines Plugins. Sie können aber auch die Möglichkeiten der verwendeten Template-Engine Twig erweitern. Template-Engine Twig?
 
-![](/assets/images/blog/was-ist-craft-cms-und-was-kann-es/craft-twig.png)
+::: file beispiel.twig
+```twig
+{% for item in resultList %}
+
+  <article>
+    <header>
+      <h1>
+        <a href="{{ item.url }}">{{ item }}</a>
+      </h1>
+      <div class="meta">
+        <span>{{ item.dateCreated | date('d.m.Y') }}</span>
+        {# <span>0 Kommentare</span> #}
+        {% for serie in item.blogserie %}
+          {% set url = 'blog/serie/' ~ serie %}
+          <span>In Serie: <a href="{{ url(url) }}">{{ serie }}</a></span>
+        {% endfor %}
+      </div>
+    </header>
+
+    <p>{{ item.einleitung | nl2br }}</p>
+  </article>
+
+{% endfor %}
+```
+:::
 
 Ja, richtig! Die Templates werden nicht in HTML oder PHP geschrieben, sondern in Twig. Im Grunde ist dies HTML, das um Twig-Tags erweitert wird. Diese erlauben es Weichen einzubauen, Schleifen zu erstellen, Werte zu manipulieren bevor man sie ausgibt usw. Eine Template-Engine ist also im Prinzip eine kleine Programmiersprache, die allerdings einfacher zu bedienen ist und viel übersichtlicher aussieht als PHP. Auch der Einstieg für Leute ohne Programmierkenntnisse ist einfacher, wenn man sich auf wichtige Funktionen beschränkt.
 

@@ -8,6 +8,17 @@ img {
   height: auto;
 }
 
-code {
-  color: $color-primary-text-on-light;
+:not(pre) > code {
+  color: $color-secondary-text-bright;
+  font-size: 18px;
+  background-color: $color-subtle-background;
+  padding: 0 4px;
+  border-radius: 4px;
+  border: 1px solid hsl(0, 0, 90);
+  box-decoration-break: clone;
+  white-space: nowrap;
+}
+
+s {
+  color: $color-subtle-text;
 }

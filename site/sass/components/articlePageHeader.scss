@@ -3,6 +3,12 @@
   background-color: $color-secondary-background;
   color: white;
 
+  &__top-bar {
+    @media (max-width: 700px) {
+      background-color: darken($color-secondary-background, 5%);
+    }
+  }
+
   &__topline {
     color: $color-primary-text-on-dark;
   }

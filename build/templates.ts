@@ -5,7 +5,7 @@ import { flatMap, map, reduce, filter, tap } from 'rxjs/operators'
 import { writeFile, readdir, readFile, ensureFile } from 'fs-extra'
 import grayMatter from 'gray-matter'
 import { minify } from 'html-minifier'
-import MarkdownIt from 'markdown-it'
+import markdownit from 'markdown-it'
 import {
   IRenderTemplateOptions,
   IRenderTemplateWithCollectionOptions,
@@ -42,9 +42,20 @@ nunjucksEnv.addFilter('tagLinks', (tagsString: string) => {
     .join(' • ')
 })
 
-const md = new MarkdownIt()
+const md = markdownit({ breaks: true })
 
-md.use(require('markdown-it-container'), 'info')
+md.use(require('markdown-it-container'), 'info', {
+  render(tokens: any, index: any) {
+    const matches = tokens[index].info.trim().match(/^info\s+(.*)$/)
+
+    if (tokens[index].nesting === 1) {
+      const title = matches[1]
+      return `<div class="info-box"><div class="info-box__title">Info: ${title}</div>`
+    }
+
+    return '</div>'
+  }
+})
 
 md.use(require('markdown-it-container'), 'file', {
   render(tokens: any, index: any) {

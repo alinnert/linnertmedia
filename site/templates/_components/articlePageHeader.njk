@@ -1,7 +1,7 @@
 {% from '_components/mainNavigation.njk' import mainNavigation %}
 {% from '_components/logo.njk' import logo %}
 
-{% macro articlePageHeader(topline, headline, metadata) %}
+{% macro articlePageHeader(topline, headline, publishDate, updateDate) %}
 <div class="article-page-header">
   <div class="article-page-header__top-bar">
     <div class="article-page-header__logo">{{ logo(type='dark') }}</div>
@@ -9,6 +9,9 @@
   </div>
   <div class="article-page-header__topline">{{ topline | tagLinks | safe }}</div>
   <h1 class="article-page-header__title">{{ headline }}</h1>
-  <div class="article-page-header__metadata">{{ metadata | date }}</div>
+  <div class="article-page-header__metadata">
+    {{ publishDate | date }}
+    {% if updateDate %}• Aktualisiert: {{ updateDate | date }}{% endif %}
+  </div>
 </div>
 {% endmacro %}

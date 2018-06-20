@@ -1,7 +1,7 @@
 import nunjucks from 'nunjucks'
 import { resolve } from 'path'
 import { from, Observable, Observer } from 'rxjs'
-import { flatMap, map, reduce, filter, tap } from 'rxjs/operators'
+import { flatMap, map, reduce, filter } from 'rxjs/operators'
 import { writeFile, readdir, readFile, ensureFile } from 'fs-extra'
 import grayMatter from 'gray-matter'
 import { minify as minifyHtml } from 'html-minifier'
@@ -10,7 +10,10 @@ import {
   IRenderTemplateOptions,
   IRenderTemplateWithCollectionOptions,
   IRenderTemplateWithCollectionMatterKeyOptions,
-  IRenderNewsFeedOptions
+  IRenderNewsFeedOptions,
+  IMatterIndexReducerOptions,
+  IMatterIndex,
+  IMatterData
 } from 'templates'
 
 const nunjucksOptions: nunjucks.ConfigureOptions = {
@@ -212,10 +215,11 @@ export function renderTemplate({
         )
       ),
       flatMap(data => renderNunjucksTemplate(templateName, data)),
-      map(renderedTemplate =>
-        minify
-          ? minifyHtml(renderedTemplate, { collapseWhitespace: true })
-          : renderedTemplate
+      map(
+        renderedTemplate =>
+          minify
+            ? minifyHtml(renderedTemplate, { collapseWhitespace: true })
+            : renderedTemplate
       ),
       map(renderedTemplate => {
         const filename = resolve(process.cwd(), 'docs', outputFilename)
@@ -284,38 +288,7 @@ export function renderTemplateWithCollectionMatterKey({
         filename = filename.replace(/\.md$/, '')
         return { filename, matter, contentHtml }
       }),
-      reduce(
-        (
-          matterIndex: { [key: string]: any },
-          {
-            filename,
-            matter,
-            contentHtml
-          }: {
-            filename: string
-            matter: grayMatter.GrayMatterFile<string>
-            contentHtml: string
-          }
-        ) => {
-          const currentValues: string[] = (matter.data as {
-            [key: string]: any
-          })[matterKey]
-            .split(',')
-            .map((value: string) => value.trim())
-
-          if (currentValues.length) {
-            currentValues.forEach(value => {
-              if (!Array.isArray(matterIndex[value])) {
-                matterIndex[value] = []
-              }
-              matterIndex[value].push({ filename, matter, contentHtml })
-            })
-          }
-
-          return matterIndex
-        },
-        {}
-      ),
+      reduce(matterIndexReducer(matterKey), {}),
       flatMap(matterIndex => Object.entries(matterIndex)),
       map(([key, items]) => [
         key,
@@ -369,10 +342,37 @@ export function renderNewsFeed({
     )
     .subscribe(data => {
       const entries = data.filter(entry => entry.matter.data.date).slice(0, 10)
-      renderTemplate({ templateName, outputFilename, data: { entries }, minify: false })
+      renderTemplate({
+        templateName,
+        outputFilename,
+        data: { entries },
+        minify: false
+      })
     })
 }
 
 function getCollectionDirectory(collectionName: string) {
   return resolve(process.cwd(), 'site/collections', collectionName)
+}
+
+function matterIndexReducer(matterKey: string) {
+  return (
+    matterIndex: IMatterIndex,
+    { filename, matter, contentHtml }: IMatterIndexReducerOptions
+  ) => {
+    const currentValues: string[] = (matter.data as IMatterData)[matterKey]
+      .split(',')
+      .map((value: string) => value.trim())
+
+    if (currentValues.length) {
+      currentValues.forEach(value => {
+        if (!Array.isArray(matterIndex[value])) {
+          matterIndex[value] = []
+        }
+        matterIndex[value].push({ filename, matter, contentHtml })
+      })
+    }
+
+    return matterIndex
+  }
 }

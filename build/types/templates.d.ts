@@ -1,3 +1,5 @@
+import { GrayMatterFile } from 'gray-matter'
+
 export interface IRenderTemplateOptions {
   templateName: string
   outputFilename: string
@@ -18,8 +20,23 @@ export interface IRenderTemplateWithCollectionMatterKeyOptions {
   outputDirectory: string
 }
 
+export interface IMatterIndexReducerOptions {
+  filename: string
+  matter: GrayMatterFile<string>
+  contentHtml: string
+}
+
+export interface IMatterIndex {
+  [key: string]: any
+}
+
+export interface IMatterData {
+  [key: string]: any
+}
+
 export interface IRenderNewsFeedOptions {
   templateName: string
   collectionName: string
   outputFilename: string
 }
+

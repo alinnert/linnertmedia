@@ -1,6 +1,7 @@
 {% extends '_layouts/default.njk' %}
 
-{% set themeColor = '#dde5ed' %}
+{% set themeColor = global.meta.color.secondaryLight %}
+{% set pageDescription = globals.meta.description %}
 
 {% from '_components/defaultPageHeader.njk' import defaultPageHeader %}
 {% from '_components/articleTeaser.njk' import articleTeaser %}

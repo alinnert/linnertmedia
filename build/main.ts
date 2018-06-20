@@ -12,7 +12,7 @@ import { buildStyles } from './styles';
 initBuilder(() => {
   emptyDirSync(resolve(process.cwd(), 'docs'))
 
-  copy(resolve(process.cwd(), 'site/assets'), resolve(process.cwd(), 'docs/assets'))
+  copy(resolve(process.cwd(), 'site/static'), resolve(process.cwd(), 'docs'))
 
   buildStyles({ inputFile: 'sass/main.scss', outputFile: 'styles.css' })
 

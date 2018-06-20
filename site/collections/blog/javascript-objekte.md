@@ -2,6 +2,7 @@
 title: Objekte in JavaScript
 tags: JavaScript
 date: 2015-09-13
+description: Dieser Beitrag erklärt, wie man in JavaScript mit Objekten arbeiten kann. Im Vordergrund stehen der Zugriff auf Properties und der allgemeine Umgang mit Prototypen.
 ---
 
 Objekte sind ein Hauptbestandteil von JavaScript. Diese erlauben es, Strukturen aufzubauen oder Daten und Funktionalitäten zusammenzufassen. Dieser Artikel erklärt, wie sie funktionieren und wie man mit ihnen umgeht.

@@ -2,6 +2,7 @@
 title: Variablen, undefined und simple Datentypen in JavaScript
 tags: JavaScript
 date: 2015-06-29
+description: Dieser Beitrag erklärt die Grundlagen von JavaScript. Den strict mode, Variablen sowie die simplen Datentypen number, boolean, string. Die Wertübergabe erfolgt "by value".
 ---
 
 Leute, die von anderen objektorientierten Programmiersprachen wie Java oder C# nach JavaScript wandern, fühlen sich unter Umständen irritiert. JavaScript ist einfach anders, bietet aber eine vertraute C-ähnliche Syntax. In der Tat hab ich bereits gelesen, dass JavaScript als "unlernbare Sprache" betitelt wurde. Diese Blog-Serie erklärt die Grundlagen und Funktionsweise von JavaScript, um ihr diesen schlechten Ruf wieder abzunehmen.

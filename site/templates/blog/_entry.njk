@@ -1,7 +1,8 @@
 {% extends '_layouts/default.njk' %}
 
-{% set themeColor = '#243342' %}
+{% set themeColor = globals.meta.color.secondaryDark %}
 {% set pageTitle = matter.data.title %}
+{% set pageDescription = matter.data.description %}
 
 {% from "_components/articlePageHeader.njk" import articlePageHeader %}
 

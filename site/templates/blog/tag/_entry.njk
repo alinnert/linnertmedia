@@ -1,10 +1,11 @@
 {% extends '_layouts/default.njk' %}
 
-{% set themeColor = '#dde5ed' %}
-{% set pageTitle = matterValue %}
-
 {% from '_components/defaultPageHeader.njk' import defaultPageHeader %}
 {% from '_components/articleTeaser.njk' import articleTeaser %}
+
+{% set themeColor = globals.meta.color.secondaryLight %}
+{% set pageTitle = matterValue %}
+{% set pageDescription = 'Beiträge zum Thema "' + matterValue + '" - ' + globals.meta.description %}
 
 {% block content %}
   {{ defaultPageHeader() }}

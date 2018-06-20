@@ -2,6 +2,7 @@
 title: Die Grundlagen zu Node.js
 tags: JavaScript
 date: 2018-06-16
+description: Node.js erlaubt die Entwicklung von Serveranwendungen. Aber auch Node.js-basierte Kommandozeilentools oder Build-Skripte werden in den letzten Jahren stark genutzt.
 ---
 
 Node.js ist inzwischen allgegenwärtig in der Welt der Web-Entwicklung. Einige kennen es aber vielleicht nur im Kontext von JavaScript-Server-Anwendungen. Dieser Artikel soll einen groben Überblick über alle Facetten von Node.js geben.

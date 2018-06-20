@@ -1,4 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?> <feed xmlns="http://www.w3.org/2005/Atom"><title>Linnert Media</title><link href="https://linnertmedia.de"><link type="application/atom+xml" rel="self" href="https://linnertmedia.de/feed.xml"><updated>2018-06-05T16:41:23+00:00</updated><id>https://linnertmedia.de/feed.xml</id><author><name>Andreas Linnert</name><email>andreas@linnertmedia.de</email></author><entry><id>https://linnertmedia.de/blog/autohotkey-für-angenehmeres-arbeiten-mit-der-tastatur</id><link type="text/html" rel="alternate" href="https://linnertmedia.de/blog/autohotkey-für-angenehmeres-arbeiten-mit-der-tastatur"><title>AutoHotKey für angenehmeres Arbeiten mit der Tastatur</title><published>Sat Jun 10 2017 02:00:00 GMT+0200 (GMT+02:00)T00:00:00+00:00</published><author><name>Andreas Linnert</name><uri>https://linnertmedia.de</uri></author><content type="html"><![CDATA[&lt;p&gt;Viele Programmierer nutzen Vim als ihre primäre Entwicklungsumgebung unter anderem, weil so gut wie alle Befehle über das Buchstabenfeld der Tastatur erreichbar sind. Mit AutoHotkey lässt sich etwas Ähnliches bewerkstelligen und hat dabei meiner Meinung nach noch weitere Vorteile.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Linnert Media</title>
+  <link href="https://linnertmedia.de"/>
+  <link type="application/atom+xml" rel="self" href="https://linnertmedia.de/feed.xml"/>
+  <updated>2018-06-05T16:41:23+00:00</updated>
+  <id>https://linnertmedia.de/feed.xml</id>
+  <author>
+    <name>Andreas Linnert</name>
+    <email>andreas@linnertmedia.de</email>
+  </author>
+  
+    
+    <entry>
+      <id>https://linnertmedia.de/blog/autohotkey-für-angenehmeres-arbeiten-mit-der-tastatur</id>
+      <link type="text/html" rel="alternate" href="https://linnertmedia.de/blog/autohotkey-für-angenehmeres-arbeiten-mit-der-tastatur" />
+      <title>AutoHotKey für angenehmeres Arbeiten mit der Tastatur</title>
+      <published>Sat Jun 10 2017 02:00:00 GMT+0200 (GMT+02:00)T00:00:00+00:00</published>
+      <author>
+        <name>Andreas Linnert</name>
+        <uri>https://linnertmedia.de</uri>
+      </author>
+      <content type="html"><![CDATA[&lt;p&gt;Viele Programmierer nutzen Vim als ihre primäre Entwicklungsumgebung unter anderem, weil so gut wie alle Befehle über das Buchstabenfeld der Tastatur erreichbar sind. Mit AutoHotkey lässt sich etwas Ähnliches bewerkstelligen und hat dabei meiner Meinung nach noch weitere Vorteile.&lt;/p&gt;
 &lt;p&gt;Im konsolenbasierten Text-Editor Vim lässt sich der Textcursor über die Tasten &lt;code&gt;H&lt;/code&gt;/&lt;code&gt;J&lt;/code&gt;/&lt;code&gt;K&lt;/code&gt;/&lt;code&gt;L&lt;/code&gt; steuern. Das ist ganz praktisch, da man beim Programmieren sehr oft zwischen dem Buchstabenfeld und den Pfeiltasten hin- und herwechseln muss. Wenn die Pfeiltasten über das Buchstabenfeld steuerbar sind, spart man sich jedoch die wiederholte Hin- und Herbewegung mit der Hand. Die Variante vom Vim-Editor hat meiner Meinung nach allerdings zwei Nachteile. Ich finde die Tastenbelegung nicht sehr intuitiv und sie funktioniert ausschließlich in Vim. Außerhalb muss man auf diese Komfortfunktion verzichten.&lt;/p&gt;
 &lt;p&gt;Deswegen hab ich etwas nachgeforscht, ob man die Tastaturbelegung nicht generell anpassen kann. Und hierbei bin ich über &lt;a href=&quot;https://www.autohotkey.com/&quot;&gt;AutoHotkey&lt;/a&gt; gestolpert. Primär lässt sich dieses Programm nutzen, um verschiedene Vorgänge per Tastenkürzel zu automatisieren. Konkret lassen sich bspw. Tastenanschläge abfangen und in andere Tastatureingaben umwandeln, die anschließend weiter an das aktive Programm geschickt werden.&lt;/p&gt;
 &lt;p&gt;Nachdem man AutoHotkey installiert hat, erstellt man Skripte in einer eigens dafür entwickelten Skriptsprache. Diese speichert man in Dateien mit der Endung &lt;code&gt;.ahk&lt;/code&gt;. Diese Dateien lassen sich anschließend ausführen und bleiben aktiv, bis man das Skript wieder manuell beendet. Solange die Skripte ausgeführt werden, können sie auf Tastatureingaben reagieren und unterschiedliche Aktionen ausführen.&lt;/p&gt;
@@ -21,7 +43,20 @@
 &lt;li&gt;AutoHotkey ist aktuell nur für Windows verfügbar. Ich bin mir nicht sicher, ob es eine ähnliche Lösung für macOS gibt. Für Linux hab ich keine gefunden ‒ außer eigene Tastaturmappings zu erstellen.&lt;/li&gt;
 &lt;li&gt;Wenn man an einem anderen PC sitzt, der das Skript nicht nutzt, kann es vorkommen, dass man aus Gewohnheit eine der neuen Tastenkürzel verwendet und sich wundert, dass der PC nicht wie gewohnt reagiert.&lt;/li&gt;
 &lt;/ol&gt;
-]]></content></entry><entry><id>https://linnertmedia.de/blog/variablen-undefined-und-simple-datentypen</id><link type="text/html" rel="alternate" href="https://linnertmedia.de/blog/variablen-undefined-und-simple-datentypen"><title>Variablen, undefined und simple Datentypen in JavaScript</title><published>Mon Jun 29 2015 02:00:00 GMT+0200 (GMT+02:00)T00:00:00+00:00</published><author><name>Andreas Linnert</name><uri>https://linnertmedia.de</uri></author><content type="html"><![CDATA[&lt;p&gt;Leute, die von anderen objektorientierten Programmiersprachen wie Java oder C# nach JavaScript wandern, fühlen sich unter Umständen irritiert. JavaScript ist einfach anders, bietet aber eine vertraute C-ähnliche Syntax. In der Tat hab ich bereits gelesen, dass JavaScript als &amp;quot;unlernbare Sprache&amp;quot; betitelt wurde. Diese Blog-Serie erklärt die Grundlagen und Funktionsweise von JavaScript, um ihr diesen schlechten Ruf wieder abzunehmen.&lt;/p&gt;
+]]></content>
+    </entry>
+  
+    
+    <entry>
+      <id>https://linnertmedia.de/blog/variablen-undefined-und-simple-datentypen</id>
+      <link type="text/html" rel="alternate" href="https://linnertmedia.de/blog/variablen-undefined-und-simple-datentypen" />
+      <title>Variablen, undefined und simple Datentypen in JavaScript</title>
+      <published>Mon Jun 29 2015 02:00:00 GMT+0200 (GMT+02:00)T00:00:00+00:00</published>
+      <author>
+        <name>Andreas Linnert</name>
+        <uri>https://linnertmedia.de</uri>
+      </author>
+      <content type="html"><![CDATA[&lt;p&gt;Leute, die von anderen objektorientierten Programmiersprachen wie Java oder C# nach JavaScript wandern, fühlen sich unter Umständen irritiert. JavaScript ist einfach anders, bietet aber eine vertraute C-ähnliche Syntax. In der Tat hab ich bereits gelesen, dass JavaScript als &amp;quot;unlernbare Sprache&amp;quot; betitelt wurde. Diese Blog-Serie erklärt die Grundlagen und Funktionsweise von JavaScript, um ihr diesen schlechten Ruf wieder abzunehmen.&lt;/p&gt;
 &lt;div class=&quot;info-box&quot;&gt;&lt;div class=&quot;info-box__title&quot;&gt;Info: Strict Mode&lt;/div&gt;&lt;p&gt;Bevor wir wirklich beginnen, ein kleiner Hinweis: Es wird generell empfohlen, den strict mode von JavaScript zu aktivieren. Dazu am Anfang einer &lt;code&gt;.js&lt;/code&gt;-Datei oder eines JavaScript-Blocks im HTML einfach &lt;code&gt;&#39;use strict&#39;;&lt;/code&gt; schreiben. Im strict mode werden mehr Fehler geworfen, um unerwartetes Verhalten zu vermeiden. Eine genaue Beschreibung ist hier zu lesen:&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;http://www.mediaevent.de/javascript/strict-mode.html&quot;&gt;http://www.mediaevent.de/javascript/strict-mode.html&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Eventuell folgt später auch eine Zusammenfassung der Auswirkungen von meiner Seite in diesem Blog. Meine Artikel zum Thema JavaScript gehen jedenfalls von &lt;strong&gt;aktiviertem strict mode&lt;/strong&gt; aus.&lt;/p&gt;
@@ -88,7 +123,20 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; greeting &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;Hallo &#39;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;Welt&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Der simple Typ &lt;code&gt;symbol&lt;/code&gt; sowie die komplexen Typen &lt;code&gt;object&lt;/code&gt; und &lt;code&gt;function&lt;/code&gt; sprengen allerdings den Rahmen dieses Artikels und werden später gesondert behandelt. Der nächste Artikel wird direkt die beiden komplexen Datentypen behandeln, da sie prinzipiell den Kern von JavaScript darstellen.&lt;/p&gt;
-]]></content></entry><entry><id>https://linnertmedia.de/blog/willkommen-auf-dem-neuen-blog</id><link type="text/html" rel="alternate" href="https://linnertmedia.de/blog/willkommen-auf-dem-neuen-blog"><title>Willkommen auf dem neuen Linnert Media-Blog</title><published>Sun Jun 17 2018 02:00:00 GMT+0200 (GMT+02:00)T00:00:00+00:00</published><author><name>Andreas Linnert</name><uri>https://linnertmedia.de</uri></author><content type="html"><![CDATA[&lt;p&gt;Hola zusammen und willkommen beim neuen Linnert Media &lt;em&gt;Open Source-Blog&lt;/em&gt;!&lt;/p&gt;
+]]></content>
+    </entry>
+  
+    
+    <entry>
+      <id>https://linnertmedia.de/blog/willkommen-auf-dem-neuen-blog</id>
+      <link type="text/html" rel="alternate" href="https://linnertmedia.de/blog/willkommen-auf-dem-neuen-blog" />
+      <title>Willkommen auf dem neuen Linnert Media-Blog</title>
+      <published>Sun Jun 17 2018 02:00:00 GMT+0200 (GMT+02:00)T00:00:00+00:00</published>
+      <author>
+        <name>Andreas Linnert</name>
+        <uri>https://linnertmedia.de</uri>
+      </author>
+      <content type="html"><![CDATA[&lt;p&gt;Hola zusammen und willkommen beim neuen Linnert Media &lt;em&gt;Open Source-Blog&lt;/em&gt;!&lt;/p&gt;
 &lt;p&gt;Wie ihr seht, wurde mein Blog grundlegend überarbeitet. Das hat mehrere Gründe:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -110,7 +158,20 @@ Wenn ich es außerdem schaffe, bei meinen Webseiten gänzlich auf PHP zu verzich
 &lt;p&gt;Der komplette Quellcode dieser Webseite liegt auf &lt;a href=&quot;https://github.com/alinnert/linnertmedia&quot;&gt;GitHub&lt;/a&gt;. Darüber kann ab jetzt auch vollständig die Kommunikation ablaufen, wenn es um Fragen zu einem Beitrag geht oder auch bei Ideen zu weiteren Themen, über die ich einen Beitrag verfassen kann.&lt;/p&gt;
 &lt;p&gt;Egal, um was es geht: Erstellt einfach ein &lt;a href=&quot;https://github.com/alinnert/linnertmedia/issues&quot;&gt;Issue auf GitHub&lt;/a&gt; und ich werde es so bald wie möglich bearbeiten.&lt;/p&gt;
 &lt;p&gt;Aber nun viel Spaß beim Lesen!&lt;/p&gt;
-]]></content></entry><entry><id>https://linnertmedia.de/blog/javascript-objekte</id><link type="text/html" rel="alternate" href="https://linnertmedia.de/blog/javascript-objekte"><title>Objekte in JavaScript</title><published>Sun Sep 13 2015 02:00:00 GMT+0200 (GMT+02:00)T00:00:00+00:00</published><author><name>Andreas Linnert</name><uri>https://linnertmedia.de</uri></author><content type="html"><![CDATA[&lt;p&gt;Objekte sind ein Hauptbestandteil von JavaScript. Diese erlauben es, Strukturen aufzubauen oder Daten und Funktionalitäten zusammenzufassen. Dieser Artikel erklärt, wie sie funktionieren und wie man mit ihnen umgeht.&lt;/p&gt;
+]]></content>
+    </entry>
+  
+    
+    <entry>
+      <id>https://linnertmedia.de/blog/javascript-objekte</id>
+      <link type="text/html" rel="alternate" href="https://linnertmedia.de/blog/javascript-objekte" />
+      <title>Objekte in JavaScript</title>
+      <published>Sun Sep 13 2015 02:00:00 GMT+0200 (GMT+02:00)T00:00:00+00:00</published>
+      <author>
+        <name>Andreas Linnert</name>
+        <uri>https://linnertmedia.de</uri>
+      </author>
+      <content type="html"><![CDATA[&lt;p&gt;Objekte sind ein Hauptbestandteil von JavaScript. Diese erlauben es, Strukturen aufzubauen oder Daten und Funktionalitäten zusammenzufassen. Dieser Artikel erklärt, wie sie funktionieren und wie man mit ihnen umgeht.&lt;/p&gt;
 &lt;div class=&quot;info-box&quot;&gt;&lt;div class=&quot;info-box__title&quot;&gt;Info: Vorwort&lt;/div&gt;&lt;p&gt;Sehr bald nachdem ich den letzten Artikel veröffentlicht hatte, hat sich mein Bild über Objekte etwas verändert. Ich hab Artikel über JavaScript-Objekte und -Klassen gelesen, begonnen das Buch &lt;a href=&quot;http://chimera.labs.oreilly.com/books/1234000000262&quot;&gt;Programming JavaScript Applications&lt;/a&gt; (von Eric Elliot) zu lesen und Aufzeichnungen von Vorträgen zu diesem Thema anzusehen. Dadurch bin ich jetzt in der Lage, einen tieferen Blick in Objekte zu gewähren als noch vor ein paar Wochen.&lt;/p&gt;
 &lt;/div&gt;&lt;h2&gt;Objekte erstellen&lt;/h2&gt;
 &lt;p&gt;Objekte kann man sich als Gruppierung mehrerer Variablen vorstellen. Gehen wir von folgendem Beispiel aus.&lt;/p&gt;
@@ -221,7 +282,20 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;span class=&quot;token comment&quot;&gt;// &gt; true&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Da der Artikel bereits sehr lang und vollgestopft mit Informationen ist, mache ich an dieser Stelle einen Schnitt.&lt;/p&gt;
-]]></content></entry><entry><id>https://linnertmedia.de/blog/die-grundlagen-zu-nodejs</id><link type="text/html" rel="alternate" href="https://linnertmedia.de/blog/die-grundlagen-zu-nodejs"><title>Die Grundlagen zu Node.js</title><published>Sat Jun 16 2018 02:00:00 GMT+0200 (GMT+02:00)T00:00:00+00:00</published><author><name>Andreas Linnert</name><uri>https://linnertmedia.de</uri></author><content type="html"><![CDATA[&lt;p&gt;Node.js ist inzwischen allgegenwärtig in der Welt der Web-Entwicklung. Einige kennen es aber vielleicht nur im Kontext von JavaScript-Server-Anwendungen. Dieser Artikel soll einen groben Überblick über alle Facetten von Node.js geben.&lt;/p&gt;
+]]></content>
+    </entry>
+  
+    
+    <entry>
+      <id>https://linnertmedia.de/blog/die-grundlagen-zu-nodejs</id>
+      <link type="text/html" rel="alternate" href="https://linnertmedia.de/blog/die-grundlagen-zu-nodejs" />
+      <title>Die Grundlagen zu Node.js</title>
+      <published>Sat Jun 16 2018 02:00:00 GMT+0200 (GMT+02:00)T00:00:00+00:00</published>
+      <author>
+        <name>Andreas Linnert</name>
+        <uri>https://linnertmedia.de</uri>
+      </author>
+      <content type="html"><![CDATA[&lt;p&gt;Node.js ist inzwischen allgegenwärtig in der Welt der Web-Entwicklung. Einige kennen es aber vielleicht nur im Kontext von JavaScript-Server-Anwendungen. Dieser Artikel soll einen groben Überblick über alle Facetten von Node.js geben.&lt;/p&gt;
 &lt;h2&gt;Allgemeine Informationen&lt;/h2&gt;
 &lt;p&gt;Node.js ist eine Plattform, die es erlaubt, JavaScript-Code außerhalb eines Web-Browsers auszuführen. Die aktuellen Versionen verwenden &lt;em&gt;V8&lt;/em&gt; (Die JavaScript-Engine von Googles Browser &lt;em&gt;Chrome&lt;/em&gt;) zum Ausführen von JavaScript-Code. Da V8 nur relativ begrenzte Möglichkeiten bietet, stehen einem des Weiteren noch native APIs zur Verfügung, um beispielsweise auf das lokale Dateisystem oder den Netzwerkverkehr zugreifen zu können.&lt;/p&gt;
 &lt;p&gt;Dadurch eröffnen sich nun einige Möglichkeiten und Einsatzgebiete. Der Bekannteste darunter ist die Entwicklung von Web-Anwendungs-Servern. Sei es zur Erstellung von HTML-Seiten oder zur Bereitstellung einer REST- oder GraphQL-API. Ein wichtiger Unterschied zu PHP ist hier allerdings, dass kein zusätzlicher Webserver wie Apache notwendig ist, denn Node.js selbst ist bereits der Server. Da man somit quasi seinen eigenen Server baut, hat man auch etwas mehr Freiheiten als mit Fertigpaketen wie Apache.&lt;/p&gt;
@@ -259,4 +333,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;h2&gt;Node.js und WASM&lt;/h2&gt;
 &lt;p&gt;Node.js wird in Zukunft mit &lt;em&gt;WASM&lt;/em&gt; (WebAssembly) vermutlich noch etwas mehr an Bedeutung und Vielfältigkeit gewinnen. WASM, kurz erklärt, ist ein compile target für allerlei Programmiersprachen. WASM verwendet dabei die Laufzeitumgebung, die auch von JavaScript verwendet wird, allerdings wird beim Kompiliervorgang quasi an JavaScript &amp;quot;vorbeikompiliert&amp;quot;. Dadurch ist für WASM kompilierter Programmcode sehr performant. Da Node.js eine Plattform ist, die auf einer Unzahl von Plattformen lauffähig ist, gilt das auch für WASM-Programme.&lt;/p&gt;
 &lt;p&gt;Unterm Strich erlaubt dies das Entwickeln von performanter Software in einer beliebigen Programmiersprache, die überall dort lauffähig ist, wo man eine WASM-kompatible JavaScript-Engine vorfindet. Das heißt konkret: Jede Plattform, auf der Node.js lauffähig ist und auch jeder aktuelle Web-Browser. Die aktuell primär unterstützten Sprachen sind C/C++ und Rust von Mozilla. Weitere Sprachen werden bald folgen. Darunter bekannte Sprachen, aber auch werden daraufhin neue Sprachen entstehen, die primär auf WASM abgestimmt sind, zum Beispiel &lt;a href=&quot;https://github.com/AssemblyScript/assemblyscript&quot;&gt;AssemblyScript&lt;/a&gt; oder &lt;a href=&quot;https://github.com/utatti/kou&quot;&gt;Kou&lt;/a&gt;.&lt;/p&gt;
-]]></content></entry></feed>
+]]></content>
+    </entry>
+  
+</feed>

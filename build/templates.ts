@@ -4,7 +4,7 @@ import { from, Observable, Observer } from 'rxjs'
 import { flatMap, map, reduce, filter, tap } from 'rxjs/operators'
 import { writeFile, readdir, readFile, ensureFile } from 'fs-extra'
 import grayMatter from 'gray-matter'
-import { minify } from 'html-minifier'
+import { minify as minifyHtml } from 'html-minifier'
 import markdownit from 'markdown-it'
 import {
   IRenderTemplateOptions,
@@ -193,7 +193,8 @@ function renderNunjucksTemplate(
 export function renderTemplate({
   templateName,
   outputFilename,
-  data = {}
+  data = {},
+  minify = true
 }: IRenderTemplateOptions) {
   console.log(
     `» Render template "${templateName}" → writing file "${outputFilename}"`
@@ -212,7 +213,9 @@ export function renderTemplate({
       ),
       flatMap(data => renderNunjucksTemplate(templateName, data)),
       map(renderedTemplate =>
-        minify(renderedTemplate, { collapseWhitespace: true })
+        minify
+          ? minifyHtml(renderedTemplate, { collapseWhitespace: true })
+          : renderedTemplate
       ),
       map(renderedTemplate => {
         const filename = resolve(process.cwd(), 'docs', outputFilename)
@@ -366,7 +369,7 @@ export function renderNewsFeed({
     )
     .subscribe(data => {
       const entries = data.filter(entry => entry.matter.data.date).slice(0, 10)
-      renderTemplate({ templateName, outputFilename, data: { entries } })
+      renderTemplate({ templateName, outputFilename, data: { entries }, minify: false })
     })
 }
 

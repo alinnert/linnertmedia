@@ -9,7 +9,10 @@
 {% block content %}
   {{ defaultPageHeader() }}
   <div class="page-content">
-    <h1>Alle Beiträge</h1>
+    <h1 class="page-content__title">
+      Alle Beiträge
+      <a href="/feed.xml" class="page-content__title-link">Feed abonnieren</a>
+    </h1>
     {% for entry in collections.blog %}
       {{ articleTeaser(
         title = entry.matter.data.title,

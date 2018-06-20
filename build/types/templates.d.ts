@@ -2,6 +2,7 @@ export interface IRenderTemplateOptions {
   templateName: string
   outputFilename: string
   data?: any
+  minify?: boolean
 }
 
 export interface IRenderTemplateWithCollectionOptions {

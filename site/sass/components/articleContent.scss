@@ -24,17 +24,24 @@
   > h2 {
     font-weight: bold;
     font-size: inherit;
-    margin-top: ($font-size-body * $line-height-body * 2);
+    margin-top: ($font-size-body * $line-height-body);
     margin-bottom: ($font-size-body * $line-height-body);
   }
 
-  > p {
-    margin-bottom: 36px;
+  p {
+    margin-top: ($font-size-body * $line-height-body);
+    margin-bottom: ($font-size-body * $line-height-body);
   }
 
   > p > img {
     margin-left: -20px;
     margin-right: -20px;
     max-width: calc(100% + 40px);
+  }
+
+  > ul,
+  > ol {
+    margin-top: ($font-size-body * $line-height-body);
+    margin-bottom: ($font-size-body * $line-height-body);
   }
 }

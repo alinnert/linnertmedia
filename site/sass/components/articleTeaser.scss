@@ -1,6 +1,6 @@
 .article-teaser {
-  h1 + &,
-  .page-link + & {
+  .page-content__title + &,
+  .page-content__back-link + & {
     margin-top: 40px;
   }
 
@@ -23,8 +23,8 @@
 
   &__title {
     color: $color-weak-text;
-    font-family: Lora, serif;
-    font-size: 21px;
+    font-family: $font-set-lora;
+    font-size: $font-size-body;
     letter-spacing: 1px;
     margin-top: 5px;
   }

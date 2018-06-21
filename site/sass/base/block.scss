@@ -5,17 +5,15 @@ ul {
 }
 
 h1 {
-  font-size: 20px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-size: $font-size-body;
+  font-weight: normal;
 }
 
 h2 {
-  font-size: 21px;
-  font-family: Lora, serif;
-  margin-top: (21px * 1.7 * 2);
-  margin-bottom: (21px * 1.7);
+  font-size: $font-size-body;
+  font-family: $font-set-lora;
+  margin-top: ($font-size-body * $line-height-body * 2);
+  margin-bottom: ($font-size-body * $line-height-body);
 }
 
 pre[class*="language-"] {
@@ -29,6 +27,6 @@ pre[class*="language-"] {
 }
 
 pre > code {
-  font-family: Roboto Mono, monospace;
+  font-family: $font-set-roboto-mono;
   font-size: 14px;
 }

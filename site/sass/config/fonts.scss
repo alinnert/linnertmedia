@@ -8,3 +8,7 @@
 @include registerFont('Roboto', 'Roboto-Bold', $weight: 700);
 // ROBOTO MONO
 @include registerFont('Roboto Mono', 'RobotoMono-Regular');
+
+$font-set-lora: Lora, serif;
+$font-set-roboto: Roboto, sans-serif;
+$font-set-roboto-mono: Roboto Mono, monospace;

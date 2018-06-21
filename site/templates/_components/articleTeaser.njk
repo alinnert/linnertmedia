@@ -1,9 +1,9 @@
 {% macro articleTeaser(title, url, date, tags) %}
-  <section class="article-teaser">
+  <article class="article-teaser">
     <div class="article-teaser__topline">
       {{ date | date }} •
       {{ tags | tagLinks | safe }}
     </div>
-    <div class="article-teaser__title"><a href="/blog/{{ url }}">{{ title }}</a></div>
-  </section>
+    <h1 class="article-teaser__title"><a href="/blog/{{ url }}">{{ title }}</a></h1>
+  </article>
 {% endmacro %}

@@ -4,8 +4,14 @@
   &__title {
     display: flex;
     align-items: flex-end;
+    font-weight: bold;
+    line-height: $line-height-body;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: ($line-height-body * $font-size-body);
+    margin-bottom: 0;
   }
-  
+
   &__title-link {
     margin-left: auto;
     color: $color-primary-text-on-light;
@@ -16,6 +22,18 @@
 
     &:hover {
       text-decoration: underline;
+    }
+  }
+
+  &__back-link {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: ($font-size-body * $line-height-body);
+    color: $color-subtle-text;
+
+    &:hover {
+      color: $color-primary-text-on-light;
     }
   }
 }

@@ -23,11 +23,15 @@ export function buildStyles({ inputFile, outputFile }: IBuildStylesOptions) {
     .pipe(
       map(styles => (styles !== null ? styles.css : '')),
       filter(css => css !== ''),
-      flatMap(css => from(new Promise((resolve, reject) => {
-        postcss([autoprefixer()]).process(css).then(result => {
-          resolve(result.css)
-        })
-      }) as Promise<string>)),
+      flatMap(css =>
+        from(new Promise((resolve, reject) => {
+          postcss([autoprefixer()])
+            .process(css, { from: undefined })
+            .then(result => {
+              resolve(result.css)
+            })
+        }) as Promise<string>)
+      ),
       map(css => (css !== null ? css.toString() : '')),
       flatMap(compiledStyles =>
         writeFile(resolve(process.cwd(), `docs/${outputFile}`), compiledStyles)

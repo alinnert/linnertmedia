@@ -20,9 +20,13 @@ Apropos schwer erreichbare Tasten: Bei der Programmierung brauche ich sehr häuf
 Wie kann man diese umbelegten Tasten nun selbst ausprobieren? Das benötigt zwar ein paar Handgriffe, ist aber nicht allzu schwierig.
 
 1. Zuerst muss [AutoHotkey](https://www.autohotkey.com/) von der offiziellen Webseite heruntergeladen und installiert werden.
+
 2. Dann erstellt man sich eine Datei mit der Endung `.ahk`. Der Name und Ort ist egal. Ein Ordner, der mit einer Cloud synchronisiert wird (OneDrive, Dropbox etc.), ist allerdings empfehlenswert.
+
 3. Das Skript, das ich für diesen Zweck erstellt habe sowie eine Liste der wichtigsten Kürzel, findet ihr [hier auf Gist](https://gist.github.com/alinnert/a4f3868e10eafcfe6b4684dca3f79dfc). Den Inhalt des Skripts einfach in die Datei kopieren und speichern.
+
 4. Durch einen Doppelklick auf diese Datei wird das Skript gestartet. Im Systray-Bereich erscheint ein neues Symbol, das anzeigt, dass ein Skript läuft. Über dieses kann ein Skript auch beendet oder neu geladen werden.
+
 5. Möchtet ihr dieses Skript bei jedem Systemstart sofort nutzen können, legt ihr eine Verknüpfung zu dieser `.ahk`-Datei in folgenden Ordner (Windows 10): `%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\`
 
 Im oben verlinkten Skript kann man genauer nachlesen, welche Tastenkürzel definiert sind. Das Skript kann man bei Bedarf natürlich auch an seine eigenen Bedürfnisse anpassen. Ein weiterer angenehmer Nebeneffekt ist, dass die verschiedenen Tastaturlayouts bei Laptops nicht mehr so schwer ins Gewicht fallen. Pfeiltasten und weitere Tasten wie “Bild auf/ab”, “Pos 1” und “Ende” sind auch dort immer an der gewohnten Stelle.
@@ -30,7 +34,11 @@ Im oben verlinkten Skript kann man genauer nachlesen, welche Tastenkürzel defin
 Nichtsdestotrotz gibt jedoch ein paar Dinge, die man sich im Hinterkopf behalten sollte:
 
 1. Das Skript funktioniert nicht, wenn eine Anwendung mit Admin-Berechtigung den Fokus hat. Ich tippe auf einen Schutzmechanismus von Windows.
+
 2. Dadurch, dass die `<`-Taste zum Modifier umfunktioniert wurde, reagiert diese erst, wenn man diese wieder loslässt.
+
 3. Es dauert natürlich, bis man sich an eine neu belegte Tastatur gewöhnt hat. Bei mir dauerte es zwischen einer und zwei Wochen. Allerdings habe ich die Belegung der Tasten auch Schritt für Schritt aufgebaut.
+
 4. AutoHotkey ist aktuell nur für Windows verfügbar. Ich bin mir nicht sicher, ob es eine ähnliche Lösung für macOS gibt. Für Linux hab ich keine gefunden ‒ außer eigene Tastaturmappings zu erstellen.
+
 5. Wenn man an einem anderen PC sitzt, der das Skript nicht nutzt, kann es vorkommen, dass man aus Gewohnheit eine der neuen Tastenkürzel verwendet und sich wundert, dass der PC nicht wie gewohnt reagiert.

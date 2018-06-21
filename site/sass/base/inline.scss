@@ -10,11 +10,11 @@ img {
 
 :not(pre) > code {
   color: $color-secondary-text-bright;
-  font-size: 18px;
-  background-color: $color-subtle-background;
+  font-size: 16px;
+  background-color: hsla(0, 0, 0, 0.05);
   padding: 0 4px;
   border-radius: 4px;
-  border: 1px solid hsl(0, 0, 90);
+  border: 1px solid hsla(0, 0, 0, 0.12);
   box-decoration-break: clone;
   white-space: nowrap;
 }

@@ -12,6 +12,7 @@ h1 {
 h2 {
   font-size: $font-size-body;
   font-family: $font-set-lora;
+  font-weight: normal;
   margin-top: ($font-size-body * $line-height-body * 2);
   margin-bottom: ($font-size-body * $line-height-body);
 }

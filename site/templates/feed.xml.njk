@@ -20,7 +20,7 @@
         <name>Andreas Linnert</name>
         <uri>https://linnertmedia.de</uri>
       </author>
-      <content type="html"><![CDATA[{{ entry.contentHtml }}]]></content>
+      <content type="html"><![CDATA[{{ entry.contentHtml | safe }}]]></content>
     </entry>
   {% endfor %}
 </feed>

@@ -16,6 +16,8 @@ initBuilder(() => {
 
   buildStyles({ inputFile: 'sass/main.scss', outputFile: 'styles.css' })
 
+  renderTemplate({ templateName: '404.njk', outputFilename: '404.html' })
+
   renderTemplate({ templateName: 'index.njk', outputFilename: 'index.html' })
 
   renderTemplate({

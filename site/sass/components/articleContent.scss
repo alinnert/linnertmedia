@@ -39,6 +39,11 @@
     max-width: calc(100% + 40px);
   }
 
+  > ul {
+    list-style-type: square;
+    margin-left: 30px;
+  }
+
   > ul,
   > ol {
     margin-top: ($font-size-body * $line-height-body);

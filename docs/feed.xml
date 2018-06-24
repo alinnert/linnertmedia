@@ -68,6 +68,41 @@
   
     
     <entry>
+      <id>https://linnertmedia.de/blog/willkommen-auf-dem-neuen-blog</id>
+      <link type="text/html" rel="alternate" href="https://linnertmedia.de/blog/willkommen-auf-dem-neuen-blog" />
+      <title>Willkommen auf dem neuen Linnert Media-Blog</title>
+      <published>Sun Jun 17 2018 02:00:00 GMT+0200 (GMT+02:00)T00:00:00+00:00</published>
+      <author>
+        <name>Andreas Linnert</name>
+        <uri>https://linnertmedia.de</uri>
+      </author>
+      <content type="html"><![CDATA[<p>Hola zusammen und willkommen beim neuen Linnert Media <em>Open Source-Blog</em>!</p>
+<p>Wie ihr seht, wurde mein Blog grundlegend überarbeitet. Das hat mehrere Gründe:</p>
+<ol>
+<li>
+<p>Ich verliere mit der Zeit immer mehr das Interesse an PHP und allen zusammenhängenden Technologien und Produkten. Ich bin gerade dabei eine kleine Anwendung in PHP zu entwickeln und stoße dabei immer wieder auf Probleme und Unschönheiten, die ich so von anderen Sprachen nicht kenne. Es existieren Einschränkungen, die das Arbeiten mit Web-Frameworks unnötig unschön machen. Außerdem lässt sich PHP-Code nur dank Drittsoftware debuggen (XDebug), was auch entweder zu Problemen führt (das Craft CMS-Backend in Zusammenhang mit einem bestimmten Plugin zerschießt) oder gar nicht erst funktioniert (Slim Framework). Fehler in Server-Code ohne Debugger zu finden ist... äußerst uncool.<br>
+Wenn ich es außerdem schaffe, bei meinen Webseiten gänzlich auf PHP zu verzichten, kann ich mir einen PHP-Hosting-Plan und damit Geld sparen.</p>
+</li>
+<li>
+<p>Der Workflow, eine Webseite zu aktualisieren und dabei aufzupassen, dass Datenbankstrukturen nicht zu Bruch gehen oder ähnliche Späße, fühlt sich für mich einfach falsch an. Vor allem bei einem Blog. Ich bin schon länger am Überlegen, ob dieser Workflow wirklich der Richtige ist. Aber da sich der Datenbestand bei manchen Webseiten im Live-Betrieb ändern kann, ist eine dateibasierte Umsetzung (a la SQLite) auch nicht so einfach möglich.</p>
+</li>
+<li>
+<p>Ich verfasse meine Blog-Posts gerne als Markdown-Datei. Diese in einem CMS zu pflegen ist auch nicht das Gelbe vom Ei. Ich bin dort nicht in der Lage, die Markdown-Syntax für Bilder zu verwenden, um selbige auch auf der Webseite auszugeben. Das heißt, ich musste meinen Quellcode bei allen Bildern aufsplitten und die Bilder manuell über das CMS einpflegen.</p>
+</li>
+</ol>
+<h2>Das neue Blog</h2>
+<p>Deswegen gehe ich mit diesem Blog einen völlig anderen Weg: Ich hab mit Node.js einen eigenen kleinen Static Site Generator aufgezogen, der aus Markdown-Dateien die fertigen HTML-Dateien erstellt. Ich hab lange andere Generatoren ausprobiert, aber viele haben das Problem, dass dynamische Seiten nicht oder nur schwer erstellbar sind. Also zum Beispiel Seiten, die alle Beiträge zu einem bestimmten Tag auflisten.</p>
+<p>Diese Arbeitsweise erlaubt es mir, die Seite vollständig über Git zu verwalten und außerdem als statische Seite auf <a href="https://pages.github.com/">GitHub Pages</a> zu hosten, was (abgesehen von der Domain) komplett kostenlos ist.</p>
+<p>Auch habe ich die Gelegenheit genutzt, um alte Posts auszumisten. Darunter die zum Thema <em>Craft CMS</em>, da sich mit Version 3 jetzt einiges geändert hat und auch wegen den oben genannten Gründen. Die Beiträge zum Thema JavaScript werde ich aber vorerst hierlassen, auch wenn diese auch eine Überarbeitung nötig hätten. Der Eintrag zum Thema Node.js wurde bereits komplett neu überarbeitet.</p>
+<h2>Was ist ein Open Source-Blog?</h2>
+<p>Der komplette Quellcode dieser Webseite liegt auf <a href="https://github.com/alinnert/linnertmedia">GitHub</a>. Darüber kann ab jetzt auch vollständig die Kommunikation ablaufen, wenn es um Fragen zu einem Beitrag geht oder auch bei Ideen zu weiteren Themen, über die ich einen Beitrag verfassen kann.</p>
+<p>Egal, um was es geht: Erstellt einfach ein <a href="https://github.com/alinnert/linnertmedia/issues">Issue auf GitHub</a> und ich werde es so bald wie möglich bearbeiten.</p>
+<p>Aber nun viel Spaß beim Lesen!</p>
+]]></content>
+    </entry>
+  
+    
+    <entry>
       <id>https://linnertmedia.de/blog/variablen-undefined-und-simple-datentypen</id>
       <link type="text/html" rel="alternate" href="https://linnertmedia.de/blog/variablen-undefined-und-simple-datentypen" />
       <title>Variablen, undefined und simple Datentypen in JavaScript</title>
@@ -143,92 +178,6 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <pre class="language-js"><code class="language-js"><span class="token keyword">var</span> greeting <span class="token operator">=</span> <span class="token string">'Hallo '</span> <span class="token operator">+</span> <span class="token string">'Welt'</span><span class="token punctuation">;</span>
 </code></pre>
 <p>Der simple Typ <code>symbol</code> sowie die komplexen Typen <code>object</code> und <code>function</code> sprengen allerdings den Rahmen dieses Artikels und werden später gesondert behandelt. Der nächste Artikel wird direkt die beiden komplexen Datentypen behandeln, da sie prinzipiell den Kern von JavaScript darstellen.</p>
-]]></content>
-    </entry>
-  
-    
-    <entry>
-      <id>https://linnertmedia.de/blog/willkommen-auf-dem-neuen-blog</id>
-      <link type="text/html" rel="alternate" href="https://linnertmedia.de/blog/willkommen-auf-dem-neuen-blog" />
-      <title>Willkommen auf dem neuen Linnert Media-Blog</title>
-      <published>Sun Jun 17 2018 02:00:00 GMT+0200 (GMT+02:00)T00:00:00+00:00</published>
-      <author>
-        <name>Andreas Linnert</name>
-        <uri>https://linnertmedia.de</uri>
-      </author>
-      <content type="html"><![CDATA[<p>Hola zusammen und willkommen beim neuen Linnert Media <em>Open Source-Blog</em>!</p>
-<p>Wie ihr seht, wurde mein Blog grundlegend überarbeitet. Das hat mehrere Gründe:</p>
-<ol>
-<li>
-<p>Ich verliere mit der Zeit immer mehr das Interesse an PHP und allen zusammenhängenden Technologien und Produkten. Ich bin gerade dabei eine kleine Anwendung in PHP zu entwickeln und stoße dabei immer wieder auf Probleme und Unschönheiten, die ich so von anderen Sprachen nicht kenne. Es existieren Einschränkungen, die das Arbeiten mit Web-Frameworks unnötig unschön machen. Außerdem lässt sich PHP-Code nur dank Drittsoftware debuggen (XDebug), was auch entweder zu Problemen führt (das Craft CMS-Backend in Zusammenhang mit einem bestimmten Plugin zerschießt) oder gar nicht erst funktioniert (Slim Framework). Fehler in Server-Code ohne Debugger zu finden ist... äußerst uncool.<br>
-Wenn ich es außerdem schaffe, bei meinen Webseiten gänzlich auf PHP zu verzichten, kann ich mir einen PHP-Hosting-Plan und damit Geld sparen.</p>
-</li>
-<li>
-<p>Der Workflow, eine Webseite zu aktualisieren und dabei aufzupassen, dass Datenbankstrukturen nicht zu Bruch gehen oder ähnliche Späße, fühlt sich für mich einfach falsch an. Vor allem bei einem Blog. Ich bin schon länger am Überlegen, ob dieser Workflow wirklich der Richtige ist. Aber da sich der Datenbestand bei manchen Webseiten im Live-Betrieb ändern kann, ist eine dateibasierte Umsetzung (a la SQLite) auch nicht so einfach möglich.</p>
-</li>
-<li>
-<p>Ich verfasse meine Blog-Posts gerne als Markdown-Datei. Diese in einem CMS zu pflegen ist auch nicht das Gelbe vom Ei. Ich bin dort nicht in der Lage, die Markdown-Syntax für Bilder zu verwenden, um selbige auch auf der Webseite auszugeben. Das heißt, ich musste meinen Quellcode bei allen Bildern aufsplitten und die Bilder manuell über das CMS einpflegen.</p>
-</li>
-</ol>
-<h2>Das neue Blog</h2>
-<p>Deswegen gehe ich mit diesem Blog einen völlig anderen Weg: Ich hab mit Node.js einen eigenen kleinen Static Site Generator aufgezogen, der aus Markdown-Dateien die fertigen HTML-Dateien erstellt. Ich hab lange andere Generatoren ausprobiert, aber viele haben das Problem, dass dynamische Seiten nicht oder nur schwer erstellbar sind. Also zum Beispiel Seiten, die alle Beiträge zu einem bestimmten Tag auflisten.</p>
-<p>Diese Arbeitsweise erlaubt es mir, die Seite vollständig über Git zu verwalten und außerdem als statische Seite auf <a href="https://pages.github.com/">GitHub Pages</a> zu hosten, was (abgesehen von der Domain) komplett kostenlos ist.</p>
-<p>Auch habe ich die Gelegenheit genutzt, um alte Posts auszumisten. Darunter die zum Thema <em>Craft CMS</em>, da sich mit Version 3 jetzt einiges geändert hat und auch wegen den oben genannten Gründen. Die Beiträge zum Thema JavaScript werde ich aber vorerst hierlassen, auch wenn diese auch eine Überarbeitung nötig hätten. Der Eintrag zum Thema Node.js wurde bereits komplett neu überarbeitet.</p>
-<h2>Was ist ein Open Source-Blog?</h2>
-<p>Der komplette Quellcode dieser Webseite liegt auf <a href="https://github.com/alinnert/linnertmedia">GitHub</a>. Darüber kann ab jetzt auch vollständig die Kommunikation ablaufen, wenn es um Fragen zu einem Beitrag geht oder auch bei Ideen zu weiteren Themen, über die ich einen Beitrag verfassen kann.</p>
-<p>Egal, um was es geht: Erstellt einfach ein <a href="https://github.com/alinnert/linnertmedia/issues">Issue auf GitHub</a> und ich werde es so bald wie möglich bearbeiten.</p>
-<p>Aber nun viel Spaß beim Lesen!</p>
-]]></content>
-    </entry>
-  
-    
-    <entry>
-      <id>https://linnertmedia.de/blog/die-grundlagen-zu-nodejs</id>
-      <link type="text/html" rel="alternate" href="https://linnertmedia.de/blog/die-grundlagen-zu-nodejs" />
-      <title>Die Grundlagen zu Node.js</title>
-      <published>Sat Jun 16 2018 02:00:00 GMT+0200 (GMT+02:00)T00:00:00+00:00</published>
-      <author>
-        <name>Andreas Linnert</name>
-        <uri>https://linnertmedia.de</uri>
-      </author>
-      <content type="html"><![CDATA[<p>Node.js ist inzwischen allgegenwärtig in der Welt der Web-Entwicklung. Einige kennen es aber vielleicht nur im Kontext von JavaScript-Server-Anwendungen. Dieser Artikel soll einen groben Überblick über alle Facetten von Node.js geben.</p>
-<h2>Allgemeine Informationen</h2>
-<p>Node.js ist eine Plattform, die es erlaubt, JavaScript-Code außerhalb eines Web-Browsers auszuführen. Die aktuellen Versionen verwenden <em>V8</em> (Die JavaScript-Engine von Googles Browser <em>Chrome</em>) zum Ausführen von JavaScript-Code. Da V8 nur relativ begrenzte Möglichkeiten bietet, stehen einem des Weiteren noch native APIs zur Verfügung, um beispielsweise auf das lokale Dateisystem oder den Netzwerkverkehr zugreifen zu können.</p>
-<p>Dadurch eröffnen sich nun einige Möglichkeiten und Einsatzgebiete. Der Bekannteste darunter ist die Entwicklung von Web-Anwendungs-Servern. Sei es zur Erstellung von HTML-Seiten oder zur Bereitstellung einer REST- oder GraphQL-API. Ein wichtiger Unterschied zu PHP ist hier allerdings, dass kein zusätzlicher Webserver wie Apache notwendig ist, denn Node.js selbst ist bereits der Server. Da man somit quasi seinen eigenen Server baut, hat man auch etwas mehr Freiheiten als mit Fertigpaketen wie Apache.</p>
-<p>Weitere Einsatzzwecke sind das Erstellen von Kommandozeilen-Skripten und die Verwendung als Build-Tool für eigene Projekte. Nach der Installation auf einem Rechner stehen drei neue Befehle in der Kommandozeile zur Verfügung: <code>node</code>, <code>npm</code> und <code>npx</code>.</p>
-<h2>Der <code>node</code>-Befehl</h2>
-<p>Mit dem Befehl <code>node</code> lassen sich <code>.js</code>-Dateien ausführen, aber auch eine interaktive JavaScript-Konsole starten. Letztere startet man einfach durch ausführen von <code>node</code> in der Kommandozeile. Gibt man als Parameter allerdings eine JavaScript-Datei an, so wird der Code in dieser Datei ausgeführt. Führt man also den Befehl <code>node my-script.js</code> aus — und geht davon aus, dass diese Datei existiert und den Code <code>console.log('Hallo Welt')</code> enthält — dann wird &quot;Hallo Welt&quot; in der Kommandozeile ausgegeben.</p>
-<p>Unter Linux und Unix kann man sogar einen Schritt weitergehen und Skripte erstellen, die sich wie übliche Bash-Skripte starten lassen (<code>./my-script.js</code>). Dazu muss die JavaScript-Datei in der ersten Zeile folgendes beinhalten: <code>#!/usr/bin/env node</code>.</p>
-<p>Dadurch lassen sich einerseits Skripte erstellen, die einen endlichen Job erledigen und irgendwann fertig sind — z. B. Dateien kopieren. Oder aber es wird ein Dienst gestartet, der permanent im Hintergrund läuft und auf Verbindungen oder Anfragen wartet.</p>
-<h2>Neue Projekte anlegen mit <code>npm init</code> und <code>package.json</code></h2>
-<p>Npm ist die in Node.js integrierte Paketverwaltung. Damit lassen sich Projekte erstellen und dessen Abhängigkeiten verwalten. In der Regel beginnt man damit, dass man in einem Ordner ein Npm-Projekt initialisiert. Das geschieht in der Regel im Hauptverzeichnis des Projekts, an dem man arbeitet, mit folgendem Befehl: <code>npm init</code>. Danach werden einem einige Fragen zum Projekt gestellt: Name, Version, Autor, Lizenz etc. Die muss man nicht sofort und absolut gewissenhaft beantworten, denn ein späteres Ändern der Daten ist sehr einfach möglich.</p>
-<p>Nachdem das Projekt initialisiert wurde, findet man im Projektverzeichnis eine neue Datei: <code>package.json</code>. Diese beinhaltet alle vorhin eingegebenen Daten. Mehr ist dabei auch nicht passiert. Man kann diese Datei alternativ also auch per Hand erstellen. Diese Datei umfasst alle Informationen zum aktuellen Projekt und lässt sich als Dreh- und Angelpunkt dessen sehen. Ein händisches Editieren der Datei ist problemlos möglich und stellenweise sogar erforderlich.</p>
-<h2>Pakete installieren mit <code>npm install</code></h2>
-<p>In der <code>package.json</code> befinden sich u. a. die Felder <code>dependencies</code> und <code>devDependencies</code>. Diese listen die Pakete auf, die vom aktuellen Projekt benötigt werden, damit das Projekt lauffähig ist. Unter <a href="https://npmjs.org">npmjs.org</a> kann man sich einen Überblick über alle verfügbaren Pakete verschaffen.</p>
-<p>Die beiden Felder unterscheiden sich dabei nur darin, dass <code>devDependencies</code> alle Pakete beinhaltet, die zur Entwicklung am Projekt notwendig sind. <code>dependencies</code> listet alle Pakete auf, die zur generellen Funktionalität des Projekts notwendig sind. <code>devDependencies</code> beinhaltet also je nach Art des Projekts beispielsweise Entwicklerwerkzeuge wie Linter, Test-Tools, TypeScript-Definitionen und ähnliches.</p>
-<p>Möchten wir jetzt ein neues Paket installieren, bewegen wir uns in der Kommandozeile erst einmal in das Verzeichnis, das die <code>package.json</code> beinhaltet. Dann führen wir den Befehl <code>npm install &lt;name-of-package&gt;</code> aus, wobei <code>&lt;name-of-package&gt;</code> der Name des Pakets ist, das wir installieren möchten. Installieren wir beispielsweise das Framework <em>Vue</em> würde das so aussehen: <code>npm install vue</code>. Der exakte Name des Paketes ist in der Regel in der Dokumentation der Bibliothek zu finden, oder direkt unter <a href="https://npmjs.org">npmjs.org</a>.</p>
-<p>Was passiert nun bei der Installation? Alle installierten Pakete landen im Ordner <code>node_modules</code>, der neben unserer <code>package.json</code> angelegt wird, sollte er noch nicht existieren. Außerdem wird dieses Paket in der <code>package.json</code> im Feld <code>dependencies</code> automatisch hinterlegt. Das hat folgenden Vorteil: Bei der Verwendung einer Versionskontrolle wie Git brauchen wir den Inhalt von <code>node_modules</code> nicht mit unter Versionierung stellen. Checkt man das Projekt frisch aus und hat lediglich die <code>package.json</code>, reicht ein einfaches <code>npm install</code> und es werden automatisch alle Pakete erneut installiert, die in der <code>package.json</code> unter <code>dependencies</code> (und <code>devDependencies</code>) aufgelistet sind.</p>
-<h2>Skripte ausführen mit <code>npm run</code></h2>
-<p>In der <code>package.json</code> befindet sich auch ein Feld <code>scripts</code>. Dies beinhaltet eine Liste selbstdefinierter Skripte, die man immer wieder braucht. Npm hilft einem auch dabei, häufig benötigte Skripte schneller und einfacher ausführen zu können. Ein Skript definiert man, indem man dem <code>scripts</code>-Objekt ein Key-Value-Paar hinzufügt. Der „key“ ist dabei der Name des Skripts, der „value“ das Skript, das dann letzten Endes ausgeführt wird.</p>
-<div class="filename">Datei: package.json (Beispiel)</div><pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
-	...
-	<span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-		<span class="token property">"build"</span><span class="token operator">:</span> <span class="token string">"webpack -p"</span>
-	<span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>Im Grunde können die Skripte alles enthalten, was man auch in der Kommandozeile schreiben kann. Zusätzlich jedoch können ohne Umwege Skripte aufgerufen werden, die über Npm installiert wurden. Stellt ein <strong>lokal und nicht global</strong> installiertes Paket einen Kommandozeilenbefehl zur Verfügung (wie es zum Beispiel bei <code>webpack</code> der Fall ist), wäre dieser üblicherweise über <code>./node_modules/.bin/webpack</code> verfügbar. Diese umständliche Pfadangabe ist im <code>scripts</code>-Teil der <code>package.json</code> nicht notwendig. Es reicht ein einfaches <code>webpack</code>.</p>
-<h2>Skripte ausführen mit <code>npx</code></h2>
-<p>Npx ist neu mit Npm 5.0 hinzugekommen. Es vereinfacht das Ausführen von Kommandozeilenbefehlen, die durch Npm installiert wurden ungemein. Seitdem lässt sich das oben genannte Beispiel <code>./node_modules/.bin/webpack</code> durch <code>npx webpack</code> abkürzen. (In der <code>package.json</code> ist es aber weiterhin nicht notwendig)</p>
-<p>Wird versucht, durch Npx einen Befehl auszuführen, der nicht existiert, wird automatisch das jeweilige Skript temporär via Npm installiert und anschließend ausgeführt. Dies ist vor allem dann hilfreich, wenn man einen Befehl nur ausprobieren möchte oder ihn nur sehr selten benötigt — zum Beispiel <code>yo</code> von <a href="http://yeoman.io/"><em>Yeoman</em></a>.</p>
-<h2>Pakete global installieren mit <code>npm install --global</code></h2>
-<p>Die Möglichkeit, Pakete global auf dem System zu installieren, gerät mit der Zeit immer mehr in den Hintergrund. Durch Npx ist es einerseits nicht mehr notwendig, andererseits wird es an einigen Stellen empfohlen, Skripte im Projektkontext statt global zu installieren.</p>
-<p>Einen interessanten Einsatzzweck hat die globale Installation von Paketen aber dennoch: Das Entwickeln von systemunabhängigen Kommandozeilenskripten, die die Arbeit mit der Kommandozeile vereinfachen sollen. Ein global installiertes Paket ergibt nur dann Sinn, wenn es einen Befehl für die Kommandozeile bereitstellt, der in vielen Ordnern einsetzbar ist. Ein Beispiel wäre <a href="https://github.com/DeMille/bookmark">bookmark</a>, ein kleines Kommandozeilen-Werkzeug, mit dem man Ordner als Lesezeichen anlegen kann, um schneller dorthin navigieren zu können.</p>
-<h2>Node mit ChakraCore</h2>
-<p>Aktuell arbeitet Microsoft auch an einer Version von Node.js mit ChakraCore statt V8. ChakraCore ist die JavaScript-Engine des Browsers Edge. Man kann diese Version in Form einer Vorschau-Version ausprobieren. Der Quellcode ist auf <a href="https://github.com/nodejs/node-chakracore">GitHub</a> zu finden.</p>
-<h2>Node.js und WASM</h2>
-<p>Node.js wird in Zukunft mit <em>WASM</em> (WebAssembly) vermutlich noch etwas mehr an Bedeutung und Vielfältigkeit gewinnen. WASM, kurz erklärt, ist ein compile target für allerlei Programmiersprachen. WASM verwendet dabei die Laufzeitumgebung, die auch von JavaScript verwendet wird, allerdings wird beim Kompiliervorgang quasi an JavaScript &quot;vorbeikompiliert&quot;. Dadurch ist für WASM kompilierter Programmcode sehr performant. Da Node.js eine Plattform ist, die auf einer Unzahl von Plattformen lauffähig ist, gilt das auch für WASM-Programme.</p>
-<p>Unterm Strich erlaubt dies das Entwickeln von performanter Software in einer beliebigen Programmiersprache, die überall dort lauffähig ist, wo man eine WASM-kompatible JavaScript-Engine vorfindet. Das heißt konkret: Jede Plattform, auf der Node.js lauffähig ist und auch jeder aktuelle Web-Browser. Die aktuell primär unterstützten Sprachen sind C/C++ und Rust von Mozilla. Weitere Sprachen werden bald folgen. Darunter bekannte Sprachen, aber auch werden daraufhin neue Sprachen entstehen, die primär auf WASM abgestimmt sind, zum Beispiel <a href="https://github.com/AssemblyScript/assemblyscript">AssemblyScript</a> oder <a href="https://github.com/utatti/kou">Kou</a>.</p>
 ]]></content>
     </entry>
   
@@ -353,6 +302,57 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token comment">// > true</span>
 </code></pre>
 <p>Da der Artikel bereits sehr lang und vollgestopft mit Informationen ist, mache ich an dieser Stelle einen Schnitt.</p>
+]]></content>
+    </entry>
+  
+    
+    <entry>
+      <id>https://linnertmedia.de/blog/die-grundlagen-zu-nodejs</id>
+      <link type="text/html" rel="alternate" href="https://linnertmedia.de/blog/die-grundlagen-zu-nodejs" />
+      <title>Die Grundlagen zu Node.js</title>
+      <published>Sat Jun 16 2018 02:00:00 GMT+0200 (GMT+02:00)T00:00:00+00:00</published>
+      <author>
+        <name>Andreas Linnert</name>
+        <uri>https://linnertmedia.de</uri>
+      </author>
+      <content type="html"><![CDATA[<p>Node.js ist inzwischen allgegenwärtig in der Welt der Web-Entwicklung. Einige kennen es aber vielleicht nur im Kontext von JavaScript-Server-Anwendungen. Dieser Artikel soll einen groben Überblick über alle Facetten von Node.js geben.</p>
+<h2>Allgemeine Informationen</h2>
+<p>Node.js ist eine Plattform, die es erlaubt, JavaScript-Code außerhalb eines Web-Browsers auszuführen. Die aktuellen Versionen verwenden <em>V8</em> (Die JavaScript-Engine von Googles Browser <em>Chrome</em>) zum Ausführen von JavaScript-Code. Da V8 nur relativ begrenzte Möglichkeiten bietet, stehen einem des Weiteren noch native APIs zur Verfügung, um beispielsweise auf das lokale Dateisystem oder den Netzwerkverkehr zugreifen zu können.</p>
+<p>Dadurch eröffnen sich nun einige Möglichkeiten und Einsatzgebiete. Der Bekannteste darunter ist die Entwicklung von Web-Anwendungs-Servern. Sei es zur Erstellung von HTML-Seiten oder zur Bereitstellung einer REST- oder GraphQL-API. Ein wichtiger Unterschied zu PHP ist hier allerdings, dass kein zusätzlicher Webserver wie Apache notwendig ist, denn Node.js selbst ist bereits der Server. Da man somit quasi seinen eigenen Server baut, hat man auch etwas mehr Freiheiten als mit Fertigpaketen wie Apache.</p>
+<p>Weitere Einsatzzwecke sind das Erstellen von Kommandozeilen-Skripten und die Verwendung als Build-Tool für eigene Projekte. Nach der Installation auf einem Rechner stehen drei neue Befehle in der Kommandozeile zur Verfügung: <code>node</code>, <code>npm</code> und <code>npx</code>.</p>
+<h2>Der <code>node</code>-Befehl</h2>
+<p>Mit dem Befehl <code>node</code> lassen sich <code>.js</code>-Dateien ausführen, aber auch eine interaktive JavaScript-Konsole starten. Letztere startet man einfach durch ausführen von <code>node</code> in der Kommandozeile. Gibt man als Parameter allerdings eine JavaScript-Datei an, so wird der Code in dieser Datei ausgeführt. Führt man also den Befehl <code>node my-script.js</code> aus — und geht davon aus, dass diese Datei existiert und den Code <code>console.log('Hallo Welt')</code> enthält — dann wird &quot;Hallo Welt&quot; in der Kommandozeile ausgegeben.</p>
+<p>Unter Linux und Unix kann man sogar einen Schritt weitergehen und Skripte erstellen, die sich wie übliche Bash-Skripte starten lassen (<code>./my-script.js</code>). Dazu muss die JavaScript-Datei in der ersten Zeile folgendes beinhalten: <code>#!/usr/bin/env node</code>.</p>
+<p>Dadurch lassen sich einerseits Skripte erstellen, die einen endlichen Job erledigen und irgendwann fertig sind — z. B. Dateien kopieren. Oder aber es wird ein Dienst gestartet, der permanent im Hintergrund läuft und auf Verbindungen oder Anfragen wartet.</p>
+<h2>Neue Projekte anlegen mit <code>npm init</code> und <code>package.json</code></h2>
+<p>Npm ist die in Node.js integrierte Paketverwaltung. Damit lassen sich Projekte erstellen und dessen Abhängigkeiten verwalten. In der Regel beginnt man damit, dass man in einem Ordner ein Npm-Projekt initialisiert. Das geschieht in der Regel im Hauptverzeichnis des Projekts, an dem man arbeitet, mit folgendem Befehl: <code>npm init</code>. Danach werden einem einige Fragen zum Projekt gestellt: Name, Version, Autor, Lizenz etc. Die muss man nicht sofort und absolut gewissenhaft beantworten, denn ein späteres Ändern der Daten ist sehr einfach möglich.</p>
+<p>Nachdem das Projekt initialisiert wurde, findet man im Projektverzeichnis eine neue Datei: <code>package.json</code>. Diese beinhaltet alle vorhin eingegebenen Daten. Mehr ist dabei auch nicht passiert. Man kann diese Datei alternativ also auch per Hand erstellen. Diese Datei umfasst alle Informationen zum aktuellen Projekt und lässt sich als Dreh- und Angelpunkt dessen sehen. Ein händisches Editieren der Datei ist problemlos möglich und stellenweise sogar erforderlich.</p>
+<h2>Pakete installieren mit <code>npm install</code></h2>
+<p>In der <code>package.json</code> befinden sich u. a. die Felder <code>dependencies</code> und <code>devDependencies</code>. Diese listen die Pakete auf, die vom aktuellen Projekt benötigt werden, damit das Projekt lauffähig ist. Unter <a href="https://npmjs.org">npmjs.org</a> kann man sich einen Überblick über alle verfügbaren Pakete verschaffen.</p>
+<p>Die beiden Felder unterscheiden sich dabei nur darin, dass <code>devDependencies</code> alle Pakete beinhaltet, die zur Entwicklung am Projekt notwendig sind. <code>dependencies</code> listet alle Pakete auf, die zur generellen Funktionalität des Projekts notwendig sind. <code>devDependencies</code> beinhaltet also je nach Art des Projekts beispielsweise Entwicklerwerkzeuge wie Linter, Test-Tools, TypeScript-Definitionen und ähnliches.</p>
+<p>Möchten wir jetzt ein neues Paket installieren, bewegen wir uns in der Kommandozeile erst einmal in das Verzeichnis, das die <code>package.json</code> beinhaltet. Dann führen wir den Befehl <code>npm install &lt;name-of-package&gt;</code> aus, wobei <code>&lt;name-of-package&gt;</code> der Name des Pakets ist, das wir installieren möchten. Installieren wir beispielsweise das Framework <em>Vue</em> würde das so aussehen: <code>npm install vue</code>. Der exakte Name des Paketes ist in der Regel in der Dokumentation der Bibliothek zu finden, oder direkt unter <a href="https://npmjs.org">npmjs.org</a>.</p>
+<p>Was passiert nun bei der Installation? Alle installierten Pakete landen im Ordner <code>node_modules</code>, der neben unserer <code>package.json</code> angelegt wird, sollte er noch nicht existieren. Außerdem wird dieses Paket in der <code>package.json</code> im Feld <code>dependencies</code> automatisch hinterlegt. Das hat folgenden Vorteil: Bei der Verwendung einer Versionskontrolle wie Git brauchen wir den Inhalt von <code>node_modules</code> nicht mit unter Versionierung stellen. Checkt man das Projekt frisch aus und hat lediglich die <code>package.json</code>, reicht ein einfaches <code>npm install</code> und es werden automatisch alle Pakete erneut installiert, die in der <code>package.json</code> unter <code>dependencies</code> (und <code>devDependencies</code>) aufgelistet sind.</p>
+<h2>Skripte ausführen mit <code>npm run</code></h2>
+<p>In der <code>package.json</code> befindet sich auch ein Feld <code>scripts</code>. Dies beinhaltet eine Liste selbstdefinierter Skripte, die man immer wieder braucht. Npm hilft einem auch dabei, häufig benötigte Skripte schneller und einfacher ausführen zu können. Ein Skript definiert man, indem man dem <code>scripts</code>-Objekt ein Key-Value-Paar hinzufügt. Der „key“ ist dabei der Name des Skripts, der „value“ das Skript, das dann letzten Endes ausgeführt wird.</p>
+<div class="filename">Datei: package.json (Beispiel)</div><pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+	...
+	<span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+		<span class="token property">"build"</span><span class="token operator">:</span> <span class="token string">"webpack -p"</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Im Grunde können die Skripte alles enthalten, was man auch in der Kommandozeile schreiben kann. Zusätzlich jedoch können ohne Umwege Skripte aufgerufen werden, die über Npm installiert wurden. Stellt ein <strong>lokal und nicht global</strong> installiertes Paket einen Kommandozeilenbefehl zur Verfügung (wie es zum Beispiel bei <code>webpack</code> der Fall ist), wäre dieser üblicherweise über <code>./node_modules/.bin/webpack</code> verfügbar. Diese umständliche Pfadangabe ist im <code>scripts</code>-Teil der <code>package.json</code> nicht notwendig. Es reicht ein einfaches <code>webpack</code>.</p>
+<h2>Skripte ausführen mit <code>npx</code></h2>
+<p>Npx ist neu mit Npm 5.0 hinzugekommen. Es vereinfacht das Ausführen von Kommandozeilenbefehlen, die durch Npm installiert wurden ungemein. Seitdem lässt sich das oben genannte Beispiel <code>./node_modules/.bin/webpack</code> durch <code>npx webpack</code> abkürzen. (In der <code>package.json</code> ist es aber weiterhin nicht notwendig)</p>
+<p>Wird versucht, durch Npx einen Befehl auszuführen, der nicht existiert, wird automatisch das jeweilige Skript temporär via Npm installiert und anschließend ausgeführt. Dies ist vor allem dann hilfreich, wenn man einen Befehl nur ausprobieren möchte oder ihn nur sehr selten benötigt — zum Beispiel <code>yo</code> von <a href="http://yeoman.io/"><em>Yeoman</em></a>.</p>
+<h2>Pakete global installieren mit <code>npm install --global</code></h2>
+<p>Die Möglichkeit, Pakete global auf dem System zu installieren, gerät mit der Zeit immer mehr in den Hintergrund. Durch Npx ist es einerseits nicht mehr notwendig, andererseits wird es an einigen Stellen empfohlen, Skripte im Projektkontext statt global zu installieren.</p>
+<p>Einen interessanten Einsatzzweck hat die globale Installation von Paketen aber dennoch: Das Entwickeln von systemunabhängigen Kommandozeilenskripten, die die Arbeit mit der Kommandozeile vereinfachen sollen. Ein global installiertes Paket ergibt nur dann Sinn, wenn es einen Befehl für die Kommandozeile bereitstellt, der in vielen Ordnern einsetzbar ist. Ein Beispiel wäre <a href="https://github.com/DeMille/bookmark">bookmark</a>, ein kleines Kommandozeilen-Werkzeug, mit dem man Ordner als Lesezeichen anlegen kann, um schneller dorthin navigieren zu können.</p>
+<h2>Node mit ChakraCore</h2>
+<p>Aktuell arbeitet Microsoft auch an einer Version von Node.js mit ChakraCore statt V8. ChakraCore ist die JavaScript-Engine des Browsers Edge. Man kann diese Version in Form einer Vorschau-Version ausprobieren. Der Quellcode ist auf <a href="https://github.com/nodejs/node-chakracore">GitHub</a> zu finden.</p>
+<h2>Node.js und WASM</h2>
+<p>Node.js wird in Zukunft mit <em>WASM</em> (WebAssembly) vermutlich noch etwas mehr an Bedeutung und Vielfältigkeit gewinnen. WASM, kurz erklärt, ist ein compile target für allerlei Programmiersprachen. WASM verwendet dabei die Laufzeitumgebung, die auch von JavaScript verwendet wird, allerdings wird beim Kompiliervorgang quasi an JavaScript &quot;vorbeikompiliert&quot;. Dadurch ist für WASM kompilierter Programmcode sehr performant. Da Node.js eine Plattform ist, die auf einer Unzahl von Plattformen lauffähig ist, gilt das auch für WASM-Programme.</p>
+<p>Unterm Strich erlaubt dies das Entwickeln von performanter Software in einer beliebigen Programmiersprache, die überall dort lauffähig ist, wo man eine WASM-kompatible JavaScript-Engine vorfindet. Das heißt konkret: Jede Plattform, auf der Node.js lauffähig ist und auch jeder aktuelle Web-Browser. Die aktuell primär unterstützten Sprachen sind C/C++ und Rust von Mozilla. Weitere Sprachen werden bald folgen. Darunter bekannte Sprachen, aber auch werden daraufhin neue Sprachen entstehen, die primär auf WASM abgestimmt sind, zum Beispiel <a href="https://github.com/AssemblyScript/assemblyscript">AssemblyScript</a> oder <a href="https://github.com/utatti/kou">Kou</a>.</p>
 ]]></content>
     </entry>
   

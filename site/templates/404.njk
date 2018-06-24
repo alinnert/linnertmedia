@@ -1,0 +1,22 @@
+{% extends '_layouts/default.njk' %}
+
+{% set themeColor = globals.meta.color.secondaryLight %}
+{% set pageTitle = '404' %}
+
+{% from '_components/defaultPageHeader.njk' import defaultPageHeader %}
+
+{% block content %}
+  {{ defaultPageHeader() }}
+
+  <article class="article-content">
+    <h1>Diese Seite gibt es nicht</h1>
+    <pre><code>throw new Error(404)</code></pre>
+    <p>Im <strong>Juni 2018</strong> habe ich mein Blog überarbeitet und einige alte und nicht mehr relevante Beiträge entfernt. Dadurch kann es sein, dass du vielleicht über einen alten Link hier gelandet bist.</p>
+    <h2>Und nun?</h2>
+    <ul>
+      <li>Weitere Informationen zum neuen Blog gibt es im <a href="/blog/willkommen-auf-dem-neuen-blog/">entsprechenden Beitrag</a>.</li>
+      <li>Eine Liste aller verfügbaren Artikel finden sich auf <a href="/">der Startseite</a>.</li>
+      <li>Sollte ein Beitrag zu einem bestimmten Thema fehlen, eröffne gerne ein entsprechendes <a href="https://github.com/alinnert/linnertmedia/issues">Issue auf GitHub</a>.</li>
+    </ul>
+  </article>
+{% endblock %}

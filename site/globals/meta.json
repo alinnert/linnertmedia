@@ -1,7 +1,7 @@
 {
   "description": "Linnert Media - Ein deutschsprachiges Open Source-Blog zum Thema Web-Entwicklung und JavaScript.",
   "color": {
-    "secondaryLight": "#dde5ed",
+    "secondaryLight": "#f0f2f3",
     "secondaryDark": "#243342"
   }
 }

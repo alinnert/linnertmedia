@@ -253,7 +253,7 @@ Wenn ich es außerdem schaffe, bei meinen Webseiten gänzlich auf PHP zu verzich
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> mail<span class="token punctuation">,</span> admin<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// > Andreas andreas@linnertmedia.de true</span>
 </code></pre>
-<p>All diese Daten gehören zu einem Benutzer. Diesen Benutzer möchten wir auch gerne als solchen Behandeln und nicht einzeln von seinen ganzen Eigenschaften sprechen. Hier kommen Objekte ins Spiel.</p>
+<p>All diese Daten gehören zu einem Benutzer. Diesen Benutzer möchten wir auch gerne als solchen behandeln und nicht einzeln von seinen ganzen Eigenschaften sprechen. Hier kommen Objekte ins Spiel.</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword">var</span> user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 user<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'Andreas'</span><span class="token punctuation">;</span>
 user<span class="token punctuation">.</span>mail <span class="token operator">=</span> <span class="token string">'andreas@linnertmedia.de'</span><span class="token punctuation">;</span>

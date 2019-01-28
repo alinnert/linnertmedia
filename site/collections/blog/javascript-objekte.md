@@ -24,7 +24,7 @@ console.log(name, mail, admin);
 // > Andreas andreas@linnertmedia.de true
 ```
 
-All diese Daten gehören zu einem Benutzer. Diesen Benutzer möchten wir auch gerne als solchen Behandeln und nicht einzeln von seinen ganzen Eigenschaften sprechen. Hier kommen Objekte ins Spiel.
+All diese Daten gehören zu einem Benutzer. Diesen Benutzer möchten wir auch gerne als solchen behandeln und nicht einzeln von seinen ganzen Eigenschaften sprechen. Hier kommen Objekte ins Spiel.
 
 ``` js
 var user = new Object();

@@ -4,10 +4,9 @@
   &__title {
     display: flex;
     align-items: flex-end;
-    font-weight: bold;
+    font-weight: 600;
     line-height: $line-height-body;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     margin-top: ($line-height-body * $font-size-body);
     margin-bottom: 0;
   }

@@ -12,8 +12,7 @@
   }
 
   &__item {
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 0.5px;
     margin-left: 10px;
 
     &:first-child {
@@ -22,7 +21,8 @@
   }
 
   &__item-link {
-    padding: 10px 15px;
+    padding: 8px 14px;
+    border-radius: 4px;
   }
 
   &--type-light &__item-link:hover {

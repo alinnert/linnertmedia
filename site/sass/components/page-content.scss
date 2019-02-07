@@ -25,10 +25,10 @@
   }
 
   &__back-link {
-    text-transform: uppercase;
     font-size: 14px;
     font-weight: 600;
     line-height: ($font-size-body * $line-height-body);
+    letter-spacing: 0.5px;
     color: $color-subtle-text;
 
     &:hover {

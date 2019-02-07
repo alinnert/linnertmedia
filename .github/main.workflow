@@ -1,6 +1,6 @@
 workflow "Publish Website" {
   on = "push"
-  resolves = ["Commit and Push"]
+  resolves = ["Deploy"]
 }
 
 action "Clean install" {
@@ -14,8 +14,11 @@ action "Build" {
   args = "run build"
 }
 
-action "Commit and Push" {
-  uses = "elstudio/actions-js-build/commit@master"
+action "Deploy" {
+  uses = "maxheld83/ghpages@v0.1.1"
+  env = {
+    BUILD_DIR = "docs/"
+  }
+  secrets = ["GH_PAT"]
   needs = ["Build"]
-  secrets = ["GITHUB_TOKEN"]
 }

@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "Linnert Media Static Web Site",
   "scripts": {
-    "dev": "concurrently --names \" SRV , BLD \" --prefix-colors \"black.bgRed,black.bgBlue\" \"npm run serve\" \"npm run watch\"",
-    "serve": "serve docs -l 8080",
-    "build": "ts-node build/main.ts build",
-    "watch": "ts-node build/main.ts dev"
+    "serve": "gulp serve",
+    "dev": "gulp dev",
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
@@ -28,19 +27,23 @@
     "url": "https://github.com/alinnert/linnertmedia/issues"
   },
   "homepage": "https://github.com/alinnert/linnertmedia#readme",
-  "dependencies": {
+  "devDependencies": {
     "@types/autoprefixer": "^6.7.3",
     "@types/chokidar": "^1.7.5",
-    "@types/fs-extra": "^5.0.4",
-    "@types/html-minifier": "^3.5.2",
+    "@types/cross-spawn": "^6.0.0",
+    "@types/fs-extra": "^5.0.5",
+    "@types/gulp": "^4.0.5",
+    "@types/html-minifier": "^3.5.3",
     "@types/markdown-it": "0.0.4",
-    "@types/node": "^10.12.21",
-    "@types/nunjucks": "^3.1.0",
+    "@types/node": "^10.12.26",
+    "@types/nunjucks": "^3.1.1",
     "autoprefixer": "^8.6.5",
-    "chokidar": "^2.1.0",
-    "concurrently": "^3.6.1",
+    "chokidar": "^2.1.1",
+    "cross-spawn": "^6.0.5",
     "fs-extra": "^6.0.1",
     "gray-matter": "^4.0.2",
+    "gulp": "^4.0.0",
+    "gulp-cli": "^2.0.1",
     "html-minifier": "^3.5.21",
     "markdown-it": "^8.4.2",
     "markdown-it-container": "^2.0.0",
@@ -49,8 +52,8 @@
     "postcss": "^6.0.23",
     "rxjs": "^6.4.0",
     "sass": "^1.17.0",
-    "serve": "^10.1.2",
+    "serve-handler": "^5.0.8",
     "ts-node": "^8.0.2",
-    "typescript": "^3.3.1"
+    "typescript": "^3.3.3"
   }
 }

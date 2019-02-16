@@ -1,5 +1,5 @@
 import nunjucks from 'nunjucks'
-import { resolve } from 'path'
+import { resolve as resolvePath } from 'path'
 import { from, Observable, Observer } from 'rxjs'
 import { flatMap, map, reduce, filter } from 'rxjs/operators'
 import { writeFile, readdir, readFile, ensureFile } from 'fs-extra'
@@ -15,6 +15,7 @@ import {
   IMatterIndex,
   IMatterData
 } from 'templates'
+import { logTransformation } from './logger';
 
 const nunjucksOptions: nunjucks.ConfigureOptions = {
   throwOnUndefined: true,
@@ -22,7 +23,7 @@ const nunjucksOptions: nunjucks.ConfigureOptions = {
 }
 
 const nunjucksEnv = nunjucks.configure(
-  resolve(process.cwd(), 'site/templates'),
+  resolvePath(process.cwd(), 'site/templates'),
   nunjucksOptions
 )
 
@@ -76,12 +77,12 @@ md.use(require('markdown-it-container'), 'file', {
 md.use(require('markdown-it-prism'))
 
 function getGlobalsData() {
-  const globalsDirectory = resolve(process.cwd(), 'site/globals')
+  const globalsDirectory = resolvePath(process.cwd(), 'site/globals')
 
   return from(readdir(globalsDirectory)).pipe(
     flatMap(filenames => filenames),
     flatMap(filename =>
-      from(readFile(resolve(globalsDirectory, filename), 'utf8')).pipe(
+      from(readFile(resolvePath(globalsDirectory, filename), 'utf8')).pipe(
         map(fileContent => JSON.parse(fileContent)),
         map(fileContent => ({ filename, fileContent }))
       )
@@ -95,19 +96,19 @@ function getGlobalsData() {
 }
 
 function getCollectionsData() {
-  const collectionsDirectory = resolve(process.cwd(), 'site/collections')
+  const collectionsDirectory = resolvePath(process.cwd(), 'site/collections')
 
   return from(readdir(collectionsDirectory)).pipe(
     flatMap(foldernames => foldernames),
     flatMap(foldername => {
       return from(
-        readdir(resolve(process.cwd(), 'site/collections', foldername))
+        readdir(resolvePath(process.cwd(), 'site/collections', foldername))
       ).pipe(
         flatMap(filenames => filenames),
         flatMap(filename =>
           from(
             readFile(
-              resolve(process.cwd(), 'site/collections', foldername, filename),
+              resolvePath(process.cwd(), 'site/collections', foldername, filename),
               'utf8'
             )
           ).pipe(
@@ -199,39 +200,40 @@ export function renderTemplate({
   data = {},
   minify = true
 }: IRenderTemplateOptions) {
-  console.log(
-    `» Render template "${templateName}" → writing file "${outputFilename}"`
-  )
+  return new Promise((resolve, reject) => {
+    logTransformation(templateName, outputFilename)
 
-  getGlobalsData()
-    .pipe(
-      map(globalsData => Object.assign({}, data, { globals: globalsData })),
-      flatMap(data =>
-        getCollectionsData().pipe(
-          map(collections => {
-            data.collections = collections
-            return data
-          })
+    getGlobalsData()
+      .pipe(
+        map(globalsData => Object.assign({}, data, { globals: globalsData })),
+        flatMap(data =>
+          getCollectionsData().pipe(
+            map(collections => {
+              data.collections = collections
+              return data
+            })
+          )
+        ),
+        flatMap(data => renderNunjucksTemplate(templateName, data)),
+        map(
+          renderedTemplate =>
+            minify
+              ? minifyHtml(renderedTemplate, { collapseWhitespace: true })
+              : renderedTemplate
+        ),
+        map(renderedTemplate => {
+          const filename = resolvePath(process.cwd(), 'docs', outputFilename)
+          return { renderedTemplate, filename }
+        }),
+        flatMap(templateInfo =>
+          from(ensureFile(templateInfo.filename)).pipe(map(() => templateInfo))
         )
-      ),
-      flatMap(data => renderNunjucksTemplate(templateName, data)),
-      map(
-        renderedTemplate =>
-          minify
-            ? minifyHtml(renderedTemplate, { collapseWhitespace: true })
-            : renderedTemplate
-      ),
-      map(renderedTemplate => {
-        const filename = resolve(process.cwd(), 'docs', outputFilename)
-        return { renderedTemplate, filename }
-      }),
-      flatMap(templateInfo =>
-        from(ensureFile(templateInfo.filename)).pipe(map(() => templateInfo))
       )
-    )
-    .subscribe(({ renderedTemplate, filename }) => {
-      writeFile(filename, renderedTemplate)
-    })
+      .subscribe(({ renderedTemplate, filename }) => {
+        writeFile(filename, renderedTemplate)
+        resolve()
+      })
+  })
 }
 
 export function renderTemplateWithCollection({
@@ -239,31 +241,34 @@ export function renderTemplateWithCollection({
   collectionName,
   outputDirectory
 }: IRenderTemplateWithCollectionOptions) {
-  const collectionDirectory = getCollectionDirectory(collectionName)
+  return new Promise((resolve, reject) => {
+    const collectionDirectory = getCollectionDirectory(collectionName)
 
-  from(readdir(collectionDirectory))
-    .pipe(
-      flatMap(filenames => filenames),
-      flatMap(filename =>
-        from(readFile(resolve(collectionDirectory, filename), 'utf8')).pipe(
-          map(fileContent => ({ fileContent, filename }))
-        )
-      ),
-      map(({ filename, fileContent }) => {
-        filename = filename.replace(/\.md$/, '')
-        const matter = grayMatter(fileContent)
-        const contentHtml = md.render(matter.content)
-        return { filename, matter, contentHtml }
-      }),
-      filter(({ matter }) => (matter.data as any).date)
-    )
-    .subscribe(({ filename, matter, contentHtml }) => {
-      renderTemplate({
-        templateName,
-        outputFilename: `${outputDirectory}/${filename}/index.html`,
-        data: { filename, matter, contentHtml }
+    from(readdir(collectionDirectory))
+      .pipe(
+        flatMap(filenames => filenames),
+        flatMap(filename =>
+          from(readFile(resolvePath(collectionDirectory, filename), 'utf8')).pipe(
+            map(fileContent => ({ fileContent, filename }))
+          )
+        ),
+        map(({ filename, fileContent }) => {
+          filename = filename.replace(/\.md$/, '')
+          const matter = grayMatter(fileContent)
+          const contentHtml = md.render(matter.content)
+          return { filename, matter, contentHtml }
+        }),
+        filter(({ matter }) => (matter.data as any).date)
+      )
+      .subscribe(async ({ filename, matter, contentHtml }) => {
+        await renderTemplate({
+          templateName,
+          outputFilename: `${outputDirectory}/${filename}/index.html`,
+          data: { filename, matter, contentHtml }
+        })
+        resolve()
       })
-    })
+  })
 }
 
 export function renderTemplateWithCollectionMatterKey({
@@ -272,40 +277,43 @@ export function renderTemplateWithCollectionMatterKey({
   matterKey,
   outputDirectory
 }: IRenderTemplateWithCollectionMatterKeyOptions) {
-  const collectionDirectory = getCollectionDirectory(collectionName)
+  return new Promise((resolve, reject) => {
+    const collectionDirectory = getCollectionDirectory(collectionName)
 
-  from(readdir(collectionDirectory))
-    .pipe(
-      flatMap(filenames => filenames),
-      flatMap(filename =>
-        from(readFile(resolve(collectionDirectory, filename), 'utf8')).pipe(
-          map(fileContent => ({ fileContent, filename }))
-        )
-      ),
-      map(({ filename, fileContent }) => {
-        const matter = grayMatter(fileContent)
-        const contentHtml = md.render(matter.content)
-        filename = filename.replace(/\.md$/, '')
-        return { filename, matter, contentHtml }
-      }),
-      reduce(matterIndexReducer(matterKey), {}),
-      flatMap(matterIndex => Object.entries(matterIndex)),
-      map(([key, items]) => [
-        key,
-        items.sort((a: any, b: any) => {
-          if (a.matter.data.date > b.matter.data.date) return -1
-          if (a.matter.data.date < b.matter.data.date) return 1
-          return 0
+    from(readdir(collectionDirectory))
+      .pipe(
+        flatMap(filenames => filenames),
+        flatMap(filename =>
+          from(readFile(resolvePath(collectionDirectory, filename), 'utf8')).pipe(
+            map(fileContent => ({ fileContent, filename }))
+          )
+        ),
+        map(({ filename, fileContent }) => {
+          const matter = grayMatter(fileContent)
+          const contentHtml = md.render(matter.content)
+          filename = filename.replace(/\.md$/, '')
+          return { filename, matter, contentHtml }
+        }),
+        reduce(matterIndexReducer(matterKey), {}),
+        flatMap(matterIndex => Object.entries(matterIndex)),
+        map(([key, items]) => [
+          key,
+          items.sort((a: any, b: any) => {
+            if (a.matter.data.date > b.matter.data.date) return -1
+            if (a.matter.data.date < b.matter.data.date) return 1
+            return 0
+          })
+        ])
+      )
+      .subscribe(async ([matterValue, entries]) => {
+        await renderTemplate({
+          templateName,
+          outputFilename: `${outputDirectory}/${matterValue.toLowerCase()}/index.html`,
+          data: { matterValue, entries }
         })
-      ])
-    )
-    .subscribe(([matterValue, entries]) => {
-      renderTemplate({
-        templateName,
-        outputFilename: `${outputDirectory}/${matterValue.toLowerCase()}/index.html`,
-        data: { matterValue, entries }
+        resolve()
       })
-    })
+  })
 }
 
 export function renderNewsFeed({
@@ -313,46 +321,49 @@ export function renderNewsFeed({
   collectionName,
   outputFilename
 }: IRenderNewsFeedOptions) {
-  const collectionDirectory = getCollectionDirectory(collectionName)
+  return new Promise((resolve, reject) => {
+    const collectionDirectory = getCollectionDirectory(collectionName)
 
-  from(readdir(collectionDirectory))
-    .pipe(
-      flatMap(filenames => filenames),
-      flatMap(filename =>
-        from(readFile(resolve(collectionDirectory, filename), 'utf8')).pipe(
-          map(fileContent => ({ fileContent, filename }))
+    from(readdir(collectionDirectory))
+      .pipe(
+        flatMap(filenames => filenames),
+        flatMap(filename =>
+          from(readFile(resolvePath(collectionDirectory, filename), 'utf8')).pipe(
+            map(fileContent => ({ fileContent, filename }))
+          )
+        ),
+        map(({ filename, fileContent }) => {
+          filename = filename.replace(/\.md$/, '')
+          const matter = grayMatter(fileContent)
+          const contentHtml = md.render(matter.content)
+          return { filename, matter, contentHtml }
+        }),
+        reduce(
+          (
+            result: Array<any>,
+            item: { filename: string; matter: any; contentHtml: string }
+          ) => {
+            result.push(item)
+            return result
+          },
+          []
         )
-      ),
-      map(({ filename, fileContent }) => {
-        filename = filename.replace(/\.md$/, '')
-        const matter = grayMatter(fileContent)
-        const contentHtml = md.render(matter.content)
-        return { filename, matter, contentHtml }
-      }),
-      reduce(
-        (
-          result: Array<any>,
-          item: { filename: string; matter: any; contentHtml: string }
-        ) => {
-          result.push(item)
-          return result
-        },
-        []
       )
-    )
-    .subscribe(data => {
-      const entries = data.filter(entry => entry.matter.data.date).slice(0, 10)
-      renderTemplate({
-        templateName,
-        outputFilename,
-        data: { entries },
-        minify: false
+      .subscribe(data => {
+        const entries = data.filter(entry => entry.matter.data.date).slice(0, 10)
+        renderTemplate({
+          templateName,
+          outputFilename,
+          data: { entries },
+          minify: false
+        })
+        resolve()
       })
-    })
+  })
 }
 
 function getCollectionDirectory(collectionName: string) {
-  return resolve(process.cwd(), 'site/collections', collectionName)
+  return resolvePath(process.cwd(), 'site/collections', collectionName)
 }
 
 function matterIndexReducer(matterKey: string) {

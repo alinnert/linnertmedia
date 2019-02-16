@@ -1,33 +1,30 @@
-import xspawn from 'cross-spawn'
-import { parallel } from 'gulp'
+import { parallel, watch } from 'gulp'
 // @ts-ignore
 import serveHandler from 'serve-handler'
 import { createServer } from 'http'
+import { startSiteBuilder } from './build/main'
+import { logBanner, logAction } from './build/logger'
 
-function execShellCommand (
-  commandAndArgs: string[],
-  onStdout = (it: Buffer) => console.log(it.toString()),
-  onStderr = (it: Buffer) => console.log(it.toString())
-) {
-  return new Promise(resolve => {
-    const [command, ...args] = commandAndArgs
-    const cmd = xspawn(command, args, {})
-    cmd.stdout.on('data', onStdout)
-    cmd.stderr.on('data', onStderr)
-    cmd.on('close', code => resolve(code))
-  })
+logBanner()
+
+const buildSite = () => async function buildSite (done: Function) {
+  await startSiteBuilder()
+  done()
 }
 
-const buildSite = (watching = false) => (done: Function) => {
-  return execShellCommand([`npx ts-node build/main.ts ${watching ? 'dev' : 'build'}`])
+const watchSite = () => function watchSite (done: Function) {
+  watch('site/**/*', buildSite())
+  return new Promise(() => {})
 }
 
-const serveSite = () => (done: Function) => {
+const serveSite = () => function serveSite (done: Function) {
   const options = { public: 'docs' }
   const server = createServer((request, response) => serveHandler(request, response, options))
-  server.listen(8080, () => { console.log('server running at localhost:8080') })
+  const port = 8080
+  server.listen(port, () => { logAction(`Server is running at http://localhost:${port}`) })
+  return new Promise(() => {})
 }
 
-export const dev = parallel(buildSite(true), serveSite())
+export const dev = parallel(watchSite(), serveSite())
 export const build = buildSite()
 export const serve = serveSite()

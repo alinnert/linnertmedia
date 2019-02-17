@@ -1,7 +1,7 @@
 {% from '_components/mainNavigation.njk' import mainNavigation %}
 {% from '_components/logo.njk' import logo %}
 
-{% macro articlePageHeader(topline, headline, publishDate, updateDate) %}
+{% macro articlePageHeader(topline, headline, publishDate, updateDate, draft) %}
 <div class="article-page-header">
   <div class="article-page-header__top-bar">
     <div class="article-page-header__logo">{{ logo(type='dark') }}</div>
@@ -12,6 +12,7 @@
   <div class="article-page-header__metadata">
     {{ publishDate | date }}
     {% if updateDate %}• Aktualisiert: {{ updateDate | date }}{% endif %}
+    {% if draft %}• ENTWURF{% endif %}
   </div>
   <svg class="article-page-header__graphic" viewBox="0 0 500 50" preserveAspectRatio="none">
     <path d="M0,0l0,50c63.994,-32.923 149.576,-35.395 263,-25c121.314,11.118 173.166,4.433 237,-25l-500,0Z" style="fill:#2d4053;"/>

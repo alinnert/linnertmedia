@@ -14,12 +14,14 @@
       <a href="/feed.xml" class="page-content__title-link">Feed abonnieren</a>
     </h1>
     {% for entry in collections.blog %}
-      {{ articleTeaser(
-        title = entry.matter.data.title,
-        url = entry.filename,
-        date = entry.matter.data.date,
-        tags = entry.matter.data.tags
-      ) }}
+      {% if entry.matter.data.draft !== true %}
+        {{ articleTeaser(
+          title = entry.matter.data.title,
+          url = entry.filename,
+          date = entry.matter.data.date,
+          tags = entry.matter.data.tags
+        ) }}
+      {% endif %}
     {% endfor %}
   </div>
 {% endblock %}

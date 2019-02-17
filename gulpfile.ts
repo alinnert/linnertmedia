@@ -13,7 +13,7 @@ const buildSite = () => async function buildSite (done: Function) {
 }
 
 const watchSite = () => function watchSite (done: Function) {
-  watch('site/**/*', buildSite())
+  watch('site/**/*', { ignoreInitial: false }, buildSite())
   return new Promise(() => {})
 }
 

@@ -10,17 +10,19 @@
     <email>andreas@linnertmedia.de</email>
   </author>
   {% for entry in entries %}
-    {% set entryUrl = 'https://linnertmedia.de/blog/' + entry.filename %}
-    <entry>
-      <id>{{ entryUrl }}</id>
-      <link type="text/html" rel="alternate" href="{{ entryUrl }}" />
-      <title>{{ entry.matter.data.title }}</title>
-      <published>{{ entry.matter.data.date }}T00:00:00+00:00</published>
-      <author>
-        <name>Andreas Linnert</name>
-        <uri>https://linnertmedia.de</uri>
-      </author>
-      <content type="html"><![CDATA[{{ entry.contentHtml | safe }}]]></content>
-    </entry>
+    {% if entry.draft !== true %}
+      {% set entryUrl = 'https://linnertmedia.de/blog/' + entry.filename %}
+      <entry>
+        <id>{{ entryUrl }}</id>
+        <link type="text/html" rel="alternate" href="{{ entryUrl }}" />
+        <title>{{ entry.matter.data.title }}</title>
+        <published>{{ entry.matter.data.date }}T00:00:00+00:00</published>
+        <author>
+          <name>Andreas Linnert</name>
+          <uri>https://linnertmedia.de</uri>
+        </author>
+        <content type="html"><![CDATA[{{ entry.contentHtml | safe }}]]></content>
+      </entry>
+    {% endif %>
   {% endfor %}
 </feed>

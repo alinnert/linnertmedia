@@ -1,4 +1,4 @@
-name: Build and publish documentation
+name: Build and deploy website
 
 on: [push]
 
@@ -23,7 +23,7 @@ jobs:
     - name: npm install and build
       run: |
         npm ci
-        npm run docs:build
+        npm run build
       env:
         CI: true
 

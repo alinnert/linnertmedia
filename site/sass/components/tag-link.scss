@@ -1,4 +1,10 @@
 .tag-link {
+  color: $color-primary-text-on-dark;
+
+  &:hover {
+    color: lighten($color-primary-text-on-dark, 30%);
+  }
+  
   &--use-color {
     padding: {
       top: 1px;
@@ -6,6 +12,10 @@
       right: 6px;
       bottom: 1px;
     }
+    margin: {
+      right: 6px;
+    }
+    background: hsl(0, 0, 0);
     color: white;
     border-radius: 4px;
 
@@ -15,14 +25,18 @@
   }
 
   &--use-color#{&}--type-javascript {
-    background: hsl(50, 80, 40);
+    background: hsl(50, 80, 45);
   }
 
   &--use-color#{&}--type-intern {
-    background: hsl(150, 50, 50);
+    background: hsl(150, 50, 45);
   }
 
   &--use-color#{&}--type-tipps {
     background: hsl(300, 50, 50);
+  }
+
+  &--use-color#{&}--type-node\.js {
+    background: hsl(119, 100, 22);
   }
 }

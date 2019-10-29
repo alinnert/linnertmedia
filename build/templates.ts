@@ -38,12 +38,12 @@ nunjucksEnv.addFilter('date', date => {
   return `${day}.${month}.${year}`
 })
 
-nunjucksEnv.addFilter('tagLinks', (tagsString: string, useColor: boolean = false) => {
+nunjucksEnv.addFilter('tagLinks', (tagsString: string, divider: string = '', useColor: boolean = false) => {
   const getClasses = (tag: string) => Object
     .entries({
       'tag-link': true,
       'tag-link--use-color': useColor,
-      [`tag-link--type-${tag.toLowerCase()}`]: true
+      [`tag-link--type-${tag.toLowerCase().replace(/\s/g, '-')}`]: true
     })
     .filter(([className, condition]) => condition)
     .map(([className, condition]) => className)
@@ -53,7 +53,7 @@ nunjucksEnv.addFilter('tagLinks', (tagsString: string, useColor: boolean = false
     .split(',')
     .map(it => it.trim())
     .map(it => `<a class="${getClasses(it)}" href="/blog/tag/${it.toLowerCase()}">${it}</a>`)
-    .join(' • ')
+    .join(`${divider}`)
 })
 
 const md = markdownit({ breaks: true })

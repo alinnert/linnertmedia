@@ -1,8 +1,10 @@
 {% macro articleTeaser(title, url, date, tags) %}
   <article class="article-teaser">
     <div class="article-teaser__topline">
-      {{ date | date }} •
-      {{ tags | tagLinks(true) | safe }}
+      <span class="article-teaser__date">{{ date | date }}</span>
+      <span class="article-teaser__tags">
+        {{ tags | tagLinks('', true) | safe }}
+      </span>
     </div>
     <h2 class="article-teaser__title">
       <a href="/blog/{{ url }}">{{ title }}</a>

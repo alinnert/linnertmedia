@@ -11,7 +11,7 @@
     {{ publishDate | date }}
     {% if updateDate %}• Bearbeitet {{ updateDate | date }}{% endif %}
     /&nbsp;
-    <div class="article-page-header__topline">{{ topline | tagLinks | safe }}</div>
+    <div class="article-page-header__topline">{{ topline | tagLinks(' / ') | safe }}</div>
     {% if draft %}/ Entwurf{% endif %}
   </div>
   <h1 class="article-page-header__title">{{ headline }}</h1>

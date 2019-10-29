@@ -1,6 +1,6 @@
 ---
 title: Die Grundlagen zu Node.js
-tags: JavaScript
+tags: JavaScript, Node.JS
 date: 2018-06-16
 description: Node.js erlaubt die Entwicklung von Serveranwendungen. Aber auch Node.js-basierte Kommandozeilentools oder Build-Skripte werden in den letzten Jahren stark genutzt.
 ---

@@ -11,7 +11,11 @@
   {{ defaultPageHeader() }}
   <div class="page-content">
     <h1 class="page-content__title">Beiträge zum Thema "{{ matterValue }}"</h1>
-    <div class="page-content__back-link"><a href="/">« Zurück zu allen Beiträgen</a></div>
+    <div class="page-content__back-link-box">
+      <a class="page-content__back-link" href="/">
+        « Zurück zu allen Beiträgen
+      </a>
+    </div>
 
     {% for entry in entries %}
       {{ articleTeaser(

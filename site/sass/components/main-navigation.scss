@@ -1,7 +1,7 @@
 .main-navigation {
   margin-left: auto;
 
-  @media (max-width: 700px) {
+  @media (max-width: #{$settings-page-width}) {
     margin-left: 0;
     margin-top: 20px;
   }
@@ -12,8 +12,9 @@
   }
 
   &__item {
-    letter-spacing: 0.5px;
     margin-left: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 
     &:first-child {
       margin-left: 0;
@@ -21,7 +22,7 @@
   }
 
   &__item-link {
-    padding: 8px 14px;
+    padding: 8px 12px;
     border-radius: 4px;
   }
 

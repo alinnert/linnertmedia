@@ -24,10 +24,9 @@ pre[class*="language-"] {
   margin-left: -20px;
   margin-right: -20px;
   border: none;
-  background-color: #f2f2f2;
+  background-color: $color-secondary-background-light;
 }
 
 pre > code {
-  font-family: $font-set-roboto-mono;
   font-size: 14px;
 }

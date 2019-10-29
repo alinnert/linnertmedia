@@ -38,11 +38,21 @@ nunjucksEnv.addFilter('date', date => {
   return `${day}.${month}.${year}`
 })
 
-nunjucksEnv.addFilter('tagLinks', (tagsString: string) => {
+nunjucksEnv.addFilter('tagLinks', (tagsString: string, useColor: boolean = false) => {
+  const getClasses = (tag: string) => Object
+    .entries({
+      'tag-link': true,
+      'tag-link--use-color': useColor,
+      [`tag-link--type-${tag.toLowerCase()}`]: true
+    })
+    .filter(([className, condition]) => condition)
+    .map(([className, condition]) => className)
+    .join(' ')
+  
   return tagsString
     .split(',')
     .map(it => it.trim())
-    .map(it => `<a href="/blog/tag/${it.toLowerCase()}">${it}</a>`)
+    .map(it => `<a class="${getClasses(it)}" href="/blog/tag/${it.toLowerCase()}">${it}</a>`)
     .join(' • ')
 })
 
@@ -182,6 +192,8 @@ function renderNunjucksTemplate(
       if (!canceled) {
         if (error) {
           observer.error(error)
+        } else if (result === null) {
+          observer.error('result is null')
         } else {
           observer.next(result)
         }

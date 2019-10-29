@@ -14,8 +14,10 @@
   &__title-link {
     margin-left: auto;
     color: $color-primary-text-on-light;
-    font-size: 16px;
-    font-weight: 600;
+    font: {
+      size: 16px;
+      weight: 600;
+    }
     text-transform: none;
     letter-spacing: 1px;
 
@@ -24,13 +26,31 @@
     }
   }
 
-  &__back-link {
-    font-size: 14px;
-    font-weight: 600;
+  &__back-link-box {
+    font: {
+      size: 16px;
+      weight: 600;
+    }
     line-height: ($font-size-body * $line-height-body);
     letter-spacing: 0.5px;
-    color: $color-subtle-text;
-
+    margin: {
+      top: 20px;
+    }
+  }
+  
+  &__back-link {
+    background: $color-secondary-background-light;
+    color: $color-secondary-text-on-light;
+    border: {
+      radius: 4px;
+    }
+    padding: {
+      top: 6px;
+      left: 14px;
+      right: 14px;
+      bottom: 6px;
+    }
+    
     &:hover {
       color: $color-primary-text-on-light;
     }

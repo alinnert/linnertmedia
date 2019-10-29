@@ -2,8 +2,10 @@
   <article class="article-teaser">
     <div class="article-teaser__topline">
       {{ date | date }} •
-      {{ tags | tagLinks | safe }}
+      {{ tags | tagLinks(true) | safe }}
     </div>
-    <h2 class="article-teaser__title"><a href="/blog/{{ url }}">{{ title }}</a></h2>
+    <h2 class="article-teaser__title">
+      <a href="/blog/{{ url }}">{{ title }}</a>
+    </h2>
   </article>
 {% endmacro %}

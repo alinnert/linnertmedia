@@ -1,7 +1,6 @@
 @mixin baseLogo() {
   display: flex;
-  font-family: $font-set-lora;
-  font-size: 24px;
+  font-size: 22px;
   text-transform: uppercase;
-  letter-spacing: 6px;
+  letter-spacing: 4px;
 }

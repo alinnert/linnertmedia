@@ -1,6 +1,6 @@
 .article-teaser {
   .page-content__title + &,
-  .page-content__back-link + & {
+  .page-content__back-link-box + & {
     margin-top: 40px;
   }
 
@@ -10,21 +10,16 @@
 
   &__topline {
     color: $color-subtle-text;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 1px;
-  }
-
-  &__topline a {
-    &:hover {
-      color: $color-primary-text-on-light;
-    }
+    font-size: 16px;
   }
 
   &__title {
-    color: $color-weak-text;
-    font-family: $font-set-roboto;
-    font-size: 22px;
+    color: $color-headline-text;
+    font: {
+      family: $font-set-roboto;
+      size: 22px;
+      weight: 600;
+    }
     letter-spacing: 0.5px;
     margin-top: 8px;
   }

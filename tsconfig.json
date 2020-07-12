@@ -2,15 +2,18 @@
   "compilerOptions": {
     "strict": true,
     "alwaysStrict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
     "esModuleInterop": true,
-    "module": "commonjs",
-    "target": "es2015",
+    "module": "CommonJS",
+    "target": "ES2019",
     "moduleResolution": "node",
-    "sourceMap": true,
-    "outDir": "dist",
-    "baseUrl": ".",
-    "lib": ["es2017"],
-    "paths": { "*": ["node_modules/*", "build/types/*"] }
+    "importHelpers": true,
+    "rootDir": "./src",
+    "jsx": "react",
+    "lib": [
+      "ESNext"
+    ],
   },
-  "include": ["build/**/*.ts"]
+  "include": ["src"]
 }

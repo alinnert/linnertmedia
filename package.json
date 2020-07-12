@@ -1,56 +1,55 @@
 {
   "name": "linnertmedia",
   "version": "1.0.0",
-  "description": "Linnert Media Static Web Site",
-  "scripts": {
-    "serve": "gulp serve",
-    "dev": "gulp dev",
-    "build": "gulp build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://alinnert@github.com/alinnert/linnertmedia.git"
-  },
+  "description": "Linnert Media ist ein Blog zum Thema Web-Entwicklung, primär JavaScript.",
   "keywords": [
-    "blog",
-    "static-site",
-    "deutsch",
-    "german"
+    "blog"
   ],
-  "author": {
-    "name": "Andreas Linnert",
-    "email": "andreas@linnertmedia.de",
-    "url": "https://linnertmedia.de"
-  },
+  "author": "Andreas Linnert <andreas@linnertmedia.de>",
   "license": "MIT",
+  "homepage": "https://linnertmedia.de",
   "bugs": {
     "url": "https://github.com/alinnert/linnertmedia/issues"
   },
-  "homepage": "https://github.com/alinnert/linnertmedia#readme",
-  "devDependencies": {
-    "@types/autoprefixer": "^9.6.1",
-    "@types/fs-extra": "^8.0.1",
-    "@types/gulp": "^4.0.6",
-    "@types/html-minifier": "^3.5.3",
-    "@types/markdown-it": "0.0.9",
-    "@types/node": "^12.11.7",
-    "@types/nunjucks": "^3.1.2",
-    "autoprefixer": "^9.7.0",
-    "fs-extra": "^8.1.0",
-    "gray-matter": "^4.0.2",
-    "gulp": "^4.0.2",
-    "gulp-cli": "^2.2.0",
-    "html-minifier": "^4.0.0",
-    "markdown-it": "^10.0.0",
-    "markdown-it-container": "^2.0.0",
-    "markdown-it-prism": "^2.0.3",
-    "nunjucks": "^3.2.0",
-    "postcss": "^7.0.21",
-    "rxjs": "^6.5.3",
-    "sass": "^1.23.1",
-    "serve-handler": "^6.1.2",
-    "ts-node": "^8.4.1",
-    "typescript": "^3.6.4"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alinnert/linnertmedia.git"
   },
-  "dependencies": {}
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node-dev src/index.ts",
+    "build": "npm run build:js && npm run build:css",
+    "build:js": "tsc --outDir build/server",
+    "build:css": "sass src/sass/main.scss > build/assets/styles.css"
+  },
+  "dependencies": {
+    "fastify": "^3.0.2",
+    "fastify-plugin": "^2.0.1",
+    "fastify-static": "^3.1.0",
+    "fs-extra": "^9.0.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.22",
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
+    "@typescript-eslint/eslint-plugin": "^3.3.0",
+    "@typescript-eslint/parser": "^3.3.0",
+    "eslint": "^7.2.0",
+    "eslint-config-react-app": "^5.2.1",
+    "eslint-config-standard-with-typescript": "^18.0.2",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.7",
+    "eslint-plugin-standard": "^4.0.1",
+    "sass": "^1.26.8",
+    "ts-node-dev": "^1.0.0-pre.49",
+    "typescript": "^3.9.5"
+  }
 }

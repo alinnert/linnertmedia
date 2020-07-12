@@ -1,0 +1,26 @@
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+h1 {
+  font-weight: normal;
+}
+
+h2 {
+  font-weight: normal;
+}
+
+pre[class*="language-"] {
+  display: block;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-left: -20px;
+  margin-right: -20px;
+  border: none;
+}
+
+pre > code {
+  font-size: 14px;
+}

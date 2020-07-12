@@ -8,7 +8,7 @@ URL: <https://linnertmedia.de>
 
 Sollte Interesse für einen Beitrag zu einem bestimmten Thema bestehen, bitte gerne ein [GitHub-Issue öffnen](https://github.com/alinnert/linnertmedia/issues) oder vorhandene Issues mit Daumen nach oben bewerten.
 
-### Verwendete Technologien
+## Verwendete Technologien
 
 - [Node.js](https://nodejs.org)
 - [TypeScript](http://www.typescriptlang.org/)

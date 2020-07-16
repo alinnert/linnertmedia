@@ -1,45 +1,24 @@
 import { FastifyPluginCallback } from 'fastify'
+import { basename } from 'path'
 import React from 'react'
+import { getContentList } from '../../services/content/getContentList'
 import { defaultTemplate } from '../../templates/default'
-import { Teaser } from '../../components/teaser'
 
-export const indexPlugin: FastifyPluginCallback = async (
-  app, options, next
-) => {
+export const indexPlugin: FastifyPluginCallback = async app => {
   app.get('/', async (request, reply) => {
-    const articles = [
-      {
-        title: 'Wie funktioniert "this" in JavaScript?',
-        date: '17.02.2019',
-        tags: ['JavaScript'],
-        url: '/blog/wie-funktioniert-this-in-javascript'
-      },
-      {
-        title: 'Willkommen auf dem neuen Linnert Media-Blog',
-        date: '17.06.2018',
-        tags: ['Intern'],
-        url: '/blog/willkommen-auf-dem-neuen-linnert-media-blog'
-      },
-      {
-        title: 'Die Grundlagen zu Node.js',
-        date: '16.06.2017',
-        tags: ['JavaScript', 'Node.js'],
-        url: '/blog/die-grundlagen-zu-nodejs'
-      },
-      {
-        title: 'AutoHotKey für angenehmeres Arbeiten mit der Tastatur',
-        date: '10.06.2017',
-        tags: ['Tipps'],
-        url: '/blog/autohotkey-fuer-angenehmeres-arbeiten-mit-der-tastatur'
-      }
-    ]
+    const articles = await getContentList('blog')
 
     return defaultTemplate(
       <>
-        <h1>Linnert Media JSX</h1>
-        {articles.map((article, i) => (
-          <Teaser key={i} {...article} />
-        ))}
+        <h1>Linnert Media</h1>
+        {Object.entries(articles).map(([fileName, article]) => <>
+          <h1>
+            <a href={`/blog/${basename(fileName, '.md')}`}>
+              {basename(fileName, '.md')}
+            </a>
+          </h1>
+          <p>{article.content}</p>
+        </>)}
       </>
     )
   })

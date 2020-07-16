@@ -1,6 +1,6 @@
 import { resolve } from 'path'
 
-type ContentFolder =
+export type ContentFolder =
   | 'blog'
   | 'projects'
 

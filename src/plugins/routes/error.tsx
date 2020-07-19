@@ -1,6 +1,6 @@
 import { FastifyPluginCallback } from 'fastify'
 import React from 'react'
-import { defaultTemplate } from '../../templates/default'
+import { defaultTemplate } from '../../services/templates/default'
 
 export const errorPlugin: FastifyPluginCallback = async (app, options, next) => {
   app.get('/*', async (request, reply) => {

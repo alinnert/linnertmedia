@@ -7,16 +7,17 @@ import { MarkdownItem } from './ContentItem'
 export async function getContentList (
   folder: ContentFolder
 ): Promise<Record<string, MarkdownItem>> {
-  const contentFolder = getContentFolderPath(folder)
-  await access(contentFolder)
-  const fileNames = await readdir(contentFolder)
-  const fileContents: Record<string, MarkdownItem> = {}
+  const contentFolderPath = getContentFolderPath(folder)
+  await access(contentFolderPath)
+  const fileNames = await readdir(contentFolderPath)
+  const markdownItems: Record<string, MarkdownItem> = {}
 
   for (const fileName of fileNames) {
-    const filePath = resolve(contentFolder, fileName)
+    if (!fileName.endsWith('.md')) { continue }
+    const filePath = resolve(contentFolderPath, fileName)
     const fileContent = await readFile(filePath, { encoding: 'utf-8' })
-    fileContents[fileName] = await parseMarkdown(fileContent)
+    markdownItems[fileName] = await parseMarkdown(fileContent)
   }
 
-  return fileContents
+  return markdownItems
 }

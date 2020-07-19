@@ -11,7 +11,6 @@ const frontmatterParser = remark()
   .use(remarkExtractFrontmatter, { yaml: parse })
   .use(remarkHighlight)
   .use(remarkHtml)
-  .use(() => (arg) => console.dir(arg))
 
 export async function parseMarkdown (data: string): Promise<MarkdownItem> {
   const file = await frontmatterParser.process(data)

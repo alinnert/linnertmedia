@@ -1,6 +1,7 @@
 ---
 title: Willkommen auf dem neuen Linnert Media-Blog
-tags: Intern
+tags:
+  - Intern
 date: 2018-06-17
 description: Mein Blog wurde grundlegend überarbeitet. Es basiert auf Node.js, RxJS und wird auf GitHub gehostet. Fragen und Anregungen werden über GitHub issues abgehandelt.
 ---

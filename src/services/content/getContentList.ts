@@ -1,7 +1,8 @@
 import { access, readdir, readFile } from 'fs/promises'
-import { ContentFolder, getContentFolderPath } from '../../paths'
-import { MarkdownItem } from './ContentItem'
 import { resolve } from 'path'
+import { ContentFolder, getContentFolderPath } from '../../paths'
+import { parseMarkdown } from '../markdown'
+import { MarkdownItem } from './ContentItem'
 
 export async function getContentList (
   folder: ContentFolder
@@ -13,9 +14,8 @@ export async function getContentList (
 
   for (const fileName of fileNames) {
     const filePath = resolve(contentFolder, fileName)
-    const content = await readFile(filePath, { encoding: 'utf-8' })
-    const data = {}
-    fileContents[fileName] = { data, content }
+    const fileContent = await readFile(filePath, { encoding: 'utf-8' })
+    fileContents[fileName] = await parseMarkdown(fileContent)
   }
 
   return fileContents

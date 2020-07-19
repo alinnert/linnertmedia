@@ -1,4 +1,4 @@
 export interface MarkdownItem {
-  data: Record<string, unknown>
+  metadata: Record<string, unknown>
   content: string
 }

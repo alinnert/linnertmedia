@@ -1,6 +1,7 @@
 ---
 title: Objekte in JavaScript
-tags: JavaScript
+tags:
+  - JavaScript
 date: 2015-09-13
 description: Dieser Beitrag erklärt, wie man in JavaScript mit Objekten arbeiten kann. Im Vordergrund stehen der Zugriff auf Properties und der allgemeine Umgang mit Prototypen.
 ---
@@ -40,9 +41,9 @@ Somit kann man alle Daten des Nutzers über das Objekt `user` ansprechen. Man ne
 
 ``` js
 var user = {
-    name: 'Andreas',
-    mail: 'andreas@linnertmedia.de',
-    admin: true
+  name: 'Andreas',
+  mail: 'andreas@linnertmedia.de',
+  admin: true
 };
 ```
 
@@ -115,19 +116,19 @@ Man kann Prototypen folgendermaßen definieren. Ich werde hierzu bereits Funktio
 var user, andreas, minka;
 
 user = {
-    sayYourName: function () {
-        console.log('My name is ' + this.name);
-    }
+  sayYourName: function () {
+    console.log('My name is ' + this.name);
+  }
 };
 
 andreas = Object.create(user);
 andreas.name = 'Andy';
 
 minka = {
-    name: 'Minka',
-    sayYourName: function () {
-        console.log(this.name + ' Miau!');
-    }
+  name: 'Minka',
+  sayYourName: function () {
+    console.log(this.name + ' Miau!');
+  }
 };
 Object.setPrototypeOf(minka, user);
 

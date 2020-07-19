@@ -1,6 +1,7 @@
 ---
 title: AutoHotKey für angenehmeres Arbeiten mit der Tastatur
-tags: Tipps
+tags:
+  - Tipps
 date: 2017-06-10
 description: Mit AutoHotKey lassen sich Tastenkürzel definieren und Tasten umbelegen, um produktiver mit der Tastatur arbeiten zu können. Hier gibt es ein Beispiel für ein solches AHK-Skript.
 ---

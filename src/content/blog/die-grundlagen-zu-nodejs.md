@@ -1,6 +1,8 @@
 ---
 title: Die Grundlagen zu Node.js
-tags: JavaScript, Node.JS
+tags:
+  - JavaScript
+  - Node.JS
 date: 2018-06-16
 description: Node.js erlaubt die Entwicklung von Serveranwendungen. Aber auch Node.js-basierte Kommandozeilentools oder Build-Skripte werden in den letzten Jahren stark genutzt.
 ---
@@ -46,10 +48,10 @@ In der `package.json` befindet sich auch ein Feld `scripts`. Dies beinhaltet ein
 ::: file package.json (Beispiel)
 ```json
 {
-	...
-	"scripts": {
-		"build": "webpack -p"
-	}
+  // ...
+  "scripts": {
+    "build": "webpack -p"
+  }
 }
 ```
 :::

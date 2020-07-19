@@ -1,6 +1,7 @@
 ---
 title: Variablen, undefined und simple Datentypen in JavaScript
-tags: JavaScript
+tags:
+  - JavaScript
 date: 2015-06-29
 description: Dieser Beitrag erklärt die Grundlagen von JavaScript. Den strict mode, Variablen sowie die simplen Datentypen number, boolean, string. Die Wertübergabe erfolgt "by value".
 ---
@@ -23,8 +24,8 @@ Variablen werden mit dem keyword `var` deklariert. Wann und wo man Variablen dek
 
 ``` js
 var tree, i,
-    theAnswer = 42,
-    darling = kitten = 'Minka';
+  theAnswer = 42,
+  darling = kitten = 'Minka';
 ```
 
 (Aktuell ignoriere ich hier die beiden neuen keywords `let` und `const`, die mit ECMAScript 6 eingeführt werden, da sie im Normalfall noch nicht verwendet werden können.)
@@ -74,8 +75,8 @@ Beim ersten `if`-Statement (`if (tree)`) wird “kein Baum” in der JavaScript-
 ``` js
 function logSomeText(text)
 {
-    if (text) { console.log(text); }
-    else { console.log('kein Text eingegeben'); }
+  if (text) { console.log(text); }
+  else { console.log('kein Text eingegeben'); }
 }
 
 // Ein paar ergänzende Beispiele:

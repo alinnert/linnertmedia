@@ -1,6 +1,7 @@
 ---
 title: Wie funktioniert "this" in JavaScript?
-tags: JavaScript
+tags:
+  - JavaScript
 date: 2019-02-17
 description: this ist eine der am meisten missverstandenen Funktionen von JavaScript. Hier möchte ich etwas Licht ins Dunkel bringen.
 ---

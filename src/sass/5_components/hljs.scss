@@ -1,0 +1,24 @@
+.hljs {
+  line-height: 1.6;
+
+  &-keyword {
+    font-weight: bold;
+  }
+
+  &-literal {
+    color: dodgerblue;
+  }
+
+  &-comment {
+    color: darkgray;
+    font-style: italic;
+  }
+
+  &-string {
+    color: forestgreen;
+  }
+
+  &-number {
+    color: purple;
+  }
+}

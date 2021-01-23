@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linnert Media</title>
+  {{ $css := resources.Get "css/main.css" | resources.PostCSS }}
+  {{ if .Site.IsServer }}
+    {{ $style := $css }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}">
+  {{ else }}
+    {{ $style := $css | resources.Minify | resources.Fingerprint "sha512" }}
+    <link
+      rel="stylesheet"
+      href="{{ $style.Permalink }}"
+      integrity="{{ $style.Data.Integrity }}"
+      crossorigin="anonymous"
+    >
+  {{ end }}
+</head>
+<body>
+  <div class="py-4 bg-brand-700 text-white sticky top-0 z-40">
+    <div class="max-w-3xl mx-auto px-2">
+      <a href="{{ .Site.BaseURL }}" class="text-2xl tracking-widest uppercase">
+        <span class="text-brand-200">Linnert</span
+        ><span class="text-brand-50">Media</span>
+      </a>
+    </div>
+  </div>
+
+  {{ block "toolbar" . }} {{ end }}
+
+  <main class="max-w-3xl mx-auto">
+    {{ block "main" . }} {{ end }}
+  </main>
+</body>
+</html>

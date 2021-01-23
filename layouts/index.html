@@ -1,0 +1,27 @@
+{{ define "toolbar" }}
+  <div class="py-4 bg-gray-100 text-sm">
+    <div class="max-w-3xl mx-auto px-2">
+      <div class="flex">
+        <div>Alle Beiträge / JavaScript</div>
+        <div class="ml-auto"></div>
+        <div class="ml-4">"JavaScript" abonnieren</div>
+        <div class="ml-4">Alle Tags anzeigen</div>
+      </div>
+    </div>
+  </div>
+{{ end }}
+
+{{ define "main" }}
+  <div class="mt-8">
+    {{ range where .Site.RegularPages "Section" "blog" }}
+      <div class="p-2 mb-4">
+        <div class="text-2xl text-gray-800 mb-1">
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </div>
+        <div class="text-xs tracking-wide font-semibold text-gray-600">
+          <span>{{ dateFormat "2. January 2006" .Date }}</span>
+        </div>
+      </div>
+    {{ end }}
+  </div>
+{{ end }}

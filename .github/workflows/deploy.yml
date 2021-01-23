@@ -1,6 +1,9 @@
 name: Build and deploy website
 
-on: [push]
+on:
+  push:
+    tags:
+      - 'v*'
 
 jobs:
   build:

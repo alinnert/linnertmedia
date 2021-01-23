@@ -1,0 +1,4 @@
+baseURL = "https://linnertmedia.de"
+languageCode = "de-de"
+title = "LinnertMedia"
+pygmentsUseClasses = true

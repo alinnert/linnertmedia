@@ -1,10 +1,10 @@
 {{ define "toolbar" }}
-  {{ partial "toolbars/index.html" ( dict "tag" nil ) }}
+  {{ partial "toolbars/index.html" ( dict "tag" .Title ) }}
 {{ end }}
 
 {{ define "main" }}
   <div class="mt-8">
-    {{ range where .Site.RegularPages "Section" "blog" }}
+    {{ range .Data.Pages }}
       {{ partial "article/teaser.html" . }}
     {{ end }}
   </div>

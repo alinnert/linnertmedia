@@ -2,7 +2,8 @@
 title: "Willkommen auf dem neuen LinnertMedia-Blog"
 date: 2018-06-17
 draft: true
-tags: Intern
+tags:
+- Intern
 ---
 
 Hola zusammen und willkommen beim neuen Linnert Media *Open Source-Blog*!

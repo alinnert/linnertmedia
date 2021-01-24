@@ -1,0 +1,21 @@
+{{ define "toolbar" }}
+  {{ partial "toolbars/index.html" ( dict "tag" "*" ) }}
+{{ end }}
+
+{{ define "main" }}
+  <div class="mt-8">
+    {{ range $tag, $value := .Site.Taxonomies.tags }}
+      <article class="mx-2 mb-4">
+        <h2>
+          <a href="/tags/{{ $tag }}" class="link--default pr-2 text-xl mb-1">
+            {{ $value.Page.Title }}
+          </a>
+        </h2>
+
+        <span class="text-sm text-gray-500">
+          {{ $value.Count }} Artikel
+        </span>
+      </article>
+    {{ end }}
+  </div>
+{{ end }}

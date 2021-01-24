@@ -1,0 +1,30 @@
+.prose pre {
+  @apply bg-gray-50 text-gray-800;
+
+  & .nx {
+    @apply text-gray-800;
+  }
+
+  & .k,
+  & .kr,
+  & .kd {
+    @apply text-brand-900 font-semibold;
+  }
+
+  & .p {
+    @apply text-gray-700;
+  }
+
+  & .s1 {
+    @apply text-green-600;
+  }
+
+  & .mi {
+    @apply text-brand-600;
+  }
+
+  & .cm,
+  & .c1 {
+    @apply text-gray-500 italic;
+  }
+}

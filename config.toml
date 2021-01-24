@@ -2,3 +2,7 @@ baseURL = "https://linnertmedia.de"
 languageCode = "de-de"
 title = "LinnertMedia"
 pygmentsUseClasses = true
+preserveTaxonomyNames = true
+
+[taxonomies]
+tag = "tags"

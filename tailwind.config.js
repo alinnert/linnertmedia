@@ -10,7 +10,7 @@ module.exports = {
     colors: {
       transparent: "transparent",
       current: "currenColor",
-      brand: colors.lightBlue,
+      brand: colors.cyan,
       gray: colors.gray,
       green: colors.emerald
     },

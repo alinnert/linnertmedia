@@ -1,0 +1,31 @@
+@layer base {
+  .link--nav {
+    @apply text-lg text-brand-50;
+
+    &:hover {
+      @apply text-brand-200;
+    }
+  }
+  
+  .link--toolbar {
+    @apply text-brand-600;
+
+    &:hover {
+      @apply text-brand-700 underline;
+    }
+  }
+
+  .link--article {
+    &:hover {
+      @apply text-brand-700;
+    }
+  }
+
+  .link--default {
+    @apply text-brand-600;
+
+    &:hover {
+      @apply text-brand-700 underline;
+    }
+  }
+}

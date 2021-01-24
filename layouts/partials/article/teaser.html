@@ -1,0 +1,18 @@
+<article class="px-2 mb-8">
+  <div class="text-2xl text-gray-800 mb-1">
+    <h2>
+      <a href="{{ .Permalink }}" class="link--article">
+        {{ .Title }}
+      </a>
+    </h2>
+  </div>
+  <div class="text-sm tracking-wide flex">
+    <p class="mr-4 text-gray-500">
+      {{ dateFormat "2. January 2006" .Date }}
+    </p>
+
+    {{ range .Params.tags }}
+      <a href="/tags/{{ . | lower }}" class="link--default pr-4">{{ . }}</a>
+    {{ end }}
+  </div>
+</article>

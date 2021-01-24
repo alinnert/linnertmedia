@@ -20,11 +20,19 @@
 </head>
 <body>
   <div class="py-4 bg-brand-700 text-white sticky top-0 z-40">
-    <div class="max-w-3xl mx-auto px-2">
+    <div class="max-w-3xl mx-auto px-2 flex items-center">
       <a href="{{ .Site.BaseURL }}" class="text-2xl tracking-widest uppercase">
-        <span class="text-brand-200">Linnert</span
-        ><span class="text-brand-50">Media</span>
+        <span class="text-brand-200 relative -top-1">Linnert</span
+        ><span class="text-brand-50 relative -bottom-1">Media</span>
       </a>
+
+      <nav class="ml-auto">
+        <ul class="list-none flex gap-6">
+          <li><a href="/" class="link--nav">Beiträge</a></li>
+          <li><a href="/projekte" class="link--nav">Projekte</a></li>
+          <li><a href="/info" class="link--nav">Info</a></li>
+        </ul>
+      </nav>
     </div>
   </div>
 

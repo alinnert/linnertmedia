@@ -2,7 +2,8 @@
 title: "Wie funktioniert this in JavaScript?"
 date: 2019-02-17
 draft: true
-tags: JavaScript
+tags:
+- JavaScript
 ---
 
 Das Keyword `this` in JavaScript ist eines der am meisten missverstandenen Sprachfeatures. Die Verwirrung rührt in der Regel daher, dass es in anderen Sprachen ebenfalls ein `this`-Keyword gibt, mit einer scheinbar ähnlichen Funktionsweise. Oft wird davon abgeraten, `this` überhaupt zu verwenden. Ich möchte in diesem Artikel die Angst vor dem Schlüsselwort nehmen und erklären, wie es genau funktioniert.

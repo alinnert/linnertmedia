@@ -7,7 +7,7 @@
     {{ range $tag, $value := .Site.Taxonomies.tags }}
       <article class="mx-2 mb-4">
         <h2>
-          <a href="/tags/{{ $tag }}" class="link--default pr-2 text-xl mb-1">
+          <a href="/tags/{{ $tag }}" class="link--default font-heading pr-2 text-xl mb-1">
             {{ $value.Page.Title }}
           </a>
         </h2>

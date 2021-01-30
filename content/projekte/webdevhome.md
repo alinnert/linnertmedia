@@ -1,6 +1,9 @@
 ---
 title: "WebDevHome"
-draft: true
+draft: false
+links:
+  website: https://webdevhome.github.io
+  github: https://github.com/webdevhome/webdevhome
 ---
 
-Das ist WebDevHome.
+WebDevHome ist eine Sammlung von Links, die speziell auf die Bedürfnisse von Web-Entwicklern zugeschnitten sind.

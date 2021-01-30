@@ -1,0 +1,13 @@
+{{ define "toolbar" }}
+  
+{{ end }}
+
+{{ define "main" }}
+  <h1 class="font-heading text-3xl mt-10 mb-10 px-4">{{ .Title }}</h1>
+
+  <div class="mt-8 px-2 flex flex-col gap-12">
+    {{ range where .Site.RegularPages "Section" .Section }}
+      {{ partial "project/teaser.html" . }}
+    {{ end }}
+  </div>
+{{ end }}

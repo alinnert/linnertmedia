@@ -1,6 +1,6 @@
 @layer base {
   .link--nav {
-    @apply text-lg text-brand-50;
+    @apply text-base text-brand-50;
 
     &:hover {
       @apply text-brand-200;

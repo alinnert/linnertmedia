@@ -12,7 +12,9 @@
     </p>
 
     {{ range .Params.tags }}
-      <a href="/tags/{{ . | lower }}" class="link--default pr-4">{{ . }}</a>
+      <a href="/tags/{{ . | lower }}" class="link--default pr-4">
+        {{ . }}
+      </a>
     {{ end }}
   </div>
 </article>

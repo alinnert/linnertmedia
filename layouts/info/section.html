@@ -1,9 +1,9 @@
-{{ define "main" }}
+{{- define "main" -}}
   <div class="mt-8">
-    <h1 class="font-heading text-3xl mt-10 mb-10 px-4">{{ .Title }}</h1>
+    <h1 class="font-heading text-3xl mt-10 mb-10 px-4">{{- .Title -}}</h1>
 
     <div class="px-4 text-gray-700 prose prose-lg">
-      {{ .Content }}
+      {{- .Content -}}
     </div>
   </div>
-{{ end }}
+{{- end -}}

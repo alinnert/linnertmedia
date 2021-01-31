@@ -1,7 +1,7 @@
 ---
 title: "Wie funktioniert this in JavaScript?"
 date: 2019-02-17
-draft: true
+draft: false
 tags:
 - JavaScript
 ---

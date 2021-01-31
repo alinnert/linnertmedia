@@ -1,11 +1,11 @@
-{{ define "toolbar" }}
-  {{ partial "toolbars/index.html" ( dict "tag" .Title ) }}
-{{ end }}
+{{- define "toolbar" -}}
+  {{- partial "toolbars/index.html" ( dict "tag" .Title "rss" ( printf "%sindex.xml" .Page.RelPermalink ) ) -}}
+{{- end -}}
 
-{{ define "main" }}
+{{- define "main" -}}
   <div class="mt-8">
-    {{ range .Data.Pages }}
-      {{ partial "article/teaser.html" . }}
-    {{ end }}
+    {{- range .Data.Pages -}}
+      {{- partial "article/teaser.html" . -}}
+    {{- end -}}
   </div>
-{{ end }}
+{{- end -}}

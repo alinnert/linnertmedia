@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "checkJs": true,
+    "target": "es2019"
+  },
+  "include": ["static/js/**/*.js"]
+}

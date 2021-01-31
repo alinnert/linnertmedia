@@ -1,43 +1,51 @@
-<div class="py-4 bg-gray-100 text-sm">
-  <div class="max-w-3xl mx-auto px-2">
-    <div class="flex">
-      <div>
-        {{ if eq .tag nil }}
-          <h1 class="font-semibold">Alle Beiträge</h1>
-        {{ else if eq .tag "*" }}
-          <h1 class="font-semibold">Alle Tags</h1>
-        {{ else }}
+<div class="py-4 bg-gray-100 text-sm dark:bg-gray-600">
+  <div class="max-w-3xl mx-auto px-4">
+    <div class="flex flex-wrap items-center">
+      <div class="flex-shrink-0">
+        {{- if eq .tag nil -}}
+          <h1 class="font-semibold dark:text-gray-100">Alle Beiträge</h1>
+        {{- else if eq .tag "*" -}}
+          <h1 class="font-semibold dark:text-gray-100">Alle Tags</h1>
+        {{- else -}}
           <h1>
-            <a href="/" class="link--toolbar">Alle Beiträge</a>
-            <span class="px-1">›</span>
-            <span class="font-semibold">{{ .tag }}</span>
+            <a href="/" class="link--default">Alle Beiträge</a>
+            <span class="px-1 dark:text-gray-300">›</span>
+            <span class="font-semibold dark:text-gray-100">{{- .tag -}}</span>
           </h1>
-        {{ end }}
+        {{- end -}}
       </div>
 
       <div class="border-l border-gray-400 border-solid ml-4 h-3 self-center"></div>
 
-      {{ if eq .tag "*" }}
+      {{- if eq .tag "*" -}}
         <div class="ml-4">
-          <a href="/" class="link--toolbar">Alle Beiträge anzeigen</a>
+          <a href="/" class="link--default">Alle Beiträge anzeigen</a>
         </div>
-      {{ else }}
+      {{- else -}}
         <div class="ml-4">
-          <a href="/tags" class="link--toolbar">Alle Tags anzeigen</a>
+          <a href="/tags" class="link--default">Alle Tags anzeigen</a>
         </div>
-      {{ end }}
+      {{- end -}}
 
       <div class="ml-auto"></div>
 
-      {{ if ne .tag "*" }}
+      {{- if ne .tag "*" -}}
         <div class="ml-4">
-          {{ if eq .tag nil }}
-            <a href="#" class="link--toolbar">Alle Beiträge abonnieren</a>
-          {{ else }}
-            <a href="#" class="link--toolbar">"{{ .tag }}" abonnieren</a>
-          {{ end }}
+          {{- if eq .tag nil -}}
+            {{- with .rss -}}
+              <a href="{{- . -}}" class="link--default">
+                Alle Beiträge abonnieren
+              </a>
+            {{- end -}}
+          {{- else -}}
+            {{- with .rss -}}
+              <a href="{{- . -}}" class="link--default">
+                "{{- $.tag -}}" abonnieren
+              </a>
+            {{- end -}}
+          {{- end -}}
         </div>
-      {{ end }}
+      {{- end -}}
     </div>
   </div>
 </div>

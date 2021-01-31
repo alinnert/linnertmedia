@@ -1,17 +1,26 @@
 const colors = require("tailwindcss/colors");
 
+// Source: https://github.com/tailwindlabs/tailwindcss-typography/blob/master/src/styles.js
+const round = (num) =>
+  num
+    .toFixed(7)
+    .replace(/(\.[0-9]+?)0+$/, '$1')
+    .replace(/\.0$/, '')
+// const rem = (px) => `${round(px / 16)}rem`
+const em = (px, base) => `${round(px / base)}em`
+
 module.exports = {
   purge: {
     content: ["layouts/**/*.html"],
     options: {},
   },
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     colors: {
       transparent: "transparent",
       current: "currenColor",
       brand: colors.cyan,
-      gray: colors.gray,
+      gray: colors.blueGray,
       green: colors.emerald,
     },
     fontFamily: {
@@ -23,7 +32,6 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            maxWidth: "none",
             code: {
               color: theme("colors.brand.800"),
             },
@@ -41,6 +49,12 @@ module.exports = {
                 },
               },
             },
+            address: {
+              fontStyle: 'normal'
+            },
+            'a.no-underline': {
+              textDecoration: 'none'
+            }
           },
         },
         lg: {
@@ -48,6 +62,9 @@ module.exports = {
             h2: {
               fontSize: theme("fontSize.2xl")[0],
             },
+            address: {
+              marginBottom: em(24, 18)
+            }
           },
         },
       }),

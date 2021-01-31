@@ -1,31 +1,20 @@
 @layer base {
   .link--nav {
     @apply text-base text-brand-50;
-
-    &:hover {
-      @apply text-brand-200;
-    }
+    @apply hover:text-brand-200;
   }
   
-  .link--toolbar {
-    @apply text-brand-600;
-
-    &:hover {
-      @apply text-brand-700 underline;
-    }
-  }
-
   .link--article {
-    &:hover {
-      @apply text-brand-700;
-    }
+    @apply text-gray-800;
+    @apply hover:text-brand-700;
+    @apply dark:text-gray-100;
+    @apply dark:hover:text-brand-200;
   }
 
   .link--default {
     @apply text-brand-600;
-
-    &:hover {
-      @apply text-brand-700 underline;
-    }
+    @apply hover:text-brand-700 hover:underline;
+    @apply dark:text-brand-300;
+    @apply dark:hover:text-brand-200;
   }
 }

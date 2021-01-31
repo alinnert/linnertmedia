@@ -1,7 +1,7 @@
 ---
 title: "Willkommen auf dem neuen LinnertMedia-Blog"
 date: 2018-06-17
-draft: true
+draft: false
 tags:
 - Intern
 ---

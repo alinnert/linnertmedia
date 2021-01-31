@@ -1,13 +1,13 @@
-{{ define "main" }}
+{{- define "main" -}}
   <article>
-    <h1 class="font-heading text-3xl mt-10 mb-2 px-4">{{ .Title }}</h1>
+    <h1 class="font-heading text-3xl mt-10 mb-2 px-4">{{- .Title -}}</h1>
 
-    <div class="text-gray-500 text-sm mb-10 px-4">
-      {{ dateFormat "2. January 2006" .Date }}
+    <div class="mb-8 mx-4">
+      {{- partial "article/metadata.html" ( dict "date" .Date "tags" .Params.Tags ) -}}
     </div>
     
-    <div class="px-4 text-gray-700 prose prose-lg">
-      {{ .Content }}
+    <div class="px-4 text-gray-700 prose prose-lg max-w-none">
+      {{- .Content -}}
     </div>
   </article>
-{{ end }}
+{{- end -}}

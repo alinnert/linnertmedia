@@ -1,30 +1,37 @@
 .prose pre {
   @apply bg-gray-50 text-gray-800;
+  @apply dark:bg-gray-700 dark:text-gray-100;
+}
 
-  & .nx {
-    @apply text-gray-800;
-  }
+/* names */
+.prose pre .nx {
+  @apply text-gray-800;
+  @apply dark:text-gray-200;
+}
 
-  & .k,
-  & .kr,
-  & .kd {
-    @apply text-brand-900 font-semibold;
-  }
+/* keywords */
+.prose pre .k,
+.prose pre .kr,
+.prose pre .kd {
+  @apply text-brand-900 font-semibold;
+  @apply dark:text-brand-50;
+}
 
-  & .p {
-    @apply text-gray-700;
-  }
+/* symbols */
+.prose pre .p {
+  @apply text-gray-700;
+  @apply dark:text-gray-400;
+}
 
-  & .s1 {
-    @apply text-green-600;
-  }
+.prose pre .s1,
+.prose pre .mi {
+  @apply text-brand-600;
+  @apply dark:text-brand-400;
+}
 
-  & .mi {
-    @apply text-brand-600;
-  }
-
-  & .cm,
-  & .c1 {
-    @apply text-gray-500 italic;
-  }
+/* comments */
+.prose pre .cm,
+.prose pre .c1 {
+  @apply text-gray-500 italic;
+  @apply dark:text-gray-400;
 }

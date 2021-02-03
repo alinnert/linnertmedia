@@ -3,7 +3,7 @@
 {{- end -}}
 
 {{- define "main" -}}
-  <div class="mt-8">
+  <div class="mt-12 flex flex-col gap-12">
     {{- range .Data.Pages -}}
       {{- partial "article/teaser.html" . -}}
     {{- end -}}

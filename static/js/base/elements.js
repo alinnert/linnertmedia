@@ -27,3 +27,13 @@ export function defineElement(name, setup) {
     setup(element, { getChildElements })
   })
 }
+
+/**
+ * @param { string } name
+ * @returns { HTMLElement[] }
+ */
+export function selectElement(name) {
+  return Array.from(
+    globalThis.document.querySelectorAll(`[data-element="${name}"]`)
+  )
+}

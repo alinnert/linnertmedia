@@ -3,7 +3,7 @@
 {{- end -}}
 
 {{- define "main" -}}
-  <div class="mt-12">
+  <div class="mt-12 flex flex-col gap-12">
     {{- range where .Site.RegularPages "Section" "blog" -}}
       {{- partial "article/teaser.html" . -}}
     {{- end -}}

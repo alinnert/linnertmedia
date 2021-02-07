@@ -1,9 +1,0 @@
-<div class="text-sm md:text-xs flex">
-  <div class="text-gray-500 dark:text-gray-400">
-    {{ dateFormat "2. January 2006" .date }}
-  </div>
-
-  {{ range .tags }}
-    <a href="/tags/{{ . | lower }}" class="link--default ml-4">{{ . }}</a>
-  {{ end }}
-</div>

@@ -1,0 +1,33 @@
+<li class="sm:flex-grow sm:text-center">
+  <a
+    href="{{ .href }}"
+    class="
+      text-brand-50
+      sm:block sm:py-2 sm:text-xs sm:font-semibold
+      outline-none
+      focus:bg-gray-200
+      dark:focus:bg-gray-900
+      
+      {{ if .isCurrent }}
+        sm:text-brand-500
+        hover:text-brand-200
+      {{ else }}
+        sm:text-gray-500
+        sm:hover:text-gray-600
+      {{ end }}
+
+      {{ if .isCurrent }}
+        sm:dark:text-brand-300
+        sm:dark:hover:text-brand-200
+      {{ else }}
+        sm:dark:text-gray-400
+        sm:dark:hover:text-gray-50
+      {{ end }}
+      "
+  >
+    <div class="hidden sm:flex justify-center pb-1">
+      {{ partial "general/icon.html" ( dict "name" .icon ) }}
+    </div>
+    <span>{{ .text }}</span>
+  </a>
+</li>

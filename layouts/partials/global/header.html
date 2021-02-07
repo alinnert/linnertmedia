@@ -1,29 +1,47 @@
-<div class="py-4 bg-brand-700 text-white sticky top-0 z-40 dark:bg-gray-800">
-  <div class="max-w-3xl mx-auto px-4 flex items-center">
-    <a href="{{- $.Site.BaseURL -}}" class="font-heading text-2xl tracking-widest uppercase">
+<div
+  class="py-4 lg:py-3 bg-brand-700 text-white sticky sm:static top-0 z-40 dark:bg-gray-800"
+>
+  <div class="max-w-3xl mx-auto px-4 flex items-center justify-center">
+    <a
+      href="{{ $.Site.BaseURL }}"
+      class="font-heading text-2xl lg:text-lg tracking-widest uppercase"
+    >
       <span class="text-brand-200 relative -top-1">Linnert</span
       ><span class="text-brand-50 relative -bottom-1">Media</span>
     </a>
 
-    <nav class="ml-auto md:fixed md:top-0 md:-right-full md:open:right-0">
-      <ul class="list-none flex gap-6">
-        <li class="select-none" data-element="theme-switcher">
-          <div
-            class="hidden link--nav cursor-pointer fill-current"
-            data-element="theme-switcher/light"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-          </div>
-          <div
-            class="hidden link--nav cursor-pointer fill-current"
-            data-element="theme-switcher/dark"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-          </div>
-        </li>
-        <li><a href="/" class="link--nav">Beiträge</a></li>
-        <li><a href="/projekte" class="link--nav">Projekte</a></li>
-        <li><a href="/info" class="link--nav">Info</a></li>
+    <div class="hidden sm:hidden ml-auto text-brand-50 hover:text-brand-200">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </div>
+
+    <nav class="ml-auto flex gap-6 sm:fixed sm:bottom-0 sm:left-0 sm:right-0 md:flex sm:z-50">
+      {{/*  <div
+        class="select-none cursor-pointer fill-current text-brand-50"
+        data-element="theme-switcher"
+      >
+        <div
+          class="hidden"
+          data-element="theme-switcher/light"
+        >
+          {{ partial "general/icon.html" ( dict "name" "light-mode") }}
+        </div>
+
+        <div
+          class="hidden"
+          data-element="theme-switcher/dark"
+        >
+          {{ partial "general/icon.html" ( dict "name" "dark-mode") }}
+        </div>
+      </div>  */}}
+
+      <ul class="list-none grid grid-flow-col auto-cols-max sm:auto-cols-fr gap-x-4 sm:gap-x-0 md:flex-grow sm:bg-gray-100 sm:border-t sm:border-gray-300 sm:dark:bg-gray-800 sm:dark:border-gray-500">
+        {{ range .Site.Menus.main }}
+          {{ partial "global/header-link.html" ( dict "href" .URL "text" .Name "icon" .Page.Params.menuIcon "isCurrent" ( $.Page.IsMenuCurrent "main" . ) ) }}
+        {{ end }}
+        <!-- {{ partial "global/header-link.html" ( dict "href" "/" "text" "Beiträge" "icon" "text-file" ) }}
+        {{ partial "global/header-link.html" ( dict "href" "/projekte" "text" "Projekte" "icon" "projects" ) }}
+        {{ partial "global/header-link.html" ( dict "href" "/info" "text" "Info" "icon" "info" ) }}
+        {{ partial "global/header-link.html" ( dict "href" "/einstellungen" "text" "Einstellungen" "icon" "settings" ) }} -->
       </ul>
     </nav>
   </div>

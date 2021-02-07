@@ -1,9 +1,9 @@
 <article class="px-4">
-  <div class="text-2xl mb-1 font-heading">
+  <div class="text-2xl md:text-xl mb-1 font-heading">
     <h2>
-      <a href="{{- .Permalink -}}" class="link--article">{{- .Title -}}</a>
+      <a href="{{ .Permalink }}" class="link--article">{{ .Title }}</a>
     </h2>
   </div>
 
-  {{- partial "article/metadata.html" ( dict "date" .Date "tags" .Params.Tags ) -}}
+  {{ partial "article/metadata.html" ( dict "date" .Date "tags" .Params.Tags ) }}
 </article>

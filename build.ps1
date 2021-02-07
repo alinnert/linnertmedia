@@ -1,2 +1,2 @@
 Remove-Item -Recurse -Force public
-hugo
+hugo --minify

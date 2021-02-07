@@ -15,13 +15,13 @@ module.exports = {
     content: ['layouts/**/*.html'],
     options: {},
   },
-  darkMode: 'class', // or 'media' or 'class'
+  darkMode: 'media', // or 'media' or 'class'
   theme: {
     colors: {
       transparent: 'transparent',
       current: 'currenColor',
       brand: colors.cyan,
-      gray: colors.blueGray,
+      gray: colors.warmGray,
       green: colors.emerald,
     },
     screens: {
@@ -62,6 +62,13 @@ module.exports = {
             address: {
               fontStyle: 'normal',
             },
+            a: {
+              color: theme('colors.brand.500'),
+              textDecoration: 'none',
+            },
+            'a:hover': {
+              textDecoration: 'underline',
+            },
             'a.no-underline': {
               textDecoration: 'none',
             },
@@ -88,6 +95,9 @@ module.exports = {
                 color: theme('colors.gray.400'),
               },
             },
+            a: {
+              color: theme('colors.brand.300'),
+            },
             p: {
               color: theme('colors.gray.200'),
             },
@@ -105,15 +115,63 @@ module.exports = {
   variants: {
     extend: {
       typography: ['dark'],
-      inset: ['open'],
+      borderRadius: ['first-type', 'last'],
+      backgroundColor: ['after-checked', 'after-not-checked'],
+      textColor: ['after-checked', 'after-not-checked'],
+      display: ['checked-label', 'not-checked-label'],
+      position: ['after-focus'],
+      zIndex: ['after-focus'],
+      ringColor: ['after-focus'],
+      ringWidth: ['after-focus'],
+      ringOffsetColor: ['after-focus'],
     },
   },
   plugins: [
     plugin(({ addVariant, e }) => {
-      addVariant('open', ({ modifySelectors, separator }) => {
-        modifySelectors(({ className }) => {
-          return `.is-open.${e(`open${separator}${className}`)}`
-        })
+      addVariant('after-checked', ({ modifySelectors, separator }) => {
+        modifySelectors(
+          ({ className }) =>
+            `input:checked + .${e(`after-checked${separator}${className}`)}`
+        )
+      })
+
+      addVariant('after-not-checked', ({ modifySelectors, separator }) => {
+        modifySelectors(
+          ({ className }) =>
+            `input:not(:checked) + .${e(
+              `after-not-checked${separator}${className}`
+            )}`
+        )
+      })
+
+      addVariant('after-focus', ({ modifySelectors, separator }) => {
+        modifySelectors(
+          ({ className }) =>
+            `input:focus + .${e(`after-focus${separator}${className}`)}`
+        )
+      })
+
+      addVariant('checked-label', ({ modifySelectors, separator }) => {
+        modifySelectors(
+          ({ className }) =>
+            `input:checked + * > .${e(`checked-label${separator}${className}`)}`
+        )
+      })
+
+      addVariant('not-checked-label', ({ modifySelectors, separator }) => {
+        modifySelectors(
+          ({ className }) =>
+            `input:not(:checked) + * > .${e(
+              `not-checked-label${separator}${className}`
+            )}`
+        )
+      })
+
+      addVariant('first-type', ({ modifySelectors, separator }) => {
+        modifySelectors(
+          ({ className }) =>
+            `.${e(`first-type${separator}${className}`)}:first-of-type`
+        )
       })
     }),
     require('@tailwindcss/typography'),

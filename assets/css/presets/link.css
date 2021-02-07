@@ -1,9 +1,4 @@
 @layer base {
-  .link--nav {
-    @apply text-base text-brand-50;
-    @apply hover:text-brand-200;
-  }
-  
   .link--article {
     @apply text-gray-800;
     @apply hover:text-brand-700;

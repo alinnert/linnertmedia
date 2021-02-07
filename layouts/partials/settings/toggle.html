@@ -1,0 +1,21 @@
+<div>
+  <div class="mb-2 font-semibold dark:text-gray-50">{{ .label }}</div>
+  <p class="text-sm text-gray-700 dark:text-gray-300">{{ .description }}</p>
+</div>
+
+<div
+  class="
+    justify-self-end grid auto-cols-auto grid-flow-col space-x-px
+    select-none
+    sm:justify-self-start sm:mb-12
+  "
+>
+    <input
+      type="checkbox"
+      class="sr-only"
+      name="{{ .label }}"
+      id="{{ .value }}"
+    >
+
+    {{ partial "settings/label.html" ( dict "value" .value "labelNotChecked" .buttonLabelOff "labelChecked" .buttonLabelOn ) }}
+</div>

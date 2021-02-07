@@ -2,8 +2,10 @@ name: Build and deploy website
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - hugo
+    # tags:
+    #   - 'v*'
 
 jobs:
   build:
@@ -15,25 +17,23 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v1
+      uses: actions/checkout@v2
 
-    # - name: Use Node.js ${{ matrix.node-version }}
-    #   uses: actions/setup-node@v1
-    #   with:
-    #     node-version: ${{ matrix.node-version }}
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: '0,80.0'
 
-    # - name: npm install and build
-    #   run: |
-    #     npm ci
-    #     npm run build
-    #   env:
-    #     CI: true
+    - name: Build
+      run: hugo --minify
+      env:
+        NODE_ENV: production
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       env:
         ACCESS_TOKEN: ${{ secrets.GH_PAT }}
-        BASE_BRANCH: develop
-        BRANCH: gh-pages
-        FOLDER: docs
+        BASE_BRANCH: hugo
+        BRANCH: release
+        FOLDER: public
         CLEAN: true

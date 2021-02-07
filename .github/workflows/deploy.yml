@@ -38,10 +38,9 @@ jobs:
         NODE_ENV: production
 
     - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v3
-      env:
+      uses: JamesIves/github-pages-deploy-action@3.7.1
+      with:
         ACCESS_TOKEN: ${{ secrets.GH_PAT }}
-        BASE_BRANCH: hugo
         BRANCH: release
         FOLDER: public
         CLEAN: true

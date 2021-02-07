@@ -1,0 +1,47 @@
+{
+  "name": "Linnert Media",
+  "start_url": ".",
+  "display": "minimal-ui",
+  "background_color": "#fff",
+  "theme_color": "#155E75",
+  "description": "Blog von Andreas Linnert zum Thema Web-Entwicklung und JavaScript.",
+  "lang": "de-DE",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/appicons/appicon.png",
+      "type": "image/png",
+      "sizes": "800x800"
+    },
+    {
+      "src": "/appicons/appicon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/appicons/appicon-168.png",
+      "type": "image/png",
+      "sizes": "168x168"
+    },
+    {
+      "src": "/appicons/appicon-144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "/appicons/appicon-96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "/appicons/appicon-72.png",
+      "type": "image/png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "/appicons/appicon-48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    }
+  ]
+}

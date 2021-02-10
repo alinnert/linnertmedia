@@ -23,6 +23,7 @@ module.exports = {
       brand: colors.cyan,
       gray: colors.warmGray,
       green: colors.emerald,
+      blue: colors.lightBlue,
     },
     screens: {
       '2xl': { max: '1535px' },
@@ -37,6 +38,9 @@ module.exports = {
       mono: ['IBM Plex Mono', 'monospace'],
     },
     extend: {
+      gridTemplateColumns: {
+        'auto-1fr': 'auto 1fr'
+      },
       typography: (theme) => ({
         DEFAULT: {
           css: {
@@ -61,6 +65,9 @@ module.exports = {
             },
             address: {
               fontStyle: 'normal',
+            },
+            p: {
+              overflowWrap: 'break-word',
             },
             a: {
               color: theme('colors.brand.500'),
@@ -100,6 +107,9 @@ module.exports = {
             },
             p: {
               color: theme('colors.gray.200'),
+            },
+            'div p': {
+              color: 'inherit',
             },
             strong: {
               color: theme('colors.gray.50'),

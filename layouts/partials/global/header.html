@@ -34,14 +34,10 @@
         </div>
       </div>  */}}
 
-      <ul class="list-none grid grid-flow-col auto-cols-max sm:auto-cols-fr gap-x-4 sm:gap-x-0 md:flex-grow sm:bg-gray-100 sm:border-t sm:border-gray-300 sm:dark:bg-gray-800 sm:dark:border-gray-500">
+      <ul class="list-none grid grid-flow-col auto-cols-max sm:auto-cols-fr gap-x-1 sm:gap-x-0 md:flex-grow sm:bg-gray-100 sm:border-t sm:border-gray-300 sm:dark:bg-gray-800 sm:dark:border-gray-500">
         {{ range .Site.Menus.main }}
           {{ partial "global/header-link.html" ( dict "href" .URL "text" .Name "icon" .Page.Params.menuIcon "isCurrent" ( $.Page.IsMenuCurrent "main" . ) ) }}
         {{ end }}
-        <!-- {{ partial "global/header-link.html" ( dict "href" "/" "text" "Beiträge" "icon" "text-file" ) }}
-        {{ partial "global/header-link.html" ( dict "href" "/projekte" "text" "Projekte" "icon" "projects" ) }}
-        {{ partial "global/header-link.html" ( dict "href" "/info" "text" "Info" "icon" "info" ) }}
-        {{ partial "global/header-link.html" ( dict "href" "/einstellungen" "text" "Einstellungen" "icon" "settings" ) }} -->
       </ul>
     </nav>
   </div>

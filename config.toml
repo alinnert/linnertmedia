@@ -5,6 +5,9 @@ pygmentsUseClasses = true
 preserveTaxonomyNames = true
 enableEmoji = true
 
+[markup.goldmark.renderer]
+unsafe = true
+
 [taxonomies]
 tag = "tags"
 

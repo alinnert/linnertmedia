@@ -1,23 +1,32 @@
 <a
   href="{{ .url }}"
-  class="flex flex-col px-4 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600 no-underline"
+  class="flex flex-col px-4 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600 no-underline break-words max-w-full"
 >
-  <div class="flex items-center gap-4 text-gray-800 stroke-current dark:text-gray-100">
-    {{ partial "general/icon.html" ( dict "name" .type ) }}
-    <div>
-      <div class="text-base text-brand-900 dark:text-gray-100">
-        {{ if .title }}
-          {{ .title }}
-        {{ else }}
-          {{ if eq .type "website" }} Webseite {{ end }}
-          {{ if eq .type "email" }} E-Mail {{ end }}
-          {{ if eq .type "github" }} Git-Repository {{ end }}
-          {{ if eq .type "twitter" }} Twitter {{ end }}
-        {{ end }}
-      </div>
-      <div class="text-xs font-semibold text-brand-600 dark:text-brand-300">
-        {{ replaceRE "^(mailto:|https?://)" "" .url }}
-      </div>
+  <div
+    class="
+      grid grid-cols-auto-1fr items-center gap-x-4
+      text-gray-800
+      dark:text-gray-100
+    "
+  >
+    <div class="row-span-2 stroke-current">
+      {{ partial "general/icon.html" ( dict "name" .type ) }}
+    </div>
+
+    <div class="text-base text-brand-900 dark:text-gray-100">
+      {{ if .title }}
+        {{ .title }}
+      {{ else }}
+        {{ if eq .type "website" }} Webseite {{ end }}
+        {{ if eq .type "email" }} E-Mail {{ end }}
+        {{ if eq .type "github" }} Git-Repository {{ end }}
+        {{ if eq .type "twitter" }} Twitter {{ end }}
+      {{ end }}
+    </div>
+    <div
+      class="text-xs font-semibold text-brand-600 dark:text-brand-300 overflow-hidden"
+    >
+      {{ replaceRE "^(mailto:|https?://)" "" .url }}
     </div>
   </div>
 </a>

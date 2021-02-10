@@ -1,0 +1,16 @@
+{{ with .Get "file" }}
+  <div
+    class="
+      font-mono font-semibold text-sm px-4 py-2 bg-gray-100 text-gray-500 inline-block rounded-t
+      lg:ml-4
+      md:ml-0 md:text-xs
+      dark:bg-gray-800 dark:text-gray-400
+    "
+  >
+    {{ . }}
+  </div>
+{{ end }}
+
+<div class="codeblock">
+  {{ .Inner | markdownify }}
+</div>

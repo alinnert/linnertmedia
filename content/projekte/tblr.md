@@ -1,6 +1,6 @@
 ---
 title: "Tblr"
-draft: true
+draft: false
 links:
   website: https://alinnert.github.io/tblr
   github: https://github.com/alinnert/tblr

@@ -68,6 +68,7 @@ module.exports = {
             },
             p: {
               overflowWrap: 'break-word',
+              lineHeight: 1.8,
             },
             a: {
               color: theme('colors.brand.500'),

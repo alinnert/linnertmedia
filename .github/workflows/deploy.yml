@@ -4,33 +4,30 @@ on:
   push:
     branches:
       - hugo
-    # tags:
-    #   - 'v*'
+
+permissions:
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [14.x]
-
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Setup Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4
       with:
-        node-version: '14'
+        node-version: '20'
 
     - name: Install node_modules
       run: npm ci
 
     - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2
+      uses: peaceiris/actions-hugo@v3
       with:
-        hugo-version: '0.80.0'
+        hugo-version: '0.124.1'
 
     - name: Build
       run: hugo --minify
@@ -38,9 +35,8 @@ jobs:
         NODE_ENV: production
 
     - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@3.7.1
+      uses: JamesIves/github-pages-deploy-action@4
       with:
-        ACCESS_TOKEN: ${{ secrets.GH_PAT }}
         BRANCH: release
         FOLDER: public
         CLEAN: true

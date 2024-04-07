@@ -18,12 +18,14 @@ module.exports = {
   darkMode: 'media', // or 'media' or 'class'
   theme: {
     colors: {
-      transparent: 'transparent',
       current: 'currenColor',
+      transparent: 'transparent',
+      white: colors.white,
+      black: colors.black,
       brand: colors.cyan,
-      gray: colors.warmGray,
+      gray: colors.stone,
       green: colors.emerald,
-      blue: colors.lightBlue,
+      blue: colors.sky,
     },
     screens: {
       '2xl': { max: '1535px' },
@@ -39,14 +41,17 @@ module.exports = {
     },
     extend: {
       gridTemplateColumns: {
-        'auto-1fr': 'auto 1fr'
+        'auto-1fr': 'auto 1fr',
       },
       typography: (theme) => ({
-        DEFAULT: {
+        stone: {
           css: {
-            code: {
-              color: theme('colors.brand.800'),
-            },
+            // '--tw-prose-code': theme('colors.brand[800]'),
+            '--tw-prose-links': theme('colors.brand[500]'),
+            '--tw-prose-bold': theme('colors.gray[50]'),
+            // '--tw-prose-invert-code': theme('colors.brand[200]'),
+            '--tw-prose-invert-links': theme('colors.brand[300]'),
+            '--tw-prose-invert-bold': theme('colors.gray[50]'),
             h2: {
               fontFamily: theme('fontFamily.heading').toString(),
               fontWeight: '400',
@@ -63,15 +68,11 @@ module.exports = {
                 },
               },
             },
-            address: {
-              fontStyle: 'normal',
-            },
             p: {
               overflowWrap: 'break-word',
               lineHeight: 1.8,
             },
             a: {
-              color: theme('colors.brand.500'),
               textDecoration: 'none',
             },
             'a:hover': {
@@ -82,6 +83,19 @@ module.exports = {
             },
           },
         },
+        dark: {
+          css: {
+            h2: {
+              color: theme('colors.gray.50'),
+              '&::before': {
+                color: theme('colors.gray.400'),
+              },
+            },
+            'div p': {
+              color: 'inherit',
+            },
+          },
+        },
         lg: {
           css: {
             h2: {
@@ -89,34 +103,6 @@ module.exports = {
             },
             address: {
               marginBottom: em(24, 18),
-            },
-          },
-        },
-        dark: {
-          css: {
-            code: {
-              color: theme('colors.brand.200'),
-            },
-            h2: {
-              color: theme('colors.gray.50'),
-              '&::before': {
-                color: theme('colors.gray.400'),
-              },
-            },
-            a: {
-              color: theme('colors.brand.300'),
-            },
-            p: {
-              color: theme('colors.gray.200'),
-            },
-            'div p': {
-              color: 'inherit',
-            },
-            strong: {
-              color: theme('colors.gray.50'),
-            },
-            address: {
-              color: theme('colors.gray.200'),
             },
           },
         },

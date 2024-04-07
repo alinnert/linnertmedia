@@ -34,7 +34,7 @@
         </div>
       </div>  */}}
 
-      <ul class="list-none grid grid-flow-col auto-cols-max sm:auto-cols-fr gap-x-1 sm:gap-x-0 md:flex-grow sm:bg-gray-100 sm:border-t sm:border-gray-300 sm:dark:bg-gray-800 sm:dark:border-gray-500">
+      <ul class="p-1 list-none grid grid-flow-col auto-cols-max sm:auto-cols-fr gap-x-1 sm:gap-x-0 md:flex-grow sm:bg-gray-100 sm:border-t sm:border-gray-300 sm:dark:bg-gray-800 sm:dark:border-gray-500">
         {{ range .Site.Menus.main }}
           {{ partial "global/header-link.html" ( dict "href" .URL "text" .Name "icon" .Page.Params.menuIcon "isCurrent" ( $.Page.IsMenuCurrent "main" . ) ) }}
         {{ end }}

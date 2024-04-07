@@ -1,9 +1,9 @@
 baseURL = "https://linnertmedia.de"
-languageCode = "de-de"
-title = "LinnertMedia"
-pygmentsUseClasses = true
-preserveTaxonomyNames = true
 enableEmoji = true
+languageCode = "de-de"
+preserveTaxonomyNames = true
+pygmentsUseClasses = true
+title = "Linnert Media"
 
 [markup.goldmark.renderer]
 unsafe = true
@@ -11,12 +11,12 @@ unsafe = true
 [taxonomies]
 tag = "tags"
 
-[author]
+[params.author]
 name = "Andreas Linnert"
 
 [outputs]
-page = ["HTML"]
-home = ["HTML"]
-section = ["HTML", "RSS"]
-taxonomyTerm = ["HTML"]
-taxonomy = ["HTML", "RSS"]
+home = ["html"]
+page = ["html"]
+section = ["html", "rss"]
+taxonomy = ["html"]
+term = ["html", "rss"]

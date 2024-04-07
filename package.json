@@ -18,11 +18,13 @@
   },
   "homepage": "https://github.com/alinnert/linnertmedia#readme",
   "dependencies": {
-    "@tailwindcss/typography": "^0.4.0",
-    "autoprefixer": "^10.2.3",
-    "postcss-cli": "^8.3.1",
-    "postcss-import": "^14.0.0",
-    "postcss-nesting": "^7.0.1",
-    "tailwindcss": "^2.0.2"
+    "autoprefixer": "^10.2.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.12",
+    "postcss-cli": "^11.0.0",
+    "postcss-import": "^16.1.0",
+    "postcss-nesting": "^12.1.1",
+    "tailwindcss": "^3.4.3"
   }
 }

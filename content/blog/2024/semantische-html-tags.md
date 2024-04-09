@@ -56,7 +56,11 @@ Beispiele sind: Eine Liste mit Suchergebnissen oder eine Karte.
 
 ## `header` und `footer`
 
-Die beiden Elemente `header` und `footer` stehen entweder im globalen Kontext des aktuellen Dokuments oder im Kontext eines der Elemente `article`, `aside`, `nav` und `section`, je nachdem, wo sie platziert werden.
+Das Element `header` umschließt einleitenden Inhalt. Z. B.: Überschriften, ein Logo, ein Suchformular, den Autor und weitere Elemente.
+
+Das Element `footer` umschließt bspw. Informationen zum Autor, Copyright-Informationen oder Links.
+
+Befinden sich die Elemente `header` und `footer` in einem der Elemente `article`, `aside`, `nav` oder `section`, stellen sie den Header oder Footer dieses jeweiligen Abschnitts dar. Befinden sie sich in keinem dieser Elemente, stellen sie den globalen Webseiten-Header oder -Footer dar.
 
 [Mehr zu `header` auf MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header)
 

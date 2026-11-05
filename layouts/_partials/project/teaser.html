@@ -1,11 +1,11 @@
 <article class="px-4">
   <div class="mb-1">
     <div class="prose prose-stone prose-lg dark:prose-invert">
-      <h2>{{ .Title }}</h2>
+      <h2 class="mb-1">{{ .Title }}</h2>
       {{ .Content }}
     </div>
 
-    <div class="flex flex-col items-start gap-2 mt-4">
+    <div class="grid grid-cols-2 gap-2 mt-4">
       {{ $linkTypes := slice "website" "github" }}
       {{ $links := .Params.links }}
 

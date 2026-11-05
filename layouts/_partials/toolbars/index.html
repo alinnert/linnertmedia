@@ -4,16 +4,14 @@
       <div class="flex md:text-base">
         <div class="flex-shrink-0">
           {{ if eq .tag nil }}
-            <h1 class="font-semibold dark:text-gray-100">Beiträge</h1>
+            <h1 class="font-semibold dark:text-gray-100">Alle Beiträge</h1>
           {{ else if eq .tag "*" }}
             <div>
-              <a href="/" class="link--default">Beiträge</a>
+              <a href="/" class="link--default">Alle Beiträge</a>
             </div>
           {{ else }}
             <h1>
-              <a href="/" class="link--default">Beiträge</a>
-              <span class="px-1 dark:text-gray-300">›</span>
-              <span class="font-semibold dark:text-gray-100">{{ .tag }}</span>
+              <a href="/" class="link--default">Alle Beiträge</a>
             </h1>
           {{ end }}
         </div>
@@ -27,6 +25,10 @@
         {{ else }}
           <div class="ml-4">
             <a href="/tags" class="link--default">Tags</a>
+            {{ if ne .tag nil }}
+              <span class="px-1 dark:text-gray-300">›</span>
+              <span class="font-semibold dark:text-gray-100">{{ .tag }}</span>
+            {{ end }}
           </div>
         {{ end }}
       </div>

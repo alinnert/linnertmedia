@@ -1,9 +1,9 @@
 ---
-title: "Semantische HTML-Tags"
+title: 'Semantische HTML-Tags'
 date: 2024-04-07
 draft: false
 tags:
-- HTML
+  - HTML
 ---
 
 Dieser Artikel ist ein Überblick über die semantischen HTML-Tags und wie sie verwendet werden. Es gibt: `main`, `article`, `aside`, `nav`, `search` und `section`. Die Elemente `header` und `footer` spielen hier auch eine spezielle Rolle.
@@ -18,7 +18,7 @@ Das `main`-Element sollte nur einmal in einem Dokument verwendet werden.
 
 ## `article`
 
-Umschließt ein eigenständiges Schriftwerk, das an jeder beliebigen anderen Stelle wiederverwendbar ist, ohne an Sinnigkeit zu verlieren.
+Umschließt eine eigenständige Komposition, die an jeder beliebigen anderen Stelle wiederverwendet werden kann, ohne an Sinnigkeit zu verlieren. Anders als der Name vermuten lässt, kann dieses Element nicht nur für klassische Artikel verwendet werden.
 
 Beispiele sind: Ein Forum-Post, ein Magazin- oder Zeitungsartikel, ein Blog-Post, ein Produkt-Eintrag in einem Shop, ein benutzergenerierter Inhalt, ein interaktives Widget oder jede weitere Art von unabhängigem Inhalt.
 
@@ -48,7 +48,7 @@ Umschließt einen Bereich der Webseite oder -Anwendung, der Steuer- oder andere 
 
 ## `section`
 
-Umschließt einen generische eigenständige Einheit des aktuellen Dokuments, für die es kein anderes Element gibt. `section`s sollten immer einen Titel besitzen, mit wenigen Ausnahmen.
+Umschließt eine generische eigenständige Einheit des aktuellen Dokuments, für die es kein anderes Element gibt. `section`s sollten immer einen Titel besitzen, mit wenigen Ausnahmen.
 
 Beispiele sind: Eine Liste mit Suchergebnissen oder eine Karte.
 

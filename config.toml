@@ -1,6 +1,6 @@
 baseURL = "https://linnertmedia.de"
 enableEmoji = true
-languageCode = "de-de"
+locale = "de-de"
 preserveTaxonomyNames = true
 pygmentsUseClasses = true
 title = "Linnert Media"

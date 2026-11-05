@@ -1,9 +1,11 @@
 ---
-title: "AWE.write"
+title: 'AWE.write'
 draft: false
 links:
   website: https://awewrite.de
   github: https://github.com/alinnert/awewrite
 ---
 
-AWE.write ist ein web-basierter Text-Editor mit zwei Textfeldern. Perfekt für schnelle Notizen oder zum Beantworten von längeren E-Mails oder privaten Nachrichten.
+AWE.write ist ein web-basierter Text-Editor mit zwei Textfeldern, der die Texte automatisch lokal im Browser speichert. Perfekt für schnelle Notizen oder zum Beantworten von längeren E-Mails oder privaten Nachrichten.
+
+Geschrieben in TypeScript, ohne Framework.

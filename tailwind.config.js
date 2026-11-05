@@ -23,7 +23,7 @@ module.exports = {
       white: colors.white,
       black: colors.black,
       brand: colors.cyan,
-      gray: colors.stone,
+      gray: colors.slate,
       green: colors.emerald,
       blue: colors.sky,
     },
@@ -54,13 +54,15 @@ module.exports = {
             '--tw-prose-invert-bold': theme('colors.gray[50]'),
             h2: {
               fontFamily: theme('fontFamily.heading').toString(),
-              fontWeight: '400',
+              fontWeight: '700',
+              fontSize: theme('fontSize.xl'),
               position: 'relative',
+              marginBottom: theme('size.1'),
               '&::before': {
-                content: '"#"',
+                content: '"##"',
                 position: 'absolute',
-                left: '-1.2em',
-                color: theme('colors.gray.500'),
+                left: '-1.8em',
+                color: theme('colors.gray.400'),
                 [`@media (max-width: ${theme('screens.lg.max')})`]: {
                   content: '"# "',
                   position: 'static',
@@ -80,19 +82,6 @@ module.exports = {
             },
             'a.no-underline': {
               textDecoration: 'none',
-            },
-          },
-        },
-        dark: {
-          css: {
-            h2: {
-              color: theme('colors.gray.50'),
-              '&::before': {
-                color: theme('colors.gray.400'),
-              },
-            },
-            'div p': {
-              color: 'inherit',
             },
           },
         },
@@ -128,7 +117,7 @@ module.exports = {
       addVariant('after-checked', ({ modifySelectors, separator }) => {
         modifySelectors(
           ({ className }) =>
-            `input:checked + .${e(`after-checked${separator}${className}`)}`
+            `input:checked + .${e(`after-checked${separator}${className}`)}`,
         )
       })
 
@@ -136,22 +125,22 @@ module.exports = {
         modifySelectors(
           ({ className }) =>
             `input:not(:checked) + .${e(
-              `after-not-checked${separator}${className}`
-            )}`
+              `after-not-checked${separator}${className}`,
+            )}`,
         )
       })
 
       addVariant('after-focus', ({ modifySelectors, separator }) => {
         modifySelectors(
           ({ className }) =>
-            `input:focus + .${e(`after-focus${separator}${className}`)}`
+            `input:focus + .${e(`after-focus${separator}${className}`)}`,
         )
       })
 
       addVariant('checked-label', ({ modifySelectors, separator }) => {
         modifySelectors(
           ({ className }) =>
-            `input:checked + * > .${e(`checked-label${separator}${className}`)}`
+            `input:checked + * > .${e(`checked-label${separator}${className}`)}`,
         )
       })
 
@@ -159,15 +148,15 @@ module.exports = {
         modifySelectors(
           ({ className }) =>
             `input:not(:checked) + * > .${e(
-              `not-checked-label${separator}${className}`
-            )}`
+              `not-checked-label${separator}${className}`,
+            )}`,
         )
       })
 
       addVariant('first-type', ({ modifySelectors, separator }) => {
         modifySelectors(
           ({ className }) =>
-            `.${e(`first-type${separator}${className}`)}:first-of-type`
+            `.${e(`first-type${separator}${className}`)}:first-of-type`,
         )
       })
     }),

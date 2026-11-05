@@ -1,12 +1,12 @@
 ---
-title: "Infos"
+title: 'Infos'
 date: 2021-01-24T03:12:14+01:00
 draft: false
-menu: "main"
+menu: 'main'
 weight: 3
-menuIcon: "info"
+menuIcon: 'info'
 outputs:
-- html
+  - html
 ---
 
 ## Quellcode
@@ -17,11 +17,9 @@ Der Quellcode dieser Webseite ist auf GitHub zu finden.
 
 ## Links
 
-Ich bin außerdem über folgende Netzwerke erreichbar.
+Ich bin außerdem über folgende Netzwerke erreichbar:
 
 {{<iconlink type="github" title="GitHub" url="https://github.com/alinnert">}}
-
-{{<iconlink type="twitter" url="https://twitter.com/linnert_web">}}
 
 ## Impressum
 

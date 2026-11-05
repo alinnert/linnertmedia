@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Linnert Media</title>
+    {{ $title := "Linnert Media" }}
+    {{ if hugo.IsDevelopment }}
+      {{ $title = "💻 Linnert Media" }}
+    {{ end }}
+
+    <title>{{ $title }}</title>
 
     <meta name="theme-color" content="#155E75">
     <link rel="manifest" href="/manifest.webmanifest">
@@ -17,20 +22,7 @@
       {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
     {{ end }}
 
-    {{ $css := resources.Get "css/main.css" | resources.PostCSS }}
-
-    {{ if .Site.IsServer }}
-      {{ $style := $css }}
-      <link rel="stylesheet" href="{{ $style.Permalink }}">
-    {{ else }}
-      {{ $style := $css | resources.Minify | resources.Fingerprint "sha512" }}
-      <link
-        rel="stylesheet"
-        href="{{ $style.Permalink }}"
-        integrity="{{ $style.Data.Integrity }}"
-        crossorigin="anonymous"
-      >
-    {{ end }}
+    {{ partial "css.html" . }}
   </head>
 
   <body>
@@ -43,7 +35,5 @@
         {{ block "main" . }} {{ end }}
       </main>
     </div>
-    
-    <!-- <script src="/js/index.js" type="module"></script> -->
   </body>
 </html>

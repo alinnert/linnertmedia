@@ -13,30 +13,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
 
-    - name: Install node_modules
-      run: npm ci
+      - name: Install node_modules
+        run: npm ci
 
-    - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v3
-      with:
-        hugo-version: '0.124.1'
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.169.0'
 
-    - name: Build
-      run: hugo --minify
-      env:
-        NODE_ENV: production
+      - name: Build
+        run: hugo --minify
+        env:
+          NODE_ENV: production
 
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@v4
-      with:
-        BRANCH: release
-        FOLDER: public
-        CLEAN: true
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: release
+          folder: public
+          clean: true
